@@ -3,45 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.DAL", "OnlineExamPrep.DAL\OnlineExamPrep.DAL.csproj", "{E3BAAC7E-F1CB-461D-B8F3-D089882F6688}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Common", "OnlineExamPrep.Common\OnlineExamPrep.Common.csproj", "{E347527B-74A6-417D-9243-23CF0CA324AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Models", "OnlineExamPrep.Models\OnlineExamPrep.Models.csproj", "{E9D446D3-5792-4ABF-A646-EE8A717ED3D5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Models.Common", "OnlineExamPrep.Models.Common\OnlineExamPrep.Models.Common.csproj", "{704EF0F1-6A6D-476A-9B49-019FC65FB6B5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Repository", "OnlineExamPrep.Repository\OnlineExamPrep.Repository.csproj", "{C2C5547D-9998-4E4C-A5E2-5D0466A5182F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Repository.Common", "OnlineExamPrep.Repository.Common\OnlineExamPrep.Repository.Common.csproj", "{52FA556E-A398-41E7-AD57-CF2653BEDFEA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Service", "OnlineExamPrep.Service\OnlineExamPrep.Service.csproj", "{2F6A2D73-0986-4E8D-B7CD-6D3F71CA8AA4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Service.Common", "OnlineExamPrep.Service.Common\OnlineExamPrep.Service.Common.csproj", "{49245646-2188-4148-8256-6178BDBFCAB6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.WebAPI", "OnlineExamPrep.WebAPI\OnlineExamPrep.WebAPI.csproj", "{9C1AEA3A-C349-4044-A541-04A78A12F1C2}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OnlineExamPrep", "http://localhost:2529", "{61ABF7CD-92B2-4035-AB39-B1FC4927A600}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2529"
-		Debug.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2529"
-		Release.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "OnlineExamPrep\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.WebAPI", "OnlineExamPrep.WebAPI\OnlineExamPrep.WebAPI.csproj", "{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,46 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E3BAAC7E-F1CB-461D-B8F3-D089882F6688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3BAAC7E-F1CB-461D-B8F3-D089882F6688}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3BAAC7E-F1CB-461D-B8F3-D089882F6688}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3BAAC7E-F1CB-461D-B8F3-D089882F6688}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E347527B-74A6-417D-9243-23CF0CA324AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E347527B-74A6-417D-9243-23CF0CA324AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E347527B-74A6-417D-9243-23CF0CA324AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E347527B-74A6-417D-9243-23CF0CA324AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9D446D3-5792-4ABF-A646-EE8A717ED3D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9D446D3-5792-4ABF-A646-EE8A717ED3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9D446D3-5792-4ABF-A646-EE8A717ED3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9D446D3-5792-4ABF-A646-EE8A717ED3D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{704EF0F1-6A6D-476A-9B49-019FC65FB6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{704EF0F1-6A6D-476A-9B49-019FC65FB6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{704EF0F1-6A6D-476A-9B49-019FC65FB6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{704EF0F1-6A6D-476A-9B49-019FC65FB6B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2C5547D-9998-4E4C-A5E2-5D0466A5182F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2C5547D-9998-4E4C-A5E2-5D0466A5182F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2C5547D-9998-4E4C-A5E2-5D0466A5182F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2C5547D-9998-4E4C-A5E2-5D0466A5182F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52FA556E-A398-41E7-AD57-CF2653BEDFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52FA556E-A398-41E7-AD57-CF2653BEDFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52FA556E-A398-41E7-AD57-CF2653BEDFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52FA556E-A398-41E7-AD57-CF2653BEDFEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F6A2D73-0986-4E8D-B7CD-6D3F71CA8AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F6A2D73-0986-4E8D-B7CD-6D3F71CA8AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F6A2D73-0986-4E8D-B7CD-6D3F71CA8AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F6A2D73-0986-4E8D-B7CD-6D3F71CA8AA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49245646-2188-4148-8256-6178BDBFCAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49245646-2188-4148-8256-6178BDBFCAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49245646-2188-4148-8256-6178BDBFCAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49245646-2188-4148-8256-6178BDBFCAB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C1AEA3A-C349-4044-A541-04A78A12F1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C1AEA3A-C349-4044-A541-04A78A12F1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C1AEA3A-C349-4044-A541-04A78A12F1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C1AEA3A-C349-4044-A541-04A78A12F1C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
