@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace OnlineExamPrep.DAL.Models.Mapping
 {
-    public class UserMap : EntityTypeConfiguration<User>
+    public class UserEntityMap : EntityTypeConfiguration<UserEntity>
     {
-        public UserMap()
+        public UserEntityMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);

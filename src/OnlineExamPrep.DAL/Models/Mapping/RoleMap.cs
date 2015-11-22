@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace OnlineExamPrep.DAL.Models.Mapping
 {
-    public class RoleMap : EntityTypeConfiguration<Role>
+    public class RoleEntityMap : EntityTypeConfiguration<RoleEntity>
     {
-        public RoleMap()
+        public RoleEntityMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);

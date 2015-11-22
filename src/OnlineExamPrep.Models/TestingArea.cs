@@ -1,9 +1,8 @@
-using System;
-using System.Collections.Generic;
+﻿using OnlineExamPrep.Models.Common;
 
-namespace OnlineExamPrep.DAL.Models
+namespace OnlineExamPrep.Models
 {
-    public partial class TestingAreaEntity
+    public class TestingArea : ITestingArea
     {
         public string Id { get; set; }
         public string Title { get; set; }

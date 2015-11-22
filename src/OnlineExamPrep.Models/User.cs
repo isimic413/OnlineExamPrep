@@ -1,17 +1,11 @@
+﻿using OnlineExamPrep.Models.Common;
 using System;
 using System.Collections.Generic;
 
-namespace OnlineExamPrep.DAL.Models
+namespace OnlineExamPrep.Models
 {
-    public partial class UserEntity
+    public class User : IUser
     {
-        public UserEntity()
-        {
-            this.UserClaims = new List<UserClaimEntity>();
-            this.UserLogins = new List<UserLoginEntity>();
-            this.Roles = new List<RoleEntity>();
-        }
-
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -26,8 +20,8 @@ namespace OnlineExamPrep.DAL.Models
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-        public virtual ICollection<UserClaimEntity> UserClaims { get; set; }
-        public virtual ICollection<UserLoginEntity> UserLogins { get; set; }
-        public virtual ICollection<RoleEntity> Roles { get; set; }
+        public virtual ICollection<IUserClaim> UserClaims { get; set; }
+        public virtual ICollection<IUserLogin> UserLogins { get; set; }
+        public virtual ICollection<IRole> Roles { get; set; }
     }
 }

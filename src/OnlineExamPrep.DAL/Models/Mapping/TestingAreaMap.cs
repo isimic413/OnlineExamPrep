@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace OnlineExamPrep.DAL.Models.Mapping
 {
-    public class TestingAreaMap : EntityTypeConfiguration<TestingArea>
+    public class TestingAreaEntityMap : EntityTypeConfiguration<TestingAreaEntity>
     {
-        public TestingAreaMap()
+        public TestingAreaEntityMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);

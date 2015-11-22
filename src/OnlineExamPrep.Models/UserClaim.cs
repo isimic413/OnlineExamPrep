@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
+﻿using OnlineExamPrep.Models.Common;
 
-namespace OnlineExamPrep.DAL.Models
+namespace OnlineExamPrep.Models
 {
-    public partial class UserClaimEntity
+    public class UserClaim : IUserClaim
     {
         public int Id { get; set; }
         public string UserId { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
-        public virtual UserEntity User { get; set; }
+        public virtual IUser User { get; set; }
     }
 }

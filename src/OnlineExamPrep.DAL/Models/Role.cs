@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace OnlineExamPrep.DAL.Models
 {
-    public partial class Role
+    public partial class RoleEntity
     {
-        public Role()
+        public RoleEntity()
         {
-            this.Users = new List<User>();
+            this.Users = new List<UserEntity>();
         }
 
         public string Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<UserEntity> Users { get; set; }
     }
 }
