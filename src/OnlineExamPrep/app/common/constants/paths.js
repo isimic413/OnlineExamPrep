@@ -1,8 +1,11 @@
 ﻿angular.module('onlineExamPrep.common')
     .constant('Paths', {
+        token: 'http://localhost:2514/token',
         api: {
-            endpoint: 'http://http://localhost:2514/api',
-            account: '/account'
+            endpoint: 'http://localhost:2514/api',
+            paths: {
+                account: '/account'
+            }
         },
         app: {
             common: 'app/common/',

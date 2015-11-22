@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width" />
     <title>Online ispiti</title>
     <link href="content/bootstrap.css" rel="stylesheet"/>
-    <link href="content/site/main.css" rel="stylesheet" />
-    <link href="content/site/registration-form.css" rel="stylesheet" />
     <script src="scripts/angular.js"></script>
 </head>
 <body>
     <div ui-view></div>
 
+    <!-- stylesheets -->
+    <link href="content/site/main.css" rel="stylesheet" />
+    <link href="content/site/registration-form.css" rel="stylesheet" />
 
-
-
+    <!-- main modules -->
     <script src="scripts/angular-ui-router.js"></script>
     <script src="scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="scripts/underscore.js"></script>
 
     <!-- app/common -->
     <script src="app/common/_common.js"></script>
@@ -24,6 +26,7 @@
     <script src="app/common/constants/paths.js"></script>
     <script src="app/common/constants/roles.js"></script>
     <!-- app/common/data -->
+    <script src="app/common/data/account-service.js"></script>
 
     <!-- app/components -->
     <script src="app/components/_components.js"></script>
@@ -37,7 +40,7 @@
     <script src="app/pages/_pages.js"></script>
     <!-- app/pages/account -->
     <script src="app/pages/account/register.js"></script>
-
+    <script src="app/pages/account/login.js"></script>
 
     <!-- app -->
     <script src="app/app.js"></script>

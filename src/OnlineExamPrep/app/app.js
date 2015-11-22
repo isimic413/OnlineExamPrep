@@ -27,12 +27,12 @@
             url: '/registracija', // registration
             title: 'Registracija', // Registration
             directive: 'register'
+        },
+        'public.account/login': {
+            url: '/prijava', // login
+            title: 'Prijava', // User login
+            directive: 'login'
         }
-        //'public.account/login': {
-        //    url: '/prijava', // login
-        //    title: 'Prijava', // User login
-        //    directive: 'login'
-        //}
     };
 
     for (var route in routes) {

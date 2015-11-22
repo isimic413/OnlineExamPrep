@@ -1,9 +1,9 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepRegister', function (Paths, AccountService) {
+    .directive('oepLogin', function (Paths, AccountService) {
         'use strict';
         return {
             restrict: 'E',
-            templateUrl: Paths.app.pages + Paths.templates.account + 'register.html',
+            templateUrl: Paths.app.pages + Paths.templates.account + 'login.html',
             scope: {
             },
             link: function (scope) {
@@ -11,19 +11,18 @@
                 var vm = scope.vm;
 
                 vm.user = {
-                    email: null,
-                    password: null,
-                    confirmPassword: null
+                    userName: null,
+                    password: null
                 };
 
-                vm.register = function () {
-                    if (!scope.registrationForm.$valid) {
-                        console.log(scope.registrationForm.$error.required);
+                vm.login = function () {
+                    if (!scope.loginForm.$valid) {
+                        console.log(scope.loginForm.$error.required);
                         return;
                     }
 
                     vm.showSpinner = true;
-                    AccountService.registerUser(vm.user).success(function (data) {
+                    AccountService.login(vm.user).success(function (data) {
                         console.log('jej');
                         console.log(data);
                     }).error(function (data, error) {
