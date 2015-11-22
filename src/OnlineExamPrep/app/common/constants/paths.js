@@ -8,5 +8,8 @@
             common: 'app/common/',
             components: 'app/components/',
             pages: 'app/pages/'
+        },
+        templates: {
+            account: 'account/'
         }
     });

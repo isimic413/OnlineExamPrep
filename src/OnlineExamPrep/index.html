@@ -1,9 +1,45 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="onlineExamPrep">
 <head>
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Online ispiti</title>
+    <link href="content/bootstrap.css" rel="stylesheet"/>
+    <link href="content/site/main.css" rel="stylesheet" />
+    <link href="content/site/registration-form.css" rel="stylesheet" />
+    <script src="scripts/angular.js"></script>
 </head>
 <body>
+    <div ui-view></div>
 
+
+
+
+    <script src="scripts/angular-ui-router.js"></script>
+    <script src="scripts/angular-ui/ui-bootstrap.js"></script>
+
+    <!-- app/common -->
+    <script src="app/common/_common.js"></script>
+    <!-- app/common/constants -->
+    <script src="app/common/constants/paths.js"></script>
+    <script src="app/common/constants/roles.js"></script>
+    <!-- app/common/data -->
+
+    <!-- app/components -->
+    <script src="app/components/_components.js"></script>
+    <!-- app/components/layout/public -->
+    <script src="app/components/layout/public/layout.js"></script>
+    <!-- app/components/layout/main -->
+    <script src="app/components/layout/main/footer.js"></script>
+    <script src="app/components/layout/main/layout.js"></script>
+
+    <!-- app/pages -->
+    <script src="app/pages/_pages.js"></script>
+    <!-- app/pages/account -->
+    <script src="app/pages/account/register.js"></script>
+
+
+    <!-- app -->
+    <script src="app/app.js"></script>
 </body>
 </html>

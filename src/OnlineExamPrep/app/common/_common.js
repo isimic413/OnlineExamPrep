@@ -1,1 +1,1 @@
-﻿angular.module('onlineExamPrep.common');
+﻿angular.module('onlineExamPrep.common', []);
