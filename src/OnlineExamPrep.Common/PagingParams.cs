@@ -5,6 +5,5 @@
         public int PageNumber;
         public int PageSize;
         public string SortByField;
-        public string SortDirection;
     }
 }

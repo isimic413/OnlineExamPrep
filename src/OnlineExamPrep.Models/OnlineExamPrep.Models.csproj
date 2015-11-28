@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\TestingAreaFields.cs" />
     <Compile Include="Mapping\AutoMapperMaps.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClaim.cs" />

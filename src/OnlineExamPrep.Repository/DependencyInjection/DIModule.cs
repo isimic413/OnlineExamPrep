@@ -12,6 +12,8 @@ namespace OnlineExamPrep.Repository.DependencyInjection
             Bind<IUnitOfWorkFactory>().ToFactory();
             Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<IRepository>().To<Repository>();
+
+            Bind<ITestingAreaRepository>().To<TestingAreaRepository>();
         }
     }
 }
