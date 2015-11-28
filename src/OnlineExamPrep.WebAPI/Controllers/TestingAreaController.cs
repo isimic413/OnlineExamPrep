@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [RoutePrefix("api/TestingArea")]
     public class TestingAreaController : ApiController
     {
@@ -21,7 +21,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{testingAreaId:string}")]
+        [Route("{testingAreaId}")]
         public async Task<HttpResponseMessage> GetSingleAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))
@@ -52,7 +52,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("{testingAreaId:string}")]
+        [Route("{testingAreaId}")]
         public async Task<HttpResponseMessage> UpdateAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -63,7 +63,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("{testingAreaId:string}")]
+        [Route("{testingAreaId}")]
         public async Task<HttpResponseMessage> DeleteAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))

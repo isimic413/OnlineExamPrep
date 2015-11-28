@@ -3,14 +3,13 @@
 
 namespace OnlineExamPrep.WebAPI.App_Start
 {
+    using System;
+    using System.Web;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
     using Ninject;
     using Ninject.Web.Common;
-    using Ninject.WebApi.DependencyResolver;
-    using System;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Http;
 
     public static class NinjectWebCommon 
     {
@@ -40,21 +39,13 @@ namespace OnlineExamPrep.WebAPI.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var settings = new NinjectSettings();
-            settings.LoadExtensions = true;
-            settings.ExtensionSearchPatterns = settings.ExtensionSearchPatterns
-                .Union(new string[] { "OnlineExamPrep.*.dll" }).ToArray();
-            var kernel = new StandardKernel(settings);
-
+            var kernel = new StandardKernel();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
-
-                GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
-
                 return kernel;
             }
             catch
