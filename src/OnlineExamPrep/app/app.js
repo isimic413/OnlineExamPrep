@@ -54,6 +54,7 @@
         enabled: true,
         requireBase: false
     });
+
 }).run(function ($rootScope) {
     $rootScope.routes = {};
 });
