@@ -30,13 +30,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.DAL", "Onlin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Repository", "OnlineExamPrep.Repository\OnlineExamPrep.Repository.csproj", "{DEA93C7C-ACB1-4893-87C5-97BF9B7FC8AF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{22A58500-B03E-4599-B998-40A51867DB5E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Common", "OnlineExamPrep.Common\OnlineExamPrep.Common.csproj", "{8E8E945E-A2B3-4A94-8926-E822ECBD6D6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Repository.Common", "OnlineExamPrep.Repository.Common\OnlineExamPrep.Repository.Common.csproj", "{9479DA03-7ED7-49A5-9E8D-32029A100D32}"
@@ -48,6 +41,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Service", "OnlineExamPrep.Service\OnlineExamPrep.Service.csproj", "{7A0612A6-8200-431A-BCD7-D0308F9605D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Service.Common", "OnlineExamPrep.Service.Common\OnlineExamPrep.Service.Common.csproj", "{5D75A503-07DB-40B5-831F-455C0E313D03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{392CA8D7-3275-4223-9167-106B34680BC5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
