@@ -32,16 +32,35 @@
             url: '/prijava', // login
             title: 'Prijava', // User login
             directive: 'login'
+        },
+        'public.testing-areas': {
+            url: '/podrucja-ispitivanja',
+            title: 'Područja ispitivanja',
+            directive: 'testing-area-list',
+            params: {
+                entityRoutePrefix: 'public.testing-area/'
+            }
+        },
+        'public.testing-area/add': {
+            url: '/podrucja-ispitivanja/novo',
+            title: 'Novo područje ispitivanja',
+            directive: 'testing-area-edit'
+        },
+        'public.testing-area/edit': {
+            url: '/podrucja-ispitivanja/uredi/:id',
+            title: 'Uredi područje ispitivanja',
+            directive: 'testing-area-edit'
         }
     };
 
     for (var route in routes) {
+        var stateParams = routes[route].params ? routes[route].params : {};
         var state = {
             name: route,
             parent: route.split('.')[0],
             template: '<oep-' + routes[route].directive + '></oep-' + routes[route].directive + '>',
             url: routes[route].url ? routes[route].url : '/' + route.split('.')[1],
-            params: routes[route].params ? routes[route].params : {}
+            params: routes[route].params ? angular.extend(stateParams, { roles: routes[route].params }) : stateParams
         };
         if (routes[route].roles) {
             state.params = angular.extend({ roles: routes[route].roles }, state.params);

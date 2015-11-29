@@ -4,7 +4,8 @@
         api: {
             endpoint: 'http://localhost:2514/api',
             paths: {
-                account: '/account'
+                account: '/account',
+                testingArea: '/testingArea'
             }
         },
         app: {
@@ -13,6 +14,7 @@
             pages: 'app/pages/'
         },
         templates: {
-            account: 'account/'
+            account: 'account/',
+            testingArea: 'testing-area/'
         }
     });
