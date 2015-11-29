@@ -6,6 +6,7 @@ namespace OnlineExamPrep.Service.DependencyInjection
     {
         public override void Load()
         {
+            Bind<IRoleService>().To<RoleService>();
             Bind<ITestingAreaService>().To<TestingAreaService>();
         }
     }

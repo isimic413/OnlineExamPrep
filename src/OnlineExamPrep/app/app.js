@@ -35,22 +35,40 @@
             directive: 'login'
         },
         'public.testing-areas': {
-            url: '/podrucja-ispitivanja',
-            title: 'Područja ispitivanja',
+            url: '/podrucja-ispitivanja', // testing-areas
+            title: 'Područja ispitivanja', // Testing Area List
             directive: 'testing-area-list',
             params: {
                 entityRoutePrefix: 'public.testing-area/'
             }
         },
         'public.testing-area/add': {
-            url: '/podrucja-ispitivanja/novo',
-            title: 'Novo područje ispitivanja',
+            url: '/podrucja-ispitivanja/novo', // testing-area/add
+            title: 'Novo područje ispitivanja', // Add Testing Area
             directive: 'testing-area-edit'
         },
         'public.testing-area/edit': {
-            url: '/podrucja-ispitivanja/uredi/:id',
-            title: 'Uredi područje ispitivanja',
+            url: '/podrucja-ispitivanja/uredi/:id', // testing-area/edit/id
+            title: 'Uredi područje ispitivanja', // Edit Testing Area
             directive: 'testing-area-edit'
+        },
+        'public.roles': {
+            url: '/tipovi-korisnika', // roles
+            title: 'Tipovi korisnika', // Role list
+            directive: 'role-list',
+            params: {
+                entityRoutePrefix: 'public.role'
+            }
+        },
+        'public.role/add': {
+            url: '/tipovi-korisnika/novo', // role/add
+            title: 'Uredi tip korisnika', // Add Role
+            directive: 'role-edit'
+        },
+        'public.role/edit': {
+            url: '/tipovi-korisnika/uredi/:id', // role/edit/id
+            title: 'Uredi tip korisnika', // Edit Role
+            directive: 'role-edit'
         }
     };
 
