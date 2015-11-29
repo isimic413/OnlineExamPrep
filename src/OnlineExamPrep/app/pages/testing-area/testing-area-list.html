@@ -1,5 +1,5 @@
 ﻿<div>
-    <table class="table table-bordered table-hover table-condensed">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th></th>
@@ -17,7 +17,12 @@
     </table>
     <div class="btn-group pull-right">
         <button class="btn btn-primary" ui-sref="public.testing-area/add">Dodaj novo</button>
-        <button class="btn btn-primary" ng-href="vm.editRoute" ng-disabled="!vm.editRoute">Uredi</button>
+        <button class="btn btn-primary" ng-click="vm.gotoEditScreen()" ng-disabled="!vm.checkedItem.id">Uredi</button>
         <button class="btn btn-danger" ng-click="vm.delete()" ng-disabled="!vm.checkedItem.id">Obriši</button>
+    </div>
+    <div class="row">
+        <div class="col-md-4 pull-right">
+            <uib-alert ng-repeat="alert in vm.alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</uib-alert>
+        </div>
     </div>
 </div>

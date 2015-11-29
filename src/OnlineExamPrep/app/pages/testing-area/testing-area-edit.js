@@ -20,6 +20,16 @@
                 else {
                     vm.showForm = true;
                 }
+
+                vm.saveTestingArea = function () {
+                    if (!scope.testingAreaEditForm.$valid) {
+                        return;
+                    }
+
+                    TestingAreaService.saveTestingArea(vm.testingArea).success(function () {
+                        $state.go('public.testing-areas');
+                    });
+                }
             }
         };
     });

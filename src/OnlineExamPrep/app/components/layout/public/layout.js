@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.components')
-    .directive('oepPublicLayout', function ($sce, Paths) {
+    .directive('oepPublicLayout', function ($rootScope, Paths) {
         'use strict';
         return {
             restrict: 'E',
@@ -10,7 +10,13 @@
                 var vm = {};
                 scope.vm = vm;
 
-                vm.message = 'MathOS, 2015.'
+                scope.$watch(function () { return $rootScope.title; }, function () {
+                    scope.title = $rootScope.title;
+                });
+
+                scope.$watch(function () { return $rootScope.loadingContent; }, function () {
+                    scope.loadingContent = $rootScope.loadingContent;
+                });
             }
         }
     });

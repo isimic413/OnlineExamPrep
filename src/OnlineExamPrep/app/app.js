@@ -1,4 +1,5 @@
 ﻿angular.module('onlineExamPrep', [
+    'ngAnimate',
     'ui.bootstrap',
     'ui.router',
     'onlineExamPrep.common',
@@ -58,6 +59,7 @@
         var state = {
             name: route,
             parent: route.split('.')[0],
+            title: routes[route].title,
             template: '<oep-' + routes[route].directive + '></oep-' + routes[route].directive + '>',
             url: routes[route].url ? routes[route].url : '/' + route.split('.')[1],
             params: routes[route].params ? angular.extend(stateParams, { roles: routes[route].params }) : stateParams
@@ -73,7 +75,12 @@
         enabled: true,
         requireBase: false
     });
+}).run(function ($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        var a = 3;
+    });
 
-}).run(function ($rootScope) {
-    $rootScope.routes = {};
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        $rootScope.title = toState.title ? toState.title : null;
+    });
 });

@@ -1,12 +1,16 @@
 ﻿angular.module('onlineExamPrep.common')
-    .service('DataService', function ($http, $q) {
+    .service('DataService', function ($rootScope, $http, $q) {
 
         var deferred = $q.defer();
 
         function resolveRequestResponse(promise) {
+            $rootScope.loadingContent = true;
+
             return promise.success(function (data) {
+                $rootScope.loadingContent = false;
                 return deferred.resolve(data);
             }).error(function (data, status, headers, config, statusText) {
+                $rootScope.loadingContent = false;
                 console.log(data);
                 console.log(status);
                 console.log(headers);
