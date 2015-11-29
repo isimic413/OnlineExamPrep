@@ -21,7 +21,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{testingAreaId}")]
+        [Route("{TestingAreaId}")]
         public async Task<HttpResponseMessage> GetSingleAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))
@@ -52,7 +52,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("{testingAreaId}")]
+        [Route("{TestingAreaId}")]
         public async Task<HttpResponseMessage> UpdateAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -63,7 +63,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("{testingAreaId}")]
+        [Route("{TestingAreaId}")]
         public async Task<HttpResponseMessage> DeleteAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))

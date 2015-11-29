@@ -8,6 +8,9 @@ namespace OnlineExamPrep.Models.Mapping
     {
         public static void Initialize()
         {
+            Mapper.CreateMap<QuestionType, QuestionTypeEntity>().ReverseMap();
+            Mapper.CreateMap<IQuestionType, QuestionTypeEntity>().ReverseMap();
+
             Mapper.CreateMap<Role, RoleEntity>().ReverseMap();
             Mapper.CreateMap<IRole, RoleEntity>().ReverseMap();
 

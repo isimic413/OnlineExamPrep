@@ -69,6 +69,24 @@
             url: '/tipovi-korisnika/uredi/:id', // role/edit/id
             title: 'Uredi tip korisnika', // Edit Role
             directive: 'role-edit'
+        },
+        'public.question-types': {
+            url: '/tipovi-zadataka', // roles
+            title: 'Tipovi zadataka', // Role list
+            directive: 'question-type-list',
+            params: {
+                entityRoutePrefix: 'public.question-type'
+            }
+        },
+        'public.question-type/add': {
+            url: '/tipovi-zadataka/novo', // question-type/add
+            title: 'Uredi tip zadatka', // Add Question Type
+            directive: 'question-type-edit'
+        },
+        'public.question-type/edit': {
+            url: '/tipovi-zadataka/uredi/:id', // question-type/edit/id
+            title: 'Uredi tip zadatka', // Edit Question Type
+            directive: 'question-type-edit'
         }
     };
 

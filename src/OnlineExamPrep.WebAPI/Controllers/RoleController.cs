@@ -21,7 +21,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{roleId}")]
+        [Route("{RoleId}")]
         public async Task<HttpResponseMessage> GetSingleAsync(string roleId)
         {
             if (!String.IsNullOrEmpty(roleId))
@@ -51,7 +51,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("{roleId}")]
+        [Route("{RoleId}")]
         public async Task<HttpResponseMessage> UpdateAsync(Role role)
         {
             if (role != null)
@@ -62,7 +62,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("{roleId}")]
+        [Route("{RoleId}")]
         public async Task<HttpResponseMessage> DeleteAsync(string roleId)
         {
             if (!String.IsNullOrEmpty(roleId))

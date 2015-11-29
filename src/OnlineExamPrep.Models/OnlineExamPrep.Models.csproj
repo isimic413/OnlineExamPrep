@@ -45,10 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\QuestionTypeFields.cs" />
     <Compile Include="Fields\RoleFields.cs" />
     <Compile Include="Fields\TestingAreaFields.cs" />
     <Compile Include="Fields\UserFields.cs" />
     <Compile Include="Mapping\AutoMapperMaps.cs" />
+    <Compile Include="QuestionType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClaim.cs" />
     <Compile Include="UserLogin.cs" />
