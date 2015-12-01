@@ -20,8 +20,9 @@
         <button class="btn btn-primary" ng-click="vm.gotoEditScreen()" ng-disabled="!vm.checkedItem.id">Uredi</button>
         <button class="btn btn-danger" ng-click="vm.delete()" ng-disabled="!vm.checkedItem.id">Obriši</button>
     </div>
+    <br />
     <div class="row">
-        <div class="col-md-4 pull-right">
+        <div class="col-md-4 pull-left">
             <uib-alert ng-repeat="alert in vm.alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</uib-alert>
         </div>
     </div>
