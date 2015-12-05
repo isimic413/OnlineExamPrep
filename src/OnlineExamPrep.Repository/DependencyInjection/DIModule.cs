@@ -13,6 +13,7 @@ namespace OnlineExamPrep.Repository.DependencyInjection
             Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<IRepository>().To<Repository>();
 
+            Bind<IAnswerChoiceRepository>().To<AnswerChoiceRepository>();
             Bind<IQuestionTypeRepository>().To<QuestionTypeRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();
             Bind<ITestingAreaRepository>().To<TestingAreaRepository>();
