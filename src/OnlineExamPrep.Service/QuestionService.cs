@@ -55,11 +55,15 @@ namespace OnlineExamPrep.Service
             return questionRepository.GetCollectionByTestingAreaAsync(pagingParams, testingAreaId);
         }
 
-        public async Task<int> InsertAsync(IQuestion question, List<IAnswerChoice> answerChoiceList)
+        public async Task<int> InsertAsync(IQuestion question, List<IAnswerChoice> answerChoiceList, List<IExamQuestion> examQuestionList)
         {
             if (answerChoiceList == null || answerChoiceList.Count == 0)
             {
                 throw new ArgumentException("Empty list of choices.");
+            }
+            if (examQuestionList == null || examQuestionList.Count == 0)
+            {
+                throw new ArgumentException("Question must be linked to an exam.");
             }
             bool containsCorrectAnswer = false;
             foreach(var choice in answerChoiceList)
@@ -75,14 +79,38 @@ namespace OnlineExamPrep.Service
                 throw new ArgumentException("List must contain at least one correct answer.");
             }
             IUnitOfWork unitOfWork = questionRepository.CreateUnitOfWork();
+            question.Id = Guid.NewGuid().ToString();
             await questionRepository.AddToUowForInsertAsync(unitOfWork, question);
+            if (question.QuestionPictures != null)
+            {
+                foreach (var picture in question.QuestionPictures)
+                {
+                    picture.QuestionId = question.Id;
+                    await questionRepository.AddPictureToUowForInsertAsync(unitOfWork, picture);
+                }
+            }
             foreach(var choice in answerChoiceList)
             {
+                choice.QuestionId = question.Id;
+                choice.Id = Guid.NewGuid().ToString();
                 await answerChoiceRepository.AddToUowForInsertAsync(unitOfWork, choice);
+                foreach (var picture in choice.AnswerChoicePictures)
+                {
+                    picture.AnswerChoiceId = choice.Id;
+                    picture.Id = Guid.NewGuid().ToString();
+                    await answerChoiceRepository.AddPictureToUowForInsertAsync(unitOfWork, picture);
+                }
+            }
+            foreach (var examQuestion in examQuestionList)
+            {
+                examQuestion.QuestionId = question.Id;
+                await questionRepository.AddExamQuestionToUnitOfWorkForInsertAsync(unitOfWork, examQuestion);
             }
             return await unitOfWork.CommitAsync();
         }
 
+        // TODO: revise - update entities that already exist in DB, delete ones that do but are not sent, and insert only those that didn't exist before
+        //              - add logic to update examQuestion list
         public async Task<int> UpdateAsync(IQuestion question, List<IAnswerChoice> answerChoiceList)
         {
             var existingQuestion = await questionRepository.GetSingleWithAnswerChoicesAsync(question.Id);
@@ -135,35 +163,25 @@ namespace OnlineExamPrep.Service
             return await unitOfWork.CommitAsync();
         }
 
-        public async Task<int> UpdateAsync(IQuestion question)
+        public async Task<int> DeleteAsync(string questionId)
         {
-            var existingQuestion = await questionRepository.GetSingleWithPicturesAsync(question.Id);
-            if (existingQuestion == null)
-            {
-                throw new ArgumentException("Question not found.");
-            }
-            var unitOfWork = questionRepository.CreateUnitOfWork();
+            var question = await questionRepository.GetSingleForDeleteAsync(questionId);
 
-            foreach (var picture in existingQuestion.QuestionPictures)
+            if (question == null)
+            {
+                throw new KeyNotFoundException("Question ID");
+            }
+            IUnitOfWork unitOfWork = questionRepository.CreateUnitOfWork();
+
+            foreach (var picture in question.QuestionPictures)
             {
                 await questionRepository.AddPictureToUowForDeleteAsync(unitOfWork, picture.Id);
             }
-            foreach (var picture in question.QuestionPictures)
+            foreach (var examQuestion in question.ExamQuestions)
             {
-                await questionRepository.AddPictureToUowForInsertAsync(unitOfWork, picture);
+                await questionRepository.AddExamQuestionToUnitOfWorkForDeleteAsync(unitOfWork, examQuestion.Id);
             }
-            await questionRepository.AddToUowForUpdateAsync(unitOfWork, question);
-
-            return await unitOfWork.CommitAsync();
-        }
-
-        public async Task<int> DeleteAsync(string questionId)
-        {
-            IUnitOfWork unitOfWork = questionRepository.CreateUnitOfWork();
-            await questionRepository.AddToUowForDeleteAsync(unitOfWork, questionId);
-
-            var choices = await answerChoiceRepository.GetChoicesByQuestionIdAsync(questionId);
-            foreach (var choice in choices)
+            foreach (var choice in question.AnswerChoices)
             {
                 var choicePictures = choice.AnswerChoicePictures;
                 foreach(var picture in choicePictures)
@@ -172,6 +190,8 @@ namespace OnlineExamPrep.Service
                 }
                 await answerChoiceRepository.AddToUowForDeleteAsync(unitOfWork, choice.Id);
             }
+            await questionRepository.AddToUowForDeleteAsync(unitOfWork, questionId);
+
             return await unitOfWork.CommitAsync();
         }
 

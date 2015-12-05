@@ -40,6 +40,21 @@ namespace OnlineExamPrep.Repository
             return Mapper.Map<IQuestion>(await question.FirstOrDefaultAsync());
         }
 
+        public async Task<IQuestion> GetSingleForUpdateAsync(string questionId)
+        {
+            var question = repository.FetchCollection<QuestionEntity>()
+                .Where(q => q.Id == questionId)
+                .Include(q => q.QuestionPictures)
+                .Include(q => q.ExamQuestions)
+                .Include(q => q.AnswerChoices.Select(choice => choice.AnswerChoicePictures));
+            return Mapper.Map<IQuestion>(await question.FirstOrDefaultAsync());
+        }
+
+        public Task<IQuestion> GetSingleForDeleteAsync(string questionId)
+        {
+            return GetSingleForUpdateAsync(questionId);
+        }
+
         public async Task<IQuestion> GetSingleWithAnswerChoicesAsync(string questionId)
         {
             var question = repository.FetchCollection<QuestionEntity>()
@@ -98,64 +113,79 @@ namespace OnlineExamPrep.Repository
             return Mapper.Map<List<IQuestion>>(await questions.ToListAsync());
         }
 
-        public async Task<int> InsertAsync(IQuestion question)
+        public Task<int> InsertAsync(IQuestion question)
         {
-            return await repository.InsertEntityAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
+            return repository.InsertEntityAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
 
-        public async Task<int> UpdateAsync(IQuestion question)
+        public Task<int> UpdateAsync(IQuestion question)
         {
-            return await repository.UpdateEntityAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
+            return repository.UpdateEntityAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
 
-        public async Task<int> DeleteAsync(string questionId)
+        public Task<int> DeleteAsync(string questionId)
         {
-            return await repository.DeleteEntityAsync<QuestionEntity>(questionId);
+            return repository.DeleteEntityAsync<QuestionEntity>(questionId);
         }
 
-        public async Task<int> AddToUowForInsertAsync(IUnitOfWork unitOfWork, IQuestion question)
+        public Task<int> AddToUowForInsertAsync(IUnitOfWork unitOfWork, IQuestion question)
         {
-            return await unitOfWork.AddForInsertAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
+            return unitOfWork.AddForInsertAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
 
-        public async Task<int> AddToUowForUpdateAsync(IUnitOfWork unitOfWork, IQuestion question)
+        public Task<int> AddToUowForUpdateAsync(IUnitOfWork unitOfWork, IQuestion question)
         {
-            return await unitOfWork.AddForUpdateAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
+            return unitOfWork.AddForUpdateAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
 
-        public async Task<int> AddToUowForDeleteAsync(IUnitOfWork unitOfWork, string questionId)
+        public Task<int> AddToUowForDeleteAsync(IUnitOfWork unitOfWork, string questionId)
         {
-            return await unitOfWork.AddForDeleteAsync<QuestionEntity>(questionId);
+            return unitOfWork.AddForDeleteAsync<QuestionEntity>(questionId);
         }
 
-        public async Task<int> InsertPictureAsync(IQuestionPicture questionPicture)
+        public Task<int> InsertPictureAsync(IQuestionPicture questionPicture)
         {
-            return await repository.InsertEntityAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
+            return repository.InsertEntityAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
         }
 
-        public async Task<int> UpdatePictureAsync(IQuestionPicture questionPicture)
+        public Task<int> UpdatePictureAsync(IQuestionPicture questionPicture)
         {
-            return await repository.UpdateEntityAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
+            return repository.UpdateEntityAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
         }
 
-        public async Task<int> DeletePictureAsync(string questionPictureId)
+        public Task<int> DeletePictureAsync(string questionPictureId)
         {
-            return await repository.DeleteEntityAsync<QuestionPictureEntity>(questionPictureId);
+            return repository.DeleteEntityAsync<QuestionPictureEntity>(questionPictureId);
         }
 
-        public async Task<int> AddPictureToUowForInsertAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture)
+        public Task<int> AddPictureToUowForInsertAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture)
         {
-            return await unitOfWork.AddForInsertAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
+            return unitOfWork.AddForInsertAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
         }
 
-        public async Task<int> AddPictureToUowForUpdateAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture)
+        public Task<int> AddPictureToUowForUpdateAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture)
         {
-            return await unitOfWork.AddForUpdateAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
+            return unitOfWork.AddForUpdateAsync<QuestionPictureEntity>(Mapper.Map<QuestionPictureEntity>(questionPicture));
         }
 
-        public async Task<int> AddPictureToUowForDeleteAsync(IUnitOfWork unitOfWork, string questionPictureId)
+        public Task<int> AddPictureToUowForDeleteAsync(IUnitOfWork unitOfWork, string questionPictureId)
         {
-            return await unitOfWork.AddForDeleteAsync<QuestionPictureEntity>(questionPictureId);
+            return unitOfWork.AddForDeleteAsync<QuestionPictureEntity>(questionPictureId);
+        }
+
+        public Task<int> AddExamQuestionToUnitOfWorkForInsertAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
+        {
+            return unitOfWork.AddForInsertAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
+        }
+
+        public Task<int> AddExamQuestionToUnitOfWorkForUpdateAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
+        {
+            return unitOfWork.AddForUpdateAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
+        }
+
+        public Task<int> AddExamQuestionToUnitOfWorkForDeleteAsync(IUnitOfWork unitOfWork, string examQuestionId)
+        {
+            return unitOfWork.AddForDeleteAsync<ExamQuestionEntity>(examQuestionId);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace OnlineExamPrep.Repository.Common
         IUnitOfWork CreateUnitOfWork();
 
         Task<IQuestion> GetSingleAsync(string questionId);
+        Task<IQuestion> GetSingleForUpdateAsync(string questionId);
+        Task<IQuestion> GetSingleForDeleteAsync(string questionId);
         Task<IQuestion> GetSingleWithPicturesAsync(string questionId);
         Task<IQuestion> GetSingleWithAnswerChoicesAsync(string questionId);
         Task<IQuestion> GetSingleWithStepsAsync(string questionId);
@@ -29,5 +31,9 @@ namespace OnlineExamPrep.Repository.Common
         Task<int> AddPictureToUowForInsertAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture);
         Task<int> AddPictureToUowForUpdateAsync(IUnitOfWork unitOfWork, IQuestionPicture questionPicture);
         Task<int> AddPictureToUowForDeleteAsync(IUnitOfWork unitOfWork, string questionPictureId);
+        
+        Task<int> AddExamQuestionToUnitOfWorkForInsertAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
+        Task<int> AddExamQuestionToUnitOfWorkForUpdateAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
+        Task<int> AddExamQuestionToUnitOfWorkForDeleteAsync(IUnitOfWork unitOfWork, string examQuestionId);
     }
 }

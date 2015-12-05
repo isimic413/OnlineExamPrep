@@ -20,7 +20,6 @@ namespace OnlineExamPrep.Service.Common
         Task<int> DeleteAsync(string questionId);
 
         Task<int> InsertPictureAsync(IQuestionPicture questionPicture);
-        Task<int> UpdatePictureAsync(IQuestionPicture questionPicture);
         Task<int> DeletePictureAsync(string questionPictureId);
     }
 }
