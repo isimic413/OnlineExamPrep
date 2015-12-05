@@ -12,6 +12,7 @@ namespace OnlineExamPrep.Models
         public byte Points { get; set; }
         public ICollection<IAnswerChoice> AnswerChoices { get; set; }
         public ICollection<IAnswerStep> AnswerSteps { get; set; }
+        public ICollection<IExamQuestion> ExamQuestions { get; set; }
         public IQuestionType QuestionType { get; set; }
         public ITestingArea TestingArea { get; set; }
         public ICollection<IQuestionPicture> QuestionPictures { get; set; }

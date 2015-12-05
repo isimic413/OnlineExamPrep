@@ -20,6 +20,12 @@ namespace OnlineExamPrep.Models.Mapping
             Mapper.CreateMap<AnswerStepPicture, AnswerStepPictureEntity>().ReverseMap();
             Mapper.CreateMap<IAnswerStepPicture, AnswerStepPictureEntity>().ReverseMap();
 
+            Mapper.CreateMap<Exam, ExamEntity>().ReverseMap();
+            Mapper.CreateMap<IExam, ExamEntity>().ReverseMap();
+
+            Mapper.CreateMap<ExamQuestion, ExamQuestionEntity>().ReverseMap();
+            Mapper.CreateMap<IExamQuestion, ExamQuestionEntity>().ReverseMap();
+
             Mapper.CreateMap<Question, QuestionEntity>().ReverseMap();
             Mapper.CreateMap<IQuestion, QuestionEntity>().ReverseMap();
 
@@ -40,6 +46,9 @@ namespace OnlineExamPrep.Models.Mapping
 
             Mapper.CreateMap<UserClaim, UserClaimEntity>().ReverseMap();
             Mapper.CreateMap<IUserClaim, UserClaimEntity>().ReverseMap();
+
+            Mapper.CreateMap<UserExamResult, UserExamResultEntity>().ReverseMap();
+            Mapper.CreateMap<IUserExamResult, UserExamResultEntity>().ReverseMap();
 
             Mapper.CreateMap<UserLogin, UserLoginEntity>().ReverseMap();
             Mapper.CreateMap<IUserLogin, UserLoginEntity>().ReverseMap();

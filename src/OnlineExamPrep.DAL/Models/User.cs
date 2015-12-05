@@ -9,6 +9,7 @@ namespace OnlineExamPrep.DAL.Models
         {
             this.UserClaims = new List<UserClaimEntity>();
             this.UserLogins = new List<UserLoginEntity>();
+            this.UserExamResults = new List<UserExamResultEntity>();
             this.Roles = new List<RoleEntity>();
         }
 
@@ -28,6 +29,7 @@ namespace OnlineExamPrep.DAL.Models
         public string UserName { get; set; }
         public virtual ICollection<UserClaimEntity> UserClaims { get; set; }
         public virtual ICollection<UserLoginEntity> UserLogins { get; set; }
+        public virtual ICollection<UserExamResultEntity> UserExamResults { get; set; }
         public virtual ICollection<RoleEntity> Roles { get; set; }
     }
 }

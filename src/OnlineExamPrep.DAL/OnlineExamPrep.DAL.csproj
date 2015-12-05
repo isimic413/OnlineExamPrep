@@ -54,16 +54,21 @@
     <Compile Include="Models\AnswerChoicePicture.cs" />
     <Compile Include="Models\AnswerStep.cs" />
     <Compile Include="Models\AnswerStepPicture.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamQuestion.cs" />
     <Compile Include="Models\Mapping\AnswerChoiceMap.cs" />
     <Compile Include="Models\Mapping\AnswerChoicePictureMap.cs" />
     <Compile Include="Models\Mapping\AnswerStepMap.cs" />
     <Compile Include="Models\Mapping\AnswerStepPictureMap.cs" />
+    <Compile Include="Models\Mapping\ExamMap.cs" />
+    <Compile Include="Models\Mapping\ExamQuestionMap.cs" />
     <Compile Include="Models\Mapping\QuestionMap.cs" />
     <Compile Include="Models\Mapping\QuestionPictureMap.cs" />
     <Compile Include="Models\Mapping\QuestionTypeMap.cs" />
     <Compile Include="Models\Mapping\RoleMap.cs" />
     <Compile Include="Models\Mapping\TestingAreaMap.cs" />
     <Compile Include="Models\Mapping\UserClaimMap.cs" />
+    <Compile Include="Models\Mapping\UserExamResultMap.cs" />
     <Compile Include="Models\Mapping\UserLoginMap.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
     <Compile Include="Models\OnlineExamContext.cs" />
@@ -74,6 +79,7 @@
     <Compile Include="Models\TestingArea.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserClaim.cs" />
+    <Compile Include="Models\UserExamResult.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ namespace OnlineExamPrep.DAL.Models
         {
             this.AnswerChoices = new List<AnswerChoiceEntity>();
             this.AnswerSteps = new List<AnswerStepEntity>();
+            this.ExamQuestions = new List<ExamQuestionEntity>();
             this.QuestionPictures = new List<QuestionPictureEntity>();
         }
 
@@ -19,6 +20,7 @@ namespace OnlineExamPrep.DAL.Models
         public byte Points { get; set; }
         public virtual ICollection<AnswerChoiceEntity> AnswerChoices { get; set; }
         public virtual ICollection<AnswerStepEntity> AnswerSteps { get; set; }
+        public virtual ICollection<ExamQuestionEntity> ExamQuestions { get; set; }
         public virtual QuestionTypeEntity QuestionType { get; set; }
         public virtual TestingAreaEntity TestingArea { get; set; }
         public virtual ICollection<QuestionPictureEntity> QuestionPictures { get; set; }
