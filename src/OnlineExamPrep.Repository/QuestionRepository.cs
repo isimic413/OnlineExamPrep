@@ -66,6 +66,9 @@ namespace OnlineExamPrep.Repository
                 questions.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
                     .Take(pagingParams.PageSize);
             }
+            questions.Include(q => q.QuestionPictures)
+                .Include(q => q.QuestionType)
+                .Include(q => q.TestingArea);
             return Mapper.Map<List<IQuestion>>(await questions.ToListAsync());
         }
 

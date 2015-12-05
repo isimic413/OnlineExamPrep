@@ -22,6 +22,9 @@
                 
                 vm.getCollection().success(function (data) {
                     vm.entities = data;
+                    if (vm.onDataRecieved) {
+                        vm.onDataRecieved();
+                    }
                 });
 
                 vm.toggleSelection = function (item) {

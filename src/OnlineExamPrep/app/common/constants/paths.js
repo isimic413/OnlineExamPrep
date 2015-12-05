@@ -5,6 +5,7 @@
             endpoint: 'http://localhost:2514/api',
             paths: {
                 account: '/account',
+                question: '/question',
                 questionType: '/questionType',
                 role: '/role',
                 testingArea: '/testingArea'
@@ -17,6 +18,7 @@
         },
         templates: {
             account: 'account/',
+            question: 'question/',
             questionType: 'question-type/',
             role: 'role/',
             testingArea: 'testing-area/'

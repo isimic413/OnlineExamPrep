@@ -87,6 +87,24 @@
             url: '/tipovi-zadataka/uredi/:id', // question-type/edit/id
             title: 'Uredi tip zadatka', // Edit Question Type
             directive: 'question-type-edit'
+        },
+        'public.questions': {
+            url: '/zadaci', // questions
+            title: 'Zadaci', // Question list
+            directive: 'question-list',
+            params: {
+                entityRoutePrefix: 'public.question/'
+            }
+        },
+        'public.question/add': {
+            url: '/zadatak/novo', // question/add
+            title: 'Uredi zadatak', // Add Question
+            directive: 'question-edit'
+        },
+        'public.question/edit': {
+            url: '/zadatak/uredi/:id', // question/edit/id
+            title: 'Uredi zadatak', // Edit Question
+            directive: 'question-edit'
         }
     };
 
