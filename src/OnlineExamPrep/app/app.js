@@ -62,7 +62,7 @@
         },
         'public.role/add': {
             url: '/tipovi-korisnika/novo', // role/add
-            title: 'Uredi tip korisnika', // Add Role
+            title: 'Novi tip korisnika', // Add Role
             directive: 'role-edit'
         },
         'public.role/edit': {
@@ -80,7 +80,7 @@
         },
         'public.question-type/add': {
             url: '/tipovi-zadataka/novo', // question-type/add
-            title: 'Uredi tip zadatka', // Add Question Type
+            title: 'Novi tip zadatka', // Add Question Type
             directive: 'question-type-edit'
         },
         'public.question-type/edit': {
@@ -98,7 +98,7 @@
         },
         'public.question/add': {
             url: '/zadatak/novo', // question/add
-            title: 'Uredi zadatak', // Add Question
+            title: 'Novi zadatak', // Add Question
             directive: 'question-edit'
         },
         'public.question/edit': {

@@ -16,7 +16,7 @@
 
                 vm.onDataRecieved = function () {
                     _.each(vm.entites, function (questionEntity) {
-                        questionEntity.hasPicture = questionEntity.questionPictures && questionEntity.questionPictures.length > 0 ? 'Da' : 'Ne';
+                        questionEntity.hasPictures = questionEntity.questionPictures && questionEntity.questionPictures.length > 0 ? 'Da' : 'Ne';
                         questionEntity.type = questionEntity.questionType.title;
                         questionEntity.testingArea = questionEntity.testingArea.title;
                     });
@@ -24,7 +24,7 @@
 
                 vm.columns = [
                     { id: 'text', display: 'Zadatak' },
-                    { id: 'hasPicture', display: 'Ima sliku' },
+                    { id: 'hasPictures', display: 'Ima slike' },
                     { id: 'type', display: 'Tip zadatka' },
                     { id: 'testingArea', display: 'Područje ispitivanja' }
                 ];
