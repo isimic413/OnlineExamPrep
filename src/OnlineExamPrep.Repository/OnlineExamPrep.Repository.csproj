@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="AnswerChoiceRepository.cs" />
     <Compile Include="DependencyInjection\DIModule.cs" />
+    <Compile Include="QuestionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionTypeRepository.cs" />
     <Compile Include="Repository.cs" />

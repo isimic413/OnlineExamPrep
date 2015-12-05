@@ -29,13 +29,17 @@ namespace OnlineExamPrep.Repository
 
         public async Task<IAnswerChoice> GetSingleAsync(string answerChoiceId)
         {
-            return Mapper.Map<IAnswerChoice>(await repository.FetchEntityAsync<AnswerChoiceEntity>(answerChoiceId));
+            var choice = repository.FetchCollection<AnswerChoiceEntity>()
+                .Where(c => c.Id == answerChoiceId)
+                .Include(c => c.AnswerChoicePictures);
+            return Mapper.Map<IAnswerChoice>(await choice.FirstOrDefaultAsync());
         }
 
         public async Task<List<IAnswerChoice>> GetCorrectAnswersFroQuestionIdAsync(string questionId)
         {
             var choices = repository.FetchCollection<AnswerChoiceEntity>()
-                .Where(choice => choice.QuestionId == questionId && choice.IsCorrectAnswer);
+                .Where(choice => choice.QuestionId == questionId && choice.IsCorrectAnswer)
+                .Include(choice => choice.AnswerChoicePictures);
             return Mapper.Map<List<IAnswerChoice>>(await choices.ToListAsync());
         }
 
@@ -48,13 +52,15 @@ namespace OnlineExamPrep.Repository
                 choices.Skip((pagingParams.PageNumber - 1) * pagingParams.PageSize)
                     .Take(pagingParams.PageSize);
             }
+            choices.Include(choice => choice.AnswerChoicePictures);
             return Mapper.Map<List<IAnswerChoice>>(await choices.ToListAsync());
         }
 
         public async Task<List<IAnswerChoice>> GetChoicesByQuestionIdAsync(string questionId)
         {
             var choices = repository.FetchCollection<AnswerChoiceEntity>()
-                .Where(choice => choice.QuestionId == questionId);
+                .Where(choice => choice.QuestionId == questionId)
+                .Include(choice => choice.AnswerChoicePictures);
             return Mapper.Map<List<IAnswerChoice>>(await choices.ToListAsync());
         }
 
