@@ -50,6 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AnswerChoice.cs" />
+    <Compile Include="Models\AnswerChoicePicture.cs" />
+    <Compile Include="Models\AnswerStep.cs" />
+    <Compile Include="Models\AnswerStepPicture.cs" />
+    <Compile Include="Models\Mapping\AnswerChoiceMap.cs" />
+    <Compile Include="Models\Mapping\AnswerChoicePictureMap.cs" />
+    <Compile Include="Models\Mapping\AnswerStepMap.cs" />
+    <Compile Include="Models\Mapping\AnswerStepPictureMap.cs" />
+    <Compile Include="Models\Mapping\QuestionMap.cs" />
+    <Compile Include="Models\Mapping\QuestionPictureMap.cs" />
     <Compile Include="Models\Mapping\QuestionTypeMap.cs" />
     <Compile Include="Models\Mapping\RoleMap.cs" />
     <Compile Include="Models\Mapping\TestingAreaMap.cs" />
@@ -57,6 +67,8 @@
     <Compile Include="Models\Mapping\UserLoginMap.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
     <Compile Include="Models\OnlineExamContext.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionPicture.cs" />
     <Compile Include="Models\QuestionType.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\TestingArea.cs" />

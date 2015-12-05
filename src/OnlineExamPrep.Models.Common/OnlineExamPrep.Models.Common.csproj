@@ -39,13 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnswerChoice.cs" />
+    <Compile Include="IAnswerChoicePicture.cs" />
+    <Compile Include="IAnswerStep.cs" />
+    <Compile Include="IAnswerStepPicture.cs" />
+    <Compile Include="IQuestion.cs" />
+    <Compile Include="IQuestionPicture.cs" />
     <Compile Include="IRole.cs" />
     <Compile Include="ITestingArea.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="IUserClaim.cs" />
     <Compile Include="IUserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionType.cs" />
+    <Compile Include="IQuestionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

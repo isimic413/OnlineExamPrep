@@ -1,4 +1,5 @@
 ﻿using OnlineExamPrep.Models.Common;
+using System.Collections.Generic;
 
 namespace OnlineExamPrep.Models
 {
@@ -7,5 +8,6 @@ namespace OnlineExamPrep.Models
         public string Id { get; set; }
         public string Title { get; set; }
         public string Abbreviation { get; set; }
+        public ICollection<IQuestion> Questions { get; set; }
     }
 }

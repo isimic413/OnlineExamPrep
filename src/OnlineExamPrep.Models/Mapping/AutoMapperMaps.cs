@@ -8,6 +8,24 @@ namespace OnlineExamPrep.Models.Mapping
     {
         public static void Initialize()
         {
+            Mapper.CreateMap<AnswerChoice, AnswerChoiceEntity>().ReverseMap();
+            Mapper.CreateMap<IAnswerChoice, AnswerChoiceEntity>().ReverseMap();
+
+            Mapper.CreateMap<AnswerChoicePicture, AnswerChoicePictureEntity>().ReverseMap();
+            Mapper.CreateMap<IAnswerChoicePicture, AnswerChoicePictureEntity>().ReverseMap();
+
+            Mapper.CreateMap<AnswerStep, AnswerStepEntity>().ReverseMap();
+            Mapper.CreateMap<IAnswerStep, AnswerStepEntity>().ReverseMap();
+
+            Mapper.CreateMap<AnswerStepPicture, AnswerStepPictureEntity>().ReverseMap();
+            Mapper.CreateMap<IAnswerStepPicture, AnswerStepPictureEntity>().ReverseMap();
+
+            Mapper.CreateMap<Question, QuestionEntity>().ReverseMap();
+            Mapper.CreateMap<IQuestion, QuestionEntity>().ReverseMap();
+
+            Mapper.CreateMap<QuestionPicture, QuestionPictureEntity>().ReverseMap();
+            Mapper.CreateMap<IQuestionPicture, QuestionPictureEntity>().ReverseMap();
+
             Mapper.CreateMap<QuestionType, QuestionTypeEntity>().ReverseMap();
             Mapper.CreateMap<IQuestionType, QuestionTypeEntity>().ReverseMap();
 

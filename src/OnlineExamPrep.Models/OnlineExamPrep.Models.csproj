@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerChoice.cs" />
+    <Compile Include="AnswerChoicePicture.cs" />
+    <Compile Include="AnswerStep.cs" />
+    <Compile Include="AnswerStepPicture.cs" />
+    <Compile Include="Fields\AnswerChoiceFields.cs" />
+    <Compile Include="Fields\AnswerChoicePictureFields.cs" />
+    <Compile Include="Fields\AnswerStepFields.cs" />
+    <Compile Include="Fields\AnswerStepPictureFields.cs" />
+    <Compile Include="Fields\QuestionFields.cs" />
+    <Compile Include="Fields\QuestionPictureFields.cs" />
     <Compile Include="Fields\QuestionTypeFields.cs" />
     <Compile Include="Fields\RoleFields.cs" />
     <Compile Include="Fields\TestingAreaFields.cs" />
     <Compile Include="Fields\UserFields.cs" />
     <Compile Include="Mapping\AutoMapperMaps.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="QuestionPicture.cs" />
     <Compile Include="QuestionType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserClaim.cs" />
