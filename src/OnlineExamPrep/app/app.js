@@ -57,7 +57,7 @@
             title: 'Tipovi korisnika', // Role list
             directive: 'role-list',
             params: {
-                entityRoutePrefix: 'public.role'
+                entityRoutePrefix: 'public.role/'
             }
         },
         'public.role/add': {
@@ -75,7 +75,7 @@
             title: 'Tipovi zadataka', // Role list
             directive: 'question-type-list',
             params: {
-                entityRoutePrefix: 'public.question-type'
+                entityRoutePrefix: 'public.question-type/'
             }
         },
         'public.question-type/add': {
