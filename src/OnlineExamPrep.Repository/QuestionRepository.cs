@@ -44,6 +44,7 @@ namespace OnlineExamPrep.Repository
         {
             var question = repository.FetchCollection<QuestionEntity>()
                 .Where(q => q.Id == questionId)
+                .Include(q => q.QuestionPictures)
                 .Include(q => q.AnswerChoices.Select(choice => choice.AnswerChoicePictures));
             return Mapper.Map<IQuestion>(await question.FirstOrDefaultAsync());
         }

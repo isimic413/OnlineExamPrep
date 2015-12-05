@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAnswerChoiceService.cs" />
+    <Compile Include="IQuestionService.cs" />
     <Compile Include="IQuestionTypeService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ITestingAreaService.cs" />

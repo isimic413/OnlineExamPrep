@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerChoiceService.cs" />
     <Compile Include="DependencyInjection\DIModule.cs" />
+    <Compile Include="QuestionService.cs" />
     <Compile Include="QuestionTypeService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
