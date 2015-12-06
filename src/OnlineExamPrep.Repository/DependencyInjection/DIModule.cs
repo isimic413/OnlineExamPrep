@@ -14,6 +14,7 @@ namespace OnlineExamPrep.Repository.DependencyInjection
             Bind<IRepository>().To<Repository>();
 
             Bind<IAnswerChoiceRepository>().To<AnswerChoiceRepository>();
+            Bind<IExamRepository>().To<ExamRepository>();
             Bind<IQuestionRepository>().To<QuestionRepository>();
             Bind<IQuestionTypeRepository>().To<QuestionTypeRepository>();
             Bind<IRoleRepository>().To<RoleRepository>();

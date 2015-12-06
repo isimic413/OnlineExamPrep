@@ -7,6 +7,7 @@ namespace OnlineExamPrep.Service.DependencyInjection
         public override void Load()
         {
             Bind<IAnswerChoiceService>().To<AnswerChoiceService>();
+            Bind<IExamService>().To<ExamService>();
             Bind<IQuestionService>().To<QuestionService>();
             Bind<IQuestionTypeService>().To<QuestionTypeService>();
             Bind<IRoleService>().To<RoleService>();

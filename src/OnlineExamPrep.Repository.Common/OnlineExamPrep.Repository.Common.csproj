@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAnswerChoiceRepository.cs" />
+    <Compile Include="IExamRepository.cs" />
     <Compile Include="IQuestionRepository.cs" />
     <Compile Include="IQuestionTypeRepository.cs" />
     <Compile Include="IRepository.cs" />

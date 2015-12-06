@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AnswerChoiceService.cs" />
     <Compile Include="DependencyInjection\DIModule.cs" />
+    <Compile Include="ExamService.cs" />
     <Compile Include="QuestionService.cs" />
     <Compile Include="QuestionTypeService.cs" />
     <Compile Include="RoleService.cs" />

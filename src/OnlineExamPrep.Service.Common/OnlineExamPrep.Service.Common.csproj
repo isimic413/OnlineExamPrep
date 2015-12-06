@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAnswerChoiceService.cs" />
+    <Compile Include="IExamService.cs" />
     <Compile Include="IQuestionService.cs" />
     <Compile Include="IQuestionTypeService.cs" />
     <Compile Include="IRoleService.cs" />

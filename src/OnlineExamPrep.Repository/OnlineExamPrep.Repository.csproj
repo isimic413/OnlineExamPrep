@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
       <Private>True</Private>
@@ -73,6 +74,7 @@
   <ItemGroup>
     <Compile Include="AnswerChoiceRepository.cs" />
     <Compile Include="DependencyInjection\DIModule.cs" />
+    <Compile Include="ExamRepository.cs" />
     <Compile Include="QuestionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionTypeRepository.cs" />
