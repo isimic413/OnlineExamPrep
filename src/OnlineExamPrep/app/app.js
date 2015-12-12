@@ -105,6 +105,24 @@
             url: '/zadatak/uredi/:id', // question/edit/id
             title: 'Uredi zadatak', // Edit Question
             directive: 'question-edit'
+        },
+        'public.exams': {
+            url: '/ispiti', // exams
+            title: 'Ispiti', // Exam list
+            directive: 'exam-list',
+            params: {
+                entityRoutePrefix: 'public.exam/'
+            }
+        },
+        'public.exam/add': {
+            url: '/exam/novo', // exam/add
+            title: 'Novi ispit', // Add Exam
+            directive: 'exam-edit'
+        },
+        'public.exam/edit': {
+            url: '/exam/uredi/:id', // exam/edit/id
+            title: 'Uredi ispit', // Edit Exam
+            directive: 'exam-edit'
         }
     };
 

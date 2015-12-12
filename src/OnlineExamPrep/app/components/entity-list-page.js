@@ -18,9 +18,14 @@
                     msg: 'message'
                 };
 
+                var pagingParams = {
+                    pageSize: 20,
+                    pageNumber: 1
+                };
+
                 var entityRoutePrefix = $state.current.params.entityRoutePrefix;
                 
-                vm.getCollection().success(function (data) {
+                vm.getCollection(pagingParams).success(function (data) {
                     vm.entities = data;
                     if (vm.onDataRecieved) {
                         vm.onDataRecieved();
@@ -45,7 +50,7 @@
                         vm.entities.splice(itemIdx, 1);
 
                         vm.alerts.push(angular.extend(alertTemplate, {
-                            msg: 'Obrisano: ' + vm.checkedItem[vm.titleProp] + '.'
+                            msg: vm.titleProp ? 'Obrisano: ' + vm.checkedItem[vm.titleProp] + '.' : 'Obrisano.'
                         }));
                     });
                 };

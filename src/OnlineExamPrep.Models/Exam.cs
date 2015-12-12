@@ -15,6 +15,7 @@ namespace OnlineExamPrep.Models
         public int Year { get; set; }
         public byte Term { get; set; }
         public ITestingArea TestingArea { get; set; }
+        public ICollection<IExamQuestion> ExamQuestions { get; set; }
         public ICollection<IUserExamResult> UserExamResults { get; set; }
     }
 }
