@@ -115,12 +115,12 @@
             }
         },
         'public.exam/add': {
-            url: '/exam/novo', // exam/add
+            url: '/ispit/novo', // exam/add
             title: 'Novi ispit', // Add Exam
             directive: 'exam-edit'
         },
         'public.exam/edit': {
-            url: '/exam/uredi/:id', // exam/edit/id
+            url: '/ispit/uredi/:id', // exam/edit/id
             title: 'Uredi ispit', // Edit Exam
             directive: 'exam-edit'
         }

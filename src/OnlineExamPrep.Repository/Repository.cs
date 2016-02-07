@@ -26,7 +26,7 @@ namespace OnlineExamPrep.Repository
         
         public IQueryable<T> FetchCollection<T>() where T : class
         {
-            return dbContext.Set<T>().AsNoTracking();
+            return dbContext.Set<T>();//.AsNoTracking();
         }
 
         public Task<T> FetchEntityAsync<T>(string id) where T : class

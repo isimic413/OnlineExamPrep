@@ -28,5 +28,15 @@ namespace OnlineExamPrep.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, examList);
         }
 
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> InsertAsync(Exam exam)
+        {
+            if (exam != null)
+            {
+                return Request.CreateResponse(await examService.InsertAsync(exam) > 0 ? HttpStatusCode.OK : HttpStatusCode.BadRequest);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
     }
 }

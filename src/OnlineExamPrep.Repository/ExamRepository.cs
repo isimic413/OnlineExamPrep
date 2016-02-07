@@ -36,5 +36,10 @@ namespace OnlineExamPrep.Repository
                 .Include(exam => exam.ExamQuestions.Select(eq => eq.Question));
             return Mapper.Map<List<IExam>>(await exams.ToListAsync());
         }
+
+        public async Task<int> InsertAsync(IExam exam)
+        {
+            return await repository.InsertEntityAsync<ExamEntity>(Mapper.Map<ExamEntity>(exam));
+        }
     }
 }

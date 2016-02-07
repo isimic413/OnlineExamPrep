@@ -27,9 +27,15 @@ namespace OnlineExamPrep.Service
                 Id = exam.Id,
                 DurationInMinutes = exam.DurationInMinutes,
                 NumberOfQuestions = exam.ExamQuestions.Count,
-                Title = String.Format("{0} {1}/{2} - ({3})", exam.TestingArea.Title, exam.Year-1, exam.Year, exam.Term == 1 ? "ljeto" : "zima"),
+                Title = String.Format("{0} ({1} {2}.)", exam.TestingArea.Title, ExamTerms.GetExamTermName(exam.Term), exam.Year),
                 Points = exam.ExamQuestions.Sum(eq => eq.Question.Points)
             }).ToList();
+        }
+
+        public Task<int> InsertAsync(IExam exam)
+        {
+            exam.Id = Guid.NewGuid().ToString();
+            return examRepository.InsertAsync(exam);
         }
     }
 }

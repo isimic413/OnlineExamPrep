@@ -13,9 +13,9 @@
             }
         },
         app: {
-            common: 'app/common/',
-            components: 'app/components/',
-            pages: 'app/pages/'
+            common: '/app/common/',
+            components: '/app/components/',
+            pages: '/app/pages/'
         },
         templates: {
             account: 'account/',

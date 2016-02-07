@@ -8,5 +8,6 @@ namespace OnlineExamPrep.Repository.Common
     public interface IExamRepository
     {
         Task<List<IExam>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
+        Task<int> InsertAsync(IExam exam);
     }
 }

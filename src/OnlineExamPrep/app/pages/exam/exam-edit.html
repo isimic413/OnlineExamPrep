@@ -1,1 +1,48 @@
-﻿add/edit exam
+﻿<div ng-show="vm.showForm">
+    <form class="form-group" name="examExamForm" ng-submit="vm.saveExam()" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Naslov</label>
+                <input type="text" class="form-control" readonly ng-model="vm.examTitle" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Područje ispitivanja</label>
+                <br />
+                <oep-singleselect-dropdown selected-model="vm.testingAreas.model" options="vm.testingAreas.data"></oep-singleselect-dropdown>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Trajanje u minutama</label>
+                <br />
+                <input type="number" class="form-control" ng-model="vm.exam.durationInMinutes" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Ispitni rok</label>
+                <br />
+                <oep-singleselect-dropdown selected-model="vm.examTerms.model" options="vm.examTerms.data"></oep-singleselect-dropdown>
+            </div>
+            <div class="col-md-3">
+                <label>Godina</label>
+                <input type="number" class="form-control" ng-model="vm.exam.year" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary" type="submit">Spremi</button>
+                    <button class="btn btn-primary" ui-sref="public.exams">Odustani</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

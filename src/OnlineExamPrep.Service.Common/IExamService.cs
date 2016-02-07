@@ -11,5 +11,6 @@ namespace OnlineExamPrep.Service.Common
     public interface IExamService
     {
         Task<List<dynamic>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
+        Task<int> InsertAsync(IExam exam);
     }
 }

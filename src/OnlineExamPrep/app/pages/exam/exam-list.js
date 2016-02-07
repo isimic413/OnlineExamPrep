@@ -14,10 +14,8 @@
                 //vm.deleteEntity = ExamService.deleteExam;
                 vm.getCollection = ExamService.getExamCollection;
 
-                var terms = ['ljetni', 'jesenski'];
-
                 vm.onDataRecieved = function () {
-                    _.each(vm.entites, function (examEntity) {
+                    _.each(vm.entities, function (examEntity) {
                         var hours = parseInt(examEntity.durationInMinutes / 60, 10);
                         examEntity.displayDuration = hours + ':' + (examEntity.durationInMinutes - 60*hours);
                     });
