@@ -7,5 +7,8 @@ namespace OnlineExamPrep.Repository.Common
 {
     public interface IQuestionRepository
     {
+        IUnitOfWork GetUnitOfWork();
+        Task<List<IQuestion>> GetPageAsync(PagingParams pagingParams);
+        Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IQuestion questionModel);
     }
 }

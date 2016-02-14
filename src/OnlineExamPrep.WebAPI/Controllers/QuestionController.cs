@@ -22,5 +22,32 @@ namespace OnlineExamPrep.WebAPI.Controllers
         {
             this.questionService = questionService;
         }
+
+        [HttpPost]
+        [Route("GetPage")]
+        public async Task<HttpResponseMessage> GetPageAsync(PagingParams pagingParams)
+        {
+            var questionList = await questionService.GetPageAsync(pagingParams);
+            return Request.CreateResponse(HttpStatusCode.OK, questionList);
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<HttpResponseMessage> CreateQuestionAsync(QuestionParams questionParams)
+        {
+            var result = await questionService.InsertAsync(questionParams.Question, questionParams.AnswerChoices, questionParams.ExamId);
+            if (result > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+    }
+
+    public class QuestionParams
+    {
+        public Question Question { get; set; }
+        public AnswerChoice[] AnswerChoices { get; set; }
+        public string ExamId { get; set; }
     }
 }

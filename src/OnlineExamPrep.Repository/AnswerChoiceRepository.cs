@@ -19,5 +19,15 @@ namespace OnlineExamPrep.Repository
         {
             this.repository = repository;
         }
+
+        public IUnitOfWork GetUnitOfWork()
+        {
+            return repository.GetUnitOfWork();
+        }
+
+        public Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IAnswerChoice answerChoice)
+        {
+            return unitOfWork.AddForInsertAsync<AnswerChoiceEntity>(Mapper.Map<AnswerChoiceEntity>(answerChoice));
+        }
     }
 }

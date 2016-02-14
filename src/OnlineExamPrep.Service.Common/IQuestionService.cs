@@ -7,5 +7,7 @@ namespace OnlineExamPrep.Service.Common
 {
     public interface IQuestionService
     {
+        Task<List<dynamic>> GetPageAsync(PagingParams pagingParams);
+        Task<int> InsertAsync(IQuestion question, IAnswerChoice[] answerChoices, string examId);
     }
 }

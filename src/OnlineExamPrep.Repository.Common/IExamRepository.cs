@@ -9,5 +9,7 @@ namespace OnlineExamPrep.Repository.Common
     {
         Task<List<IExam>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
         Task<int> InsertAsync(IExam exam);
+        Task<int> AddExamQuestionForInsert(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
+        Task<int> GetNumberOfQuestionsAsync(string examId);
     }
 }

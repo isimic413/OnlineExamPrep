@@ -7,5 +7,7 @@ namespace OnlineExamPrep.Repository.Common
 {
     public interface IAnswerChoiceRepository
     {
+        IUnitOfWork GetUnitOfWork();
+        Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IAnswerChoice answerChoice);
     }
 }

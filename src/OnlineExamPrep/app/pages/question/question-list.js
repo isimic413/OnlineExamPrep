@@ -15,18 +15,15 @@
                 vm.getCollection = QuestionService.getQuestionCollection;
 
                 vm.onDataRecieved = function () {
-                    _.each(vm.entites, function (questionEntity) {
-                        questionEntity.hasPictures = questionEntity.questionPictures && questionEntity.questionPictures.length > 0 ? 'Da' : 'Ne';
-                        questionEntity.type = questionEntity.questionType.title;
-                        questionEntity.testingArea = questionEntity.testingArea.title;
-                    });
+                    //
                 }
 
                 vm.columns = [
-                    { id: 'text', display: 'Zadatak' },
-                    { id: 'hasPictures', display: 'Ima slike' },
-                    { id: 'type', display: 'Tip zadatka' },
-                    { id: 'testingArea', display: 'Područje ispitivanja' }
+                    { id: 'textPreview', display: 'Zadatak' },
+                    { id: 'area', display: 'Područje ispitivanja' },
+                    { id: 'term', display: 'Ispitni rok' },
+                    { id: 'points', display: 'Broj bodova' },
+                    { id: 'questionType', display: 'Tip zadatka' }
                 ];
             }
         };

@@ -24,7 +24,6 @@
                 vm.columns = [
                     { id: 'title', display: 'Ispit' },
                     { id: 'numberOfQuestions', display: 'Broj zadataka' },
-                    { id: 'points', display: 'Broj bodova' },
                     { id: 'displayDuration', display: 'Trajanje ispita' }
                 ];
             }
