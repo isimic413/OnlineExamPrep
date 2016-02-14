@@ -5,6 +5,6 @@
         public const string Id = "Id";
         public const string QuestionId = "QuestionId";
         public const string Text = "Text";
-        public const string IsCorrectAnswer = "IsCorrectAnswer";
+        public const string Points = "Points";
     }
 }

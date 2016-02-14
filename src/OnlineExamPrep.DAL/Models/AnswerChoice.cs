@@ -13,7 +13,7 @@ namespace OnlineExamPrep.DAL.Models
         public string Id { get; set; }
         public string QuestionId { get; set; }
         public string Text { get; set; }
-        public bool IsCorrectAnswer { get; set; }
+        public byte Points { get; set; }
         public virtual QuestionEntity Question { get; set; }
         public virtual ICollection<AnswerChoicePictureEntity> AnswerChoicePictures { get; set; }
     }

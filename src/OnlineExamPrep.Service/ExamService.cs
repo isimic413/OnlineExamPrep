@@ -27,8 +27,7 @@ namespace OnlineExamPrep.Service
                 Id = exam.Id,
                 DurationInMinutes = exam.DurationInMinutes,
                 NumberOfQuestions = exam.ExamQuestions.Count,
-                Title = String.Format("{0} ({1} {2}.)", exam.TestingArea.Title, ExamTerms.GetExamTermName(exam.Term), exam.Year),
-                Points = exam.ExamQuestions.Sum(eq => eq.Question.Points)
+                Title = String.Format("{0} ({1} {2}.)", exam.TestingArea.Title, ExamTerms.GetExamTermName(exam.Term), exam.Year)
             }).ToList();
         }
 

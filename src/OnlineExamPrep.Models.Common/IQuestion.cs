@@ -6,14 +6,11 @@ namespace OnlineExamPrep.Models.Common
     {
         string Id { get; set; }
         string QuestionTypeId { get; set; }
-        string TestingAreaId { get; set; }
         string Text { get; set; }
-        byte Points { get; set; }
         ICollection<IAnswerChoice> AnswerChoices { get; set; }
         ICollection<IAnswerStep> AnswerSteps { get; set; }
         ICollection<IExamQuestion> ExamQuestions { get; set; }
         IQuestionType QuestionType { get; set; }
-        ITestingArea TestingArea { get; set; }
         ICollection<IQuestionPicture> QuestionPictures { get; set; }
     }
 }

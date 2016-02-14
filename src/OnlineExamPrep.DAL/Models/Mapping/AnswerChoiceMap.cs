@@ -19,15 +19,12 @@ namespace OnlineExamPrep.DAL.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(128);
 
-            this.Property(t => t.Text)
-                .IsRequired();
-
             // Table & Column Mappings
             this.ToTable("AnswerChoice");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.QuestionId).HasColumnName("QuestionId");
             this.Property(t => t.Text).HasColumnName("Text");
-            this.Property(t => t.IsCorrectAnswer).HasColumnName("IsCorrectAnswer");
+            this.Property(t => t.Points).HasColumnName("Points");
 
             // Relationships
             this.HasRequired(t => t.Question)

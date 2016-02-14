@@ -8,6 +8,5 @@ namespace OnlineExamPrep.Models.Common
         string Title { get; set; }
         string Abbreviation { get; set; }
         ICollection<IExam> Exams { get; set; }
-        ICollection<IQuestion> Questions { get; set; }
     }
 }

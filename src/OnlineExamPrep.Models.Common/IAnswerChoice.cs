@@ -7,7 +7,7 @@ namespace OnlineExamPrep.Models.Common
         string Id { get; set; }
         string QuestionId { get; set; }
         string Text { get; set; }
-        bool IsCorrectAnswer { get; set; }
+        byte Points { get; set; }
         IQuestion Question { get; set; }
         ICollection<IAnswerChoicePicture> AnswerChoicePictures { get; set; }
     }

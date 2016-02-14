@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OnlineExamPrep.Models.Common
 {
@@ -9,7 +8,7 @@ namespace OnlineExamPrep.Models.Common
         string QuestionId { get; set; }
         string Text { get; set; }
         byte Number { get; set; }
-        Nullable<byte> Points { get; set; }
+        byte Points { get; set; }
         IQuestion Question { get; set; }
         ICollection<IAnswerStepPicture> AnswerStepPictures { get; set; }
     }

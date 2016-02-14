@@ -6,5 +6,6 @@
         public const string QuestionId = "QuestionId";
         public const string Text = "Text";
         public const string Number = "Number";
+        public const string Points = "Points";
     }
 }

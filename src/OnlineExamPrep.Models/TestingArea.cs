@@ -9,6 +9,5 @@ namespace OnlineExamPrep.Models
         public string Title { get; set; }
         public string Abbreviation { get; set; }
         public ICollection<IExam> Exams { get; set; }
-        public ICollection<IQuestion> Questions { get; set; }
     }
 }

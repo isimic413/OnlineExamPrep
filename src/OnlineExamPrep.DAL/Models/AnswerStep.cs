@@ -14,7 +14,7 @@ namespace OnlineExamPrep.DAL.Models
         public string QuestionId { get; set; }
         public string Text { get; set; }
         public byte Number { get; set; }
-        public Nullable<byte> Points { get; set; }
+        public byte Points { get; set; }
         public virtual QuestionEntity Question { get; set; }
         public virtual ICollection<AnswerStepPictureEntity> AnswerStepPictures { get; set; }
     }
