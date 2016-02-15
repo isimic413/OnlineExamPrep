@@ -9,5 +9,6 @@ namespace OnlineExamPrep.Service.Common
     {
         Task<List<dynamic>> GetPageAsync(PagingParams pagingParams);
         Task<int> InsertAsync(IQuestion question, IAnswerChoice[] answerChoices, string examId);
+        Task<int> DeleteQuestionAsync(string questionId);
     }
 }

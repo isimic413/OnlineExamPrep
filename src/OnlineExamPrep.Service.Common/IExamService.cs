@@ -12,5 +12,6 @@ namespace OnlineExamPrep.Service.Common
     {
         Task<List<dynamic>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
         Task<int> InsertAsync(IExam exam);
+        Task<int> DeleteAsync(string examId);
     }
 }

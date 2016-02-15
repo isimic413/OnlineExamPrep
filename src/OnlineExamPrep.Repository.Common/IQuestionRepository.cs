@@ -9,6 +9,8 @@ namespace OnlineExamPrep.Repository.Common
     {
         IUnitOfWork GetUnitOfWork();
         Task<List<IQuestion>> GetPageAsync(PagingParams pagingParams);
+        Task<IQuestion> GetQuestionWithChoicesAndPicuresAsync(string questionId);
+        Task<int> DeleteAsync(string questionId);
         Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IQuestion questionModel);
     }
 }

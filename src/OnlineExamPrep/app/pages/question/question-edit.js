@@ -50,7 +50,9 @@
                 vm.answerChoices = [];
 
                 vm.addChoice = function (index) {
-                    var newChoice = {};
+                    var newChoice = {
+                        points: 0
+                    };
                     vm.answerChoices.splice(index + 1, 0, newChoice);
                 };
                 vm.addChoice();

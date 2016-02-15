@@ -42,9 +42,24 @@ namespace OnlineExamPrep.Repository
             return await repository.InsertEntityAsync<ExamEntity>(Mapper.Map<ExamEntity>(exam));
         }
 
+        public async Task<int> DeleteAsync(string examId)
+        {
+            return await repository.DeleteEntityAsync<ExamEntity>(examId);
+        }
+
         public Task<int> AddExamQuestionForInsert(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
         {
             return unitOfWork.AddForInsertAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
+        }
+
+        public Task<int> AddExamQuestionForDeleteAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
+        {
+            return unitOfWork.AddForDeleteAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
+        }
+
+        public Task<int> AddExamQuestionForDeleteAsync(IUnitOfWork unitOfWork, string examQuestionId)
+        {
+            return unitOfWork.AddForDeleteAsync<ExamQuestionEntity>(examQuestionId);
         }
 
         public async Task<int> GetNumberOfQuestionsAsync(string examId)

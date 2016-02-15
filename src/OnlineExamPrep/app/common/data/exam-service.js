@@ -18,4 +18,8 @@
                 return DataService.post(path, exam);
             }
         };
+
+        this.deleteExam = function (examId) {
+            return DataService.delete(path + '/' + examId, examId);
+        };
     });

@@ -10,14 +10,10 @@
                 scope.vm = {};
                 var vm = scope.vm;
 
-                vm.titleProp = 'title';
+                vm.titleProp = 'textPreview';
                 vm.deleteEntity = QuestionService.deleteQuestion;
                 vm.getCollection = QuestionService.getQuestionCollection;
-
-                vm.onDataRecieved = function () {
-                    //
-                }
-
+                
                 vm.columns = [
                     { id: 'textPreview', display: 'Zadatak' },
                     { id: 'area', display: 'Područje ispitivanja' },

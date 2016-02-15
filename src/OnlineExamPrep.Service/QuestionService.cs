@@ -32,11 +32,12 @@ namespace OnlineExamPrep.Service
         {
             var questions = await questionRepository.GetPageAsync(pagingParams);
             return questions.Select(question => (dynamic)new {
+                Id = question.Id,
                 TextPreview = question.Text.Length < 100 ? question.Text : question.Text.Substring(0, 100),
-                    QuestionType = question.QuestionType.Title,
-                    Points = question.AnswerChoices.Sum(choice => choice.Points),
-                    Term = String.Format("{0} {1}.", ExamTerms.GetExamTermName(question.ExamQuestions.ElementAt(0).Exam.Term), question.ExamQuestions.ElementAt(0).Exam.Year),
-                    Area = question.ExamQuestions.ElementAt(0).Exam.TestingArea.Title
+                QuestionType = question.QuestionType.Title,
+                Points = question.AnswerChoices.Sum(choice => choice.Points),
+                Term = String.Format("{0} {1}.", ExamTerms.GetExamTermName(question.ExamQuestions.ElementAt(0).Exam.Term), question.ExamQuestions.ElementAt(0).Exam.Year),
+                Area = question.ExamQuestions.ElementAt(0).Exam.TestingArea.Title
             }).ToList();
         }
 
@@ -79,6 +80,11 @@ namespace OnlineExamPrep.Service
             }
 
             return await unitOfWork.CommitAsync();
+        }
+
+        public Task<int> DeleteQuestionAsync(string questionId)
+        {
+            return questionRepository.DeleteAsync(questionId);
         }
     }
 }

@@ -43,9 +43,26 @@ namespace OnlineExamPrep.Repository
             return Mapper.Map<List<IQuestion>>(await questions.ToListAsync());
         }
 
-        public Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IQuestion questionModel)
+        public async Task<IQuestion> GetQuestionWithChoicesAndPicuresAsync(string questionId)
         {
-            return unitOfWork.AddForInsertAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(questionModel));
+            return Mapper.Map<IQuestion>(
+                await repository.FetchCollection<QuestionEntity>()
+                .Where(q => q.Id == questionId)
+                .Include(q => q.QuestionPictures)
+                .Include(q => q.AnswerChoices.Select(c => c.AnswerChoicePictures))
+                .Include(q => q.ExamQuestions)
+                .SingleOrDefaultAsync()
+                );
+        }
+
+        public async Task<int> DeleteAsync(string questionId)
+        {
+            return await repository.DeleteEntityAsync<QuestionEntity>(questionId);
+        }
+
+        public Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IQuestion question)
+        {
+            return unitOfWork.AddForInsertAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
     }
 }

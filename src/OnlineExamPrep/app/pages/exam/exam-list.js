@@ -11,7 +11,7 @@
                 var vm = scope.vm;
 
                 vm.titleProp = 'title';
-                //vm.deleteEntity = ExamService.deleteExam;
+                vm.deleteEntity = ExamService.deleteExam;
                 vm.getCollection = ExamService.getExamCollection;
 
                 vm.onDataRecieved = function () {

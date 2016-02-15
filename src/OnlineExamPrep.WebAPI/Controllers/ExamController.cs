@@ -38,5 +38,17 @@ namespace OnlineExamPrep.WebAPI.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
+
+        [HttpDelete]
+        [Route("{examId}")]
+        public async Task<HttpResponseMessage> DeleteAsync(string examId)
+        {
+            var result = await examService.DeleteAsync(examId);
+            if (result > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound);
+        }
     }
 }

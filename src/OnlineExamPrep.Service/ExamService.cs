@@ -36,5 +36,10 @@ namespace OnlineExamPrep.Service
             exam.Id = Guid.NewGuid().ToString();
             return examRepository.InsertAsync(exam);
         }
+
+        public Task<int> DeleteAsync(string examId)
+        {
+            return examRepository.DeleteAsync(examId);
+        }
     }
 }

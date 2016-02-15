@@ -18,4 +18,8 @@
                 return DataService.post(path, params);
             }
         };
+
+        this.deleteQuestion = function (questionId) {
+            return DataService.delete(path + '/' + questionId, questionId);
+        };
     });
