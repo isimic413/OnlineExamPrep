@@ -11,7 +11,7 @@
                 var vm = scope.vm;
                 vm.titleProp = 'title';
                 vm.deleteEntity = TestingAreaService.deleteTestingArea;
-                vm.getCollection = TestingAreaService.getTestingAreaCollection;
+                vm.getCollection = TestingAreaService.getDataset;
 
                 vm.columns = [
                     { id: 'title', display: 'Naziv' },

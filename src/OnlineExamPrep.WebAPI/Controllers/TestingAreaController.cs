@@ -1,7 +1,9 @@
-﻿using OnlineExamPrep.Common;
+﻿using AutoMapper;
+using OnlineExamPrep.Common;
 using OnlineExamPrep.Models;
 using OnlineExamPrep.Service.Common;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -33,11 +35,11 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetCollection")]
-        public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
+        [Route("GetDataset")]
+        public async Task<HttpResponseMessage> GetDatasetAsync(PagingParams pagingParams)
         {
-            var testingAreaList = await testingAreaService.GetCollectionAsync(pagingParams);
-            return Request.CreateResponse(HttpStatusCode.OK, testingAreaList);
+            var result = await testingAreaService.GetCollectionAsync(pagingParams);
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
         [HttpPost]

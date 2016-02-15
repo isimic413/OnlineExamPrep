@@ -49,7 +49,9 @@ namespace OnlineExamPrep.Repository
 
         public async Task<int> GetNumberOfQuestionsAsync(string examId)
         {
-            return (await repository.FetchCollection<ExamEntity>().ToListAsync()).Count;
+            return (await repository.FetchCollection<ExamQuestionEntity>()
+                .Where(eq => eq.ExamId == examId)
+                .ToListAsync()).Count;
         }
     }
 }

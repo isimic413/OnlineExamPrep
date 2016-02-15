@@ -7,6 +7,5 @@ namespace OnlineExamPrep.Models.Common
         string Id { get; set; }
         string Title { get; set; }
         string Abbreviation { get; set; }
-        ICollection<IQuestion> Questions { get; set; }
     }
 }

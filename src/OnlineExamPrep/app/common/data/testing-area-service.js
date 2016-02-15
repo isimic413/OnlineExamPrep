@@ -6,8 +6,8 @@
             return DataService.get(path + '/' + testingAreaId, testingAreaId);
         };
 
-        this.getTestingAreaCollection = function (pagingParams) {
-            return DataService.post(path + '/getCollection', pagingParams);
+        this.getDataset = function (pagingParams) {
+            return DataService.post(path + '/GetDataset', pagingParams);
         };
 
         this.saveTestingArea = function (testingArea) {

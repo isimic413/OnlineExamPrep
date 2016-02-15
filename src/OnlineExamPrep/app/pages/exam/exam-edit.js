@@ -25,7 +25,7 @@
                     dropdownText: 'Odaberite'
                 };
 
-                TestingAreaService.getTestingAreaCollection({}).success(function (data) {
+                TestingAreaService.getDataset({}).success(function (data) {
                     vm.testingAreas.data = data;
                 });
                 
