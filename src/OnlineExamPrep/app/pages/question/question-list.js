@@ -11,7 +11,8 @@
                 var vm = scope.vm;
 
                 vm.titleProp = 'textPreview';
-                vm.deleteEntity = QuestionService.deleteQuestion;
+                vm.disableDelete = true;
+                //vm.deleteEntity = QuestionService.deleteQuestion;
                 vm.getCollection = QuestionService.getQuestionCollection;
                 
                 vm.columns = [

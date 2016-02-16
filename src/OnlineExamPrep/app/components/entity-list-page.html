@@ -16,7 +16,7 @@
     <div class="btn-group pull-right">
         <button class="btn btn-primary" ng-click="vm.gotoAddScreen()">Dodaj novo</button>
         <button class="btn btn-primary" ng-click="vm.gotoEditScreen()" ng-disabled="!vm.checkedItem.id">Uredi</button>
-        <button class="btn btn-danger" ng-click="vm.delete()" ng-disabled="!vm.checkedItem.id">Obriši</button>
+        <button class="btn btn-danger" ng-if="!vm.disableDelete" ng-click="vm.delete()" ng-disabled="!vm.checkedItem.id">Obriši</button>
     </div>
     <br />
     <div class="row">
