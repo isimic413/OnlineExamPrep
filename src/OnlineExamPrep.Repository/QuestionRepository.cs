@@ -65,5 +65,15 @@ namespace OnlineExamPrep.Repository
         {
             return unitOfWork.AddForInsertAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
         }
+
+        public Task<int> AddForUpdateAsync(IUnitOfWork unitOfWork, IQuestion question)
+        {
+            return unitOfWork.AddForUpdateAsync<QuestionEntity>(Mapper.Map<QuestionEntity>(question));
+        }
+
+        public Task<int> AddForDeleteAsync(IUnitOfWork unitOfWork, string questionId)
+        {
+            return unitOfWork.AddForDeleteAsync<QuestionEntity>(questionId);
+        }
     }
 }

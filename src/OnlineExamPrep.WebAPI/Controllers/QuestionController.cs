@@ -43,6 +43,14 @@ namespace OnlineExamPrep.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.NotFound);
         }
 
+        [HttpPut]
+        [Route("")]
+        public async Task<HttpResponseMessage> UpdateQuestionWithChoicesAsync(QuestionParams questionParams)
+        {
+            await questionService.UpdateQuestionAsync(questionParams.Question, questionParams.AnswerChoices);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> CreateQuestionAsync(QuestionParams questionParams)

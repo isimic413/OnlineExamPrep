@@ -13,5 +13,7 @@ namespace OnlineExamPrep.Repository.Common
         Task<IQuestionParams> GetQuestionWithChoicesAndPicuresAsync(string questionId);
         Task<int> DeleteAsync(string questionId);
         Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IQuestion questionModel);
+        Task<int> AddForUpdateAsync(IUnitOfWork unitOfWork, IQuestion question);
+        Task<int> AddForDeleteAsync(IUnitOfWork unitOfWork, string questionId);
     }
 }

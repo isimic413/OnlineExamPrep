@@ -9,5 +9,7 @@ namespace OnlineExamPrep.Repository.Common
     {
         IUnitOfWork GetUnitOfWork();
         Task<int> AddForInsertAsync(IUnitOfWork unitOfWork, IAnswerChoice answerChoice);
+        Task<int> AddForUpdateAsync(IUnitOfWork unitOfWork, IAnswerChoice answerChoice);
+        Task<int> AddForDeleteAsync(IUnitOfWork unitOfWork, string answerChoiceId);
     }
 }

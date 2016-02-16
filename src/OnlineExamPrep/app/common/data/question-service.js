@@ -12,7 +12,7 @@
 
         this.saveQuestion = function (params) {
             if (params.question && params.question.id) {
-                console.log("Not implemented yet.");
+                return DataService.put(path, params);
             }
             else {
                 return DataService.post(path, params);
