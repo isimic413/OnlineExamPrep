@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{392CA8
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Database", "Database\OnlineExamPrep.Database.csproj", "{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,9 @@ Global
 		{5D75A503-07DB-40B5-831F-455C0E313D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D75A503-07DB-40B5-831F-455C0E313D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D75A503-07DB-40B5-831F-455C0E313D03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
