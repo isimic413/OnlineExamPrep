@@ -2,6 +2,7 @@
 using OnlineExamPrep.Common;
 using OnlineExamPrep.DAL.Models;
 using OnlineExamPrep.Models.Common;
+using OnlineExamPrep.Models.Common.ParamsModel;
 using OnlineExamPrep.Models.Fields;
 using OnlineExamPrep.Repository.Common;
 using System;
@@ -27,7 +28,7 @@ namespace OnlineExamPrep.Repository
             return repository.GetUnitOfWork();
         }
 
-        public async Task<List<IQuestion>> GetPageAsync(PagingParams pagingParams)
+        public async Task<List<IQuestionParams>> GetPageAsync(PagingParams pagingParams)
         {
             var questions = repository.FetchCollection<QuestionEntity>()
                 .OrderBy(!String.IsNullOrEmpty(pagingParams.SortByField) ? pagingParams.SortByField : String.Format("{0},{1}", QuestionFields.QuestionTypeId, QuestionFields.Id));
@@ -40,17 +41,17 @@ namespace OnlineExamPrep.Repository
                 .Include(question => question.AnswerChoices)
                 .Include(question => question.ExamQuestions.Select(eq => eq.Exam.TestingArea));
 
-            return Mapper.Map<List<IQuestion>>(await questions.ToListAsync());
+            return Mapper.Map<List<IQuestionParams>>(await questions.ToListAsync());
         }
 
-        public async Task<IQuestion> GetQuestionWithChoicesAndPicuresAsync(string questionId)
+        public async Task<IQuestionParams> GetQuestionWithChoicesAndPicuresAsync(string questionId)
         {
-            return Mapper.Map<IQuestion>(
+            return Mapper.Map<IQuestionParams>(
                 await repository.FetchCollection<QuestionEntity>()
                 .Where(q => q.Id == questionId)
                 .Include(q => q.QuestionPictures)
                 .Include(q => q.AnswerChoices.Select(c => c.AnswerChoicePictures))
-                .Include(q => q.ExamQuestions)
+                .Include(q => q.ExamQuestions.Select(eq => eq.Exam))
                 .SingleOrDefaultAsync()
                 );
         }

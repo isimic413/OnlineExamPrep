@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepQuestionEdit', function ($state, QuestionService, Paths, ExamService, QuestionTypeService) {
+    .directive('oepQuestionEdit', function ($q, $state, QuestionService, Paths, ExamService, QuestionTypeService) {
         'use strict';
         return {
             restrict: 'E',
@@ -20,12 +20,35 @@
                     model: {}
                 };
                 
-                ExamService.getExamCollection({}).success(function (data) {
-                    vm.exams.data = data;
-                });
-                QuestionTypeService.getQuestionTypeCollection({}).success(function (data) {
-                    vm.questionTypes.data = data;
-                });
+                if ($state.params.id) {
+                    $q.all([
+                        ExamService.getExamCollection({}),
+                        QuestionTypeService.getQuestionTypeCollection({}),
+                        QuestionService.getQuestion($state.params.id)
+                    ]).then(function (results) {
+                        bindData(results[0].data, results[1].data, results[2].data);
+                    });
+                }
+                else {
+                    $q.all([
+                        ExamService.getExamCollection({}),
+                        QuestionTypeService.getQuestionTypeCollection({})
+                    ]).then(function (results) {
+                        bindData(results[0].data, results[1].data);
+                    });
+                }
+
+                function bindData(examData, typeData, questionData) {
+                    vm.exams.data = examData;
+                    vm.questionTypes.data = typeData;
+                    if (questionData) {
+                        vm.question = questionData;
+                        vm.exams.model = { id: questionData.examQuestions[0].examId };
+                        vm.questionTypes.model = { id: questionData.questionType.id };
+                        vm.answerChoices = questionData.answerChoices;
+                    }
+                    vm.showForm = true;
+                }
 
                 vm.saveQuestion = function () {
                     if (!scope.questionForm.$valid) {

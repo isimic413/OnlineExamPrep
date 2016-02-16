@@ -1,5 +1,6 @@
 ﻿using OnlineExamPrep.Common;
 using OnlineExamPrep.Models.Common;
+using OnlineExamPrep.Models.Common.ParamsModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,7 +8,7 @@ namespace OnlineExamPrep.Repository.Common
 {
     public interface IExamRepository
     {
-        Task<List<IExam>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
+        Task<List<IExamParams>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
         Task<int> InsertAsync(IExam exam);
         Task<int> DeleteAsync(string examId);
         Task<int> AddExamQuestionForInsert(IUnitOfWork unitOfWork, IExamQuestion examQuestion);

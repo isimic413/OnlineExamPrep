@@ -53,6 +53,21 @@
     <Compile Include="IUserClaim.cs" />
     <Compile Include="IUserExamResult.cs" />
     <Compile Include="IUserLogin.cs" />
+    <Compile Include="ParamsModel\IAnswerChoiceParams.cs" />
+    <Compile Include="ParamsModel\IAnswerChoicePictureParams.cs" />
+    <Compile Include="ParamsModel\IAnswerStepParams.cs" />
+    <Compile Include="ParamsModel\IAnswerStepPictureParams.cs" />
+    <Compile Include="ParamsModel\IExamParams.cs" />
+    <Compile Include="ParamsModel\IExamQuestionParams.cs" />
+    <Compile Include="ParamsModel\IQuestionParams.cs" />
+    <Compile Include="ParamsModel\IQuestionPictureParams.cs" />
+    <Compile Include="ParamsModel\IQuestionTypeParams.cs" />
+    <Compile Include="ParamsModel\IRoleParams.cs" />
+    <Compile Include="ParamsModel\ITestingAreaParams.cs" />
+    <Compile Include="ParamsModel\IUserParams.cs" />
+    <Compile Include="ParamsModel\IUserClaimParams.cs" />
+    <Compile Include="ParamsModel\IUserExamResultParams.cs" />
+    <Compile Include="ParamsModel\IUserLoginParams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IQuestionType.cs" />
   </ItemGroup>

@@ -5,6 +5,5 @@
         string Id { get; set; }
         string QuestionId { get; set; }
         byte[] Image { get; set; }
-        IQuestion Question { get; set; }
     }
 }

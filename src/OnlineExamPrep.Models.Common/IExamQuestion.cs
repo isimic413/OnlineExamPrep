@@ -6,7 +6,5 @@
         string QuestionId { get; set; }
         string ExamId { get; set; }
         int Number { get; set; }
-        IExam Exam { get; set; }
-        IQuestion Question { get; set; }
     }
 }

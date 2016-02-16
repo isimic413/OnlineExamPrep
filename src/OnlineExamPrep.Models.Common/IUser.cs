@@ -19,9 +19,5 @@ namespace OnlineExamPrep.Models.Common
         bool LockoutEnabled { get; set; }
         int AccessFailedCount { get; set; }
         string UserName { get; set; }
-        ICollection<IUserClaim> UserClaims { get; set; }
-        ICollection<IUserLogin> UserLogins { get; set; }
-        ICollection<IUserExamResult> UserExamResults { get; set; }
-        ICollection<IRole> Roles { get; set; }
     }
 }

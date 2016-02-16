@@ -11,7 +11,5 @@ namespace OnlineExamPrep.Models.Common
         int Points { get; set; }
         int CorrectAnswers { get; set; }
         DateTime TimeTaken { get; set; }
-        IExam Exam { get; set; }
-        IUser User { get; set; }
     }
 }

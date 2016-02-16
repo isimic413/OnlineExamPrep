@@ -31,6 +31,18 @@ namespace OnlineExamPrep.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, questionList);
         }
 
+        [HttpGet]
+        [Route("{questionId}")]
+        public async Task<HttpResponseMessage> GetQuestionAsync(string questionId)
+        {
+            var question = await questionService.GetQuestionForUpdateAsync(questionId);
+            if (question != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, question);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound);
+        }
+
         [HttpPost]
         [Route("")]
         public async Task<HttpResponseMessage> CreateQuestionAsync(QuestionParams questionParams)

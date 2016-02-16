@@ -13,8 +13,5 @@ namespace OnlineExamPrep.Models.Common
         int DurationInMinutes { get; set; }
         int Year { get; set; }
         byte Term { get; set; }
-        ITestingArea TestingArea { get; set; }
-        ICollection<IExamQuestion> ExamQuestions { get; set; }
-        ICollection<IUserExamResult> UserExamResults { get; set; }
     }
 }

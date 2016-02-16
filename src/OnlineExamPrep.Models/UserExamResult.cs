@@ -12,7 +12,5 @@ namespace OnlineExamPrep.Models
         public int Points { get; set; }
         public int CorrectAnswers { get; set; }
         public DateTime TimeTaken { get; set; }
-        public IExam Exam { get; set; }
-        public IUser User { get; set; }
     }
 }

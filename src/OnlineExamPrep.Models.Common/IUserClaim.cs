@@ -6,6 +6,5 @@
         string UserId { get; set; }
         string ClaimType { get; set; }
         string ClaimValue { get; set; }
-        IUser User { get; set; }
     }
 }

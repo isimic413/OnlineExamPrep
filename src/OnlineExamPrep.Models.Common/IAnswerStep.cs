@@ -9,7 +9,5 @@ namespace OnlineExamPrep.Models.Common
         string Text { get; set; }
         byte Number { get; set; }
         byte Points { get; set; }
-        IQuestion Question { get; set; }
-        ICollection<IAnswerStepPicture> AnswerStepPictures { get; set; }
     }
 }

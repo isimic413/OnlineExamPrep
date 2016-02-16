@@ -8,7 +8,5 @@ namespace OnlineExamPrep.Models
         public string QuestionId { get; set; }
         public string ExamId { get; set; }
         public int Number { get; set; }
-        public IExam Exam { get; set; }
-        public IQuestion Question { get; set; }
     }
 }

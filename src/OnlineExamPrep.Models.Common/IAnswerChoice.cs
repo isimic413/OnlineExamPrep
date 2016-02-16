@@ -8,7 +8,5 @@ namespace OnlineExamPrep.Models.Common
         string QuestionId { get; set; }
         string Text { get; set; }
         byte Points { get; set; }
-        IQuestion Question { get; set; }
-        ICollection<IAnswerChoicePicture> AnswerChoicePictures { get; set; }
     }
 }

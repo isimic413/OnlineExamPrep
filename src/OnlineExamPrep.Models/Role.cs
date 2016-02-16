@@ -7,6 +7,5 @@ namespace OnlineExamPrep.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<IUser> Users { get; set; }
     }
 }

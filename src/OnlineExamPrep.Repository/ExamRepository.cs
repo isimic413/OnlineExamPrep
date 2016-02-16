@@ -2,6 +2,7 @@
 using OnlineExamPrep.Common;
 using OnlineExamPrep.DAL.Models;
 using OnlineExamPrep.Models.Common;
+using OnlineExamPrep.Models.Common.ParamsModel;
 using OnlineExamPrep.Models.Fields;
 using OnlineExamPrep.Repository.Common;
 using System;
@@ -23,7 +24,7 @@ namespace OnlineExamPrep.Repository
             this.repository = repository;
         }
 
-        public async Task<List<IExam>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams)
+        public async Task<List<IExamParams>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams)
         {
             var exams = repository.FetchCollection<ExamEntity>()
                 .OrderBy(!String.IsNullOrEmpty(pagingParams.SortByField) ? pagingParams.SortByField : String.Format("{0},{1},{2}", ExamFields.TestingAreaId, ExamFields.Year, ExamFields.Id));
@@ -34,7 +35,7 @@ namespace OnlineExamPrep.Repository
             }
             exams.Include(exam => exam.TestingArea)
                 .Include(exam => exam.ExamQuestions.Select(eq => eq.Question));
-            return Mapper.Map<List<IExam>>(await exams.ToListAsync());
+            return Mapper.Map<List<IExamParams>>(await exams.ToListAsync());
         }
 
         public async Task<int> InsertAsync(IExam exam)

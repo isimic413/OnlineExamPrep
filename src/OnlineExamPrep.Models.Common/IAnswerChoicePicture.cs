@@ -5,6 +5,5 @@
         string Id { get; set; }
         string AnswerChoiceId { get; set; }
         byte[] Image { get; set; }
-        IAnswerChoice AnswerChoice { get; set; }
     }
 }

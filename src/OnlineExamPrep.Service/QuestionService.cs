@@ -1,6 +1,7 @@
 ﻿using OnlineExamPrep.Common;
 using OnlineExamPrep.Models;
 using OnlineExamPrep.Models.Common;
+using OnlineExamPrep.Models.Common.ParamsModel;
 using OnlineExamPrep.Repository.Common;
 using OnlineExamPrep.Service.Common;
 using System;
@@ -37,8 +38,13 @@ namespace OnlineExamPrep.Service
                 QuestionType = question.QuestionType.Title,
                 Points = question.AnswerChoices.Sum(choice => choice.Points),
                 Term = String.Format("{0} {1}.", ExamTerms.GetExamTermName(question.ExamQuestions.ElementAt(0).Exam.Term), question.ExamQuestions.ElementAt(0).Exam.Year),
-                Area = question.ExamQuestions.ElementAt(0).Exam.TestingArea.Title
+                Area = question.ExamQuestions.ElementAt(0).TestingArea.Title
             }).ToList();
+        }
+
+        public Task<IQuestionParams> GetQuestionForUpdateAsync(string questionId)
+        {
+            return questionRepository.GetQuestionWithChoicesAndPicuresAsync(questionId);
         }
 
         public async Task<int> InsertAsync(IQuestion question, IAnswerChoice[] answerChoices, string examId)
