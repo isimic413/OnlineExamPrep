@@ -123,6 +123,11 @@
             url: '/ispit/uredi/:id', // exam/edit/id
             title: 'Uredi ispit', // Edit Exam
             directive: 'exam-edit'
+        },
+        'public.exam/questions': {
+            url: '/ispiti/zadaci/:id', // exam/questions/id
+            title: 'Zadaci s ispita',
+            directive: 'exam-question-order-edit'
         }
     };
 
@@ -154,5 +159,6 @@
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         $rootScope.title = toState.title ? toState.title : null;
+        $rootScope.subtitle = null;
     });
 });

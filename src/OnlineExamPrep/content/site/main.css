@@ -7,11 +7,11 @@
     margin-right: 0.3em;
 }
 
-.col-md-6 .nopadding:first-child {
+.nopadding:first-child {
     padding-left: 0;
 }
 
-.col-md-6 .nopadding:last-child {
+.nopadding:last-child {
     padding-right: 0;
 }
 
@@ -21,4 +21,32 @@
 
 .mb1 {
     margin-bottom: 1em;
+}
+
+.drag-and-drop-list {
+    list-style: none;
+}
+
+.drag-and-drop-item,
+.dndPlaceholder {
+    padding: 0.3em;
+    margin-bottom: 1em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #ECECEC;
+}
+
+.dndPlaceholder {
+    min-height: 2em;
+    background-color: #f6f6f6;
+}
+
+.entity-row-selected {
+    background-color: #9d9d9d;
+}
+
+.entity-row-selection {
+    width: 2em;
+    min-width: 2em;
+    max-width: 2em;
 }

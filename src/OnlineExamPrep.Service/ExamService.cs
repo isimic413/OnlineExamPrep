@@ -37,6 +37,23 @@ namespace OnlineExamPrep.Service
             return examRepository.GetExamForUpdateAsync(examId);
         }
 
+        public async Task<dynamic> GetExamQuestionsAsync(string examId)
+        {
+            var examQuestions = await examRepository.GetExamQuestionsAsync(examId);
+            var eqList = examQuestions.Select(eq => (dynamic)new
+            {
+                Id = eq.Id,
+                Number = eq.Number,
+                QuestionId = eq.QuestionId,
+                QuestionText = eq.Question.Text
+            }).ToList();
+            var exam = await examRepository.GetExamForUpdateAsync(examId);
+            return (dynamic)new { 
+                Questions = eqList,
+                ExamTitle = String.Format("{0} ({1} {2}.)", exam.TestingArea.Title, ExamTerms.GetExamTermName(exam.Term), exam.Year)
+            };
+        }
+
         public Task<int> InsertAsync(IExam exam)
         {
             exam.Id = Guid.NewGuid().ToString();

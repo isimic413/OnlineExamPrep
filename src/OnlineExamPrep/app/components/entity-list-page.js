@@ -34,6 +34,14 @@
 
                 vm.toggleSelection = function (item) {
                     vm.checkedItem = vm.checkedItem.id === item.id ? {} : item;
+                    _.each(vm.entities, function (entity) {
+                        if (vm.checkedItem.id === entity.id) {
+                            entity.isSelected = !entity.isSelected;
+                        }
+                        else {
+                            entity.isSelected = false;
+                        }
+                    });
                 };
 
                 vm.gotoAddScreen = function () {

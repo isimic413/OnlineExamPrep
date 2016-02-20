@@ -40,6 +40,14 @@ namespace OnlineExamPrep.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        [HttpGet]
+        [Route("questionPreviews/{examId}")]
+        public async Task<HttpResponseMessage> GetExamQuestionPreviewsAsync(string examId)
+        {
+            var list = await examService.GetExamQuestionsAsync(examId);
+            return Request.CreateResponse(HttpStatusCode.OK, (object)list);
+        }
+
         [HttpPut]
         [Route("{examId}")]
         public async Task<HttpResponseMessage> UpdateAsync(Exam exam)

@@ -1,4 +1,5 @@
 ﻿angular.module('onlineExamPrep.components', [
     'onlineExamPrep.common',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'dndLists'
 ]);

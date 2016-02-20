@@ -25,7 +25,7 @@
         </div>
     </nav>
     <div class="container-fluid" ng-show="title">
-        <h3>{{title}}</h3>
+        <h3>{{title}} <em ng-show="subtitle">{{subtitle}}</em></h3>
         <hr />
     </div>
     <div ui-view class="container-fluid"></div>

@@ -32,8 +32,11 @@
                         ExamService.getExam($state.params.id)
                     ]).then(function (responses) {
                         vm.testingAreas.data = responses[0].data;
-                        vm.exam = responses[1].data;
-                        vm.testingAreas.model.id = responses[1].data.testingAreaId;
+
+                        var examData = responses[1].data;                        
+                        vm.exam = examData;
+                        vm.testingAreas.model.id = examData.testingAreaId;
+
                         vm.showForm = true;
                     });
                 }

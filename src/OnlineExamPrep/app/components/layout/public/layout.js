@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.components')
-    .directive('oepPublicLayout', function ($rootScope, Paths) {
+    .directive('oepPublicLayout', function (Paths) {
         'use strict';
         return {
             restrict: 'E',
@@ -10,12 +10,16 @@
                 var vm = {};
                 scope.vm = vm;
 
-                scope.$watch(function () { return $rootScope.title; }, function () {
-                    scope.title = $rootScope.title;
+                scope.$watch('$root.title', function () {
+                    scope.title = scope.$root.title;
                 });
 
-                scope.$watch(function () { return $rootScope.loadingContent; }, function () {
-                    scope.loadingContent = $rootScope.loadingContent;
+                scope.$watch('$root.subtitle', function () {
+                    scope.subtitle = scope.$root.subtitle;
+                });
+
+                scope.$watch('$root.loadingContent', function () {
+                    scope.loadingContent = scope.$root.loadingContent;
                 });
             }
         }
