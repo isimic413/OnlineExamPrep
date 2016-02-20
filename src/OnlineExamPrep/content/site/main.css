@@ -6,3 +6,19 @@
     content: url(../img/spinner.gif);
     margin-right: 0.3em;
 }
+
+.col-md-6 .nopadding:first-child {
+    padding-left: 0;
+}
+
+.col-md-6 .nopadding:last-child {
+    padding-right: 0;
+}
+
+.mb05 {
+    margin-bottom: 0.5em;
+}
+
+.mb1 {
+    margin-bottom: 1em;
+}

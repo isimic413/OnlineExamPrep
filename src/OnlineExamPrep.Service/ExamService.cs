@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineExamPrep.Models.Common.ParamsModel;
 
 namespace OnlineExamPrep.Service
 {
@@ -31,10 +32,20 @@ namespace OnlineExamPrep.Service
             }).ToList();
         }
 
+        public Task<IExamParams> GetExamForUpdateAsync(string examId)
+        {
+            return examRepository.GetExamForUpdateAsync(examId);
+        }
+
         public Task<int> InsertAsync(IExam exam)
         {
             exam.Id = Guid.NewGuid().ToString();
             return examRepository.InsertAsync(exam);
+        }
+
+        public Task<int> UpdateAsync(IExam exam)
+        {
+            return examRepository.UpdateAsync(exam);
         }
 
         public Task<int> DeleteAsync(string examId)

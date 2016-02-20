@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepExamEdit', function ($state, Constants, ExamService, Paths, TestingAreaService) {
+    .directive('oepExamEdit', function ($q, $state, Constants, ExamService, Paths, TestingAreaService) {
         'use strict';
         return {
             restrict: 'E',
@@ -12,6 +12,7 @@
 
                 vm.showForm = !$state.params.id;
                 vm.exam = {};
+                vm.examTitle = '';
 
                 vm.examTerms = {
                     data: _.map(Constants.examTerms, function (term) { return term; }),
@@ -25,9 +26,22 @@
                     dropdownText: 'Odaberite'
                 };
 
-                TestingAreaService.getDataset({}).success(function (data) {
-                    vm.testingAreas.data = data;
-                });
+                if ($state.params.id) {
+                    $q.all([
+                        TestingAreaService.getDataset({}),
+                        ExamService.getExam($state.params.id)
+                    ]).then(function (responses) {
+                        vm.testingAreas.data = responses[0].data;
+                        vm.exam = responses[1].data;
+                        vm.testingAreas.model.id = responses[1].data.testingAreaId;
+                        vm.showForm = true;
+                    });
+                }
+                else {
+                    TestingAreaService.getDataset({}).success(function (data) {
+                        vm.testingAreas.data = data;
+                    });
+                }
                 
                 vm.saveExam = function () {
                     if (!scope.examExamForm.$valid) {

@@ -1,5 +1,6 @@
 ﻿using OnlineExamPrep.Common;
 using OnlineExamPrep.Models;
+using OnlineExamPrep.Models.Common.ParamsModel;
 using OnlineExamPrep.Service.Common;
 using System;
 using System.Net;
@@ -39,6 +40,18 @@ namespace OnlineExamPrep.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        [HttpPut]
+        [Route("{examId}")]
+        public async Task<HttpResponseMessage> UpdateAsync(Exam exam)
+        {
+            var result = await examService.UpdateAsync(exam);
+            if (result > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
         [HttpDelete]
         [Route("{examId}")]
         public async Task<HttpResponseMessage> DeleteAsync(string examId)
@@ -49,6 +62,14 @@ namespace OnlineExamPrep.WebAPI.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             return Request.CreateResponse(HttpStatusCode.NotFound);
+        }
+
+        [HttpGet]
+        [Route("{examId}")]
+        public async Task<HttpResponseMessage> GetExamForUpdateAsync(string examId)
+        {
+            var exam = await examService.GetExamForUpdateAsync(examId);
+            return Request.CreateResponse(HttpStatusCode.OK, exam);
         }
     }
 }

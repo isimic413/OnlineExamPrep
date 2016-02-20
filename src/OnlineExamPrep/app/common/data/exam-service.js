@@ -7,7 +7,7 @@
         };
 
         this.getExam = function (examId) {
-            //
+            return DataService.get(path + '/' + examId, examId);
         };
 
         this.saveExam = function (exam) {

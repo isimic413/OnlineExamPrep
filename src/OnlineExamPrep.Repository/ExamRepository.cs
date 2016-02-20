@@ -38,9 +38,24 @@ namespace OnlineExamPrep.Repository
             return Mapper.Map<List<IExamParams>>(await exams.ToListAsync());
         }
 
+        public async Task<IExamParams> GetExamForUpdateAsync(string examId)
+        {
+            var examEntity = await repository.FetchCollection<ExamEntity>()
+                .Where(exam => exam.Id == examId)
+                .Include(exam => exam.TestingArea)
+                .SingleOrDefaultAsync();
+
+            return Mapper.Map<IExamParams>(examEntity);
+        }
+
         public async Task<int> InsertAsync(IExam exam)
         {
             return await repository.InsertEntityAsync<ExamEntity>(Mapper.Map<ExamEntity>(exam));
+        }
+
+        public async Task<int> UpdateAsync(IExam exam)
+        {
+            return await repository.UpdateEntityAsync<ExamEntity>(Mapper.Map<ExamEntity>(exam));
         }
 
         public async Task<int> DeleteAsync(string examId)
