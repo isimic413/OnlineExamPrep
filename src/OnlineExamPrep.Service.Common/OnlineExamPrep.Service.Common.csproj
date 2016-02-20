@@ -45,6 +45,7 @@
     <Compile Include="IQuestionTypeService.cs" />
     <Compile Include="IRoleService.cs" />
     <Compile Include="ITestingAreaService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

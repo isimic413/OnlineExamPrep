@@ -9,7 +9,8 @@
                 question: '/question',
                 questionType: '/questionType',
                 role: '/role',
-                testingArea: '/testingArea'
+                testingArea: '/testingArea',
+                user: '/user'
             }
         },
         app: {

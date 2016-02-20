@@ -26,7 +26,7 @@
                     AccountService.registerUser(vm.user).success(function (data) {
                         console.log('jej');
                         console.log(data);
-                    }).error(function (data, error) {
+                    }).error(function (data, error, asd, wqer, sgi, aodg) {
                         console.log('buuuu');
                         console.log(error);
                     }).finally(function () {

@@ -12,6 +12,7 @@ namespace OnlineExamPrep.Service.DependencyInjection
             Bind<IQuestionTypeService>().To<QuestionTypeService>();
             Bind<IRoleService>().To<RoleService>();
             Bind<ITestingAreaService>().To<TestingAreaService>();
+            Bind<IUserService>().To<UserService>();
         }
     }
 }

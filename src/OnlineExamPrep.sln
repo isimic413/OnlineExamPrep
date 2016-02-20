@@ -5,27 +5,6 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.WebAPI", "OnlineExamPrep.WebAPI\OnlineExamPrep.WebAPI.csproj", "{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OnlineExamPrep", "http://localhost:2529", "{61ABF7CD-92B2-4035-AB39-B1FC4927A600}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_2529"
-		Debug.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_2529"
-		Release.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "OnlineExamPrep\"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.DAL", "OnlineExamPrep.DAL\OnlineExamPrep.DAL.csproj", "{DAE37319-B7D8-4021-A0A5-331EB5AC8491}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Repository", "OnlineExamPrep.Repository\OnlineExamPrep.Repository.csproj", "{DEA93C7C-ACB1-4893-87C5-97BF9B7FC8AF}"
@@ -51,6 +30,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{392CA8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineExamPrep.Database", "Database\OnlineExamPrep.Database.csproj", "{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OnlineExamPrep", "http://localhost:2529", "{61ABF7CD-92B2-4035-AB39-B1FC4927A600}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2529"
+		Debug.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2529"
+		Release.AspNetCompiler.PhysicalPath = "OnlineExamPrep\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2529\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "OnlineExamPrep\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,10 +61,6 @@ Global
 		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17BB31B6-5AFB-40D6-ACAE-8CA2D691982C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{DAE37319-B7D8-4021-A0A5-331EB5AC8491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAE37319-B7D8-4021-A0A5-331EB5AC8491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE37319-B7D8-4021-A0A5-331EB5AC8491}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -100,6 +96,10 @@ Global
 		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCEA2C6C-DB7D-4845-8A9A-75DEB697E276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{61ABF7CD-92B2-4035-AB39-B1FC4927A600}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

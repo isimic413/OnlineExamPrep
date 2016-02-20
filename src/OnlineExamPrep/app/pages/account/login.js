@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepLogin', function (Paths, AccountService) {
+    .directive('oepLogin', function (Paths, AccountService, UserService, Principal) {
         'use strict';
         return {
             restrict: 'E',
@@ -23,10 +23,11 @@
 
                     vm.showSpinner = true;
                     AccountService.login(vm.user).success(function (data) {
-                        console.log('jej');
-                        console.log(data);
+                        var token = 'Bearer ' + data['access_token'];
+                        UserService.getApplicationData(token).success(function (data) {
+
+                        });
                     }).error(function (data, error) {
-                        console.log('buuuu');
                         console.log(error);
                     }).finally(function () {
                         vm.showSpinner = false;

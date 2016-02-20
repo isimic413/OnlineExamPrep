@@ -336,6 +336,12 @@ namespace OnlineExamPrep.WebAPI.Controllers
             {
                 return GetErrorResult(result);
             }
+            else
+            {
+                var currentUser = UserManager.FindByName(user.UserName);
+
+                var roleresult = UserManager.AddToRole(currentUser.Id, "Korisnik");
+            }
 
             return Ok();
         }

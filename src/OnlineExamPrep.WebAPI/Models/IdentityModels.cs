@@ -22,7 +22,7 @@ namespace OnlineExamPrep.WebAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("OnlineExamPrepContext", throwIfV1Schema: false)
+            : base("OnlineExamContext", throwIfV1Schema: false)
         {
         }
         

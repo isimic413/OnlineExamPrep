@@ -27,6 +27,15 @@ namespace OnlineExamPrep.Repository
             return Mapper.Map<IRole>(await repository.FetchEntityAsync<RoleEntity>(roleId));
         }
 
+        public async Task<IRole> GetByUserId(string userId)
+        {
+            var roleList = await repository.FetchCollection<RoleEntity>()
+                .Include(r => r.Users)
+                .ToListAsync();
+            var role = roleList.Where(r => r.Users.FirstOrDefault(u => u.Id == userId) != null).FirstOrDefault();
+            return Mapper.Map<IRole>(role);
+        }
+
         public async Task<List<IRole>> GetCollectionAsync(PagingParams pagingParams)
         {
             var roles = repository.FetchCollection<RoleEntity>()

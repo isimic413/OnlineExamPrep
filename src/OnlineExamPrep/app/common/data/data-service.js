@@ -3,10 +3,10 @@
 
         var deferred = $q.defer();
 
-        function resolveRequestResponse(promise) {
+        function sendRequest(config) {
             $rootScope.loadingContent = true;
 
-            return promise.success(function (data) {
+            return $http(config).success(function (data) {
                 $rootScope.loadingContent = false;
                 return deferred.resolve(data);
             }).error(function (data, status, headers, config, statusText) {
@@ -19,19 +19,51 @@
             });
         }
 
-        this.get = function (path, params) {
-            return resolveRequestResponse($http.get(path, params));
+        this.get = function (path, params, options) {
+            var config = {
+                method: 'get',
+                url: path,
+                data: params
+            };
+            if (options && options.header) {
+                config.header = options.header;
+            }
+            return sendRequest(config);
         };
 
-        this.post = function (path, params) {
-            return resolveRequestResponse($http.post(path, params));
+        this.post = function (path, params, options) {
+            var config = {
+                method: 'post',
+                url: path,
+                data: params
+            };
+            if (options && options.header) {
+                config.header = options.header;
+            }
+            return sendRequest(config);
         };
 
-        this.put = function (path, params) {
-            return resolveRequestResponse($http.put(path, params));
+        this.put = function (path, params, options) {
+            var config = {
+                method: 'put',
+                url: path,
+                data: params
+            };
+            if (options && options.header) {
+                config.header = options.header;
+            }
+            return sendRequest(config);
         };
 
-        this.delete = function (path, params) {
-            return resolveRequestResponse($http.delete(path, params));
+        this.delete = function (path, params, options) {
+            var config = {
+                method: 'put',
+                url: path,
+                data: params
+            };
+            if (options && options.header) {
+                config.header = options.header;
+            }
+            return sendRequest(config);
         };
     });

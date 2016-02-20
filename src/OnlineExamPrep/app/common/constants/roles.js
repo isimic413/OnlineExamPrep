@@ -1,9 +1,7 @@
 ﻿angular.module('onlineExamPrep.common')
     .constant('Roles', {
-        groupUser: 'User',
-        groupInfAdmin: 'InfAdmin',
-        groupMathAdmin: 'MathAdmin',
-        groupAppAdmin: 'AppAdmin',
+        user: 'Korisnik',
+        admin: 'Admin',
 
-        groupAllRoles: ['User', 'InfAdmin', 'MathAdmin', 'AppAdmin']
+        groupAllRoles: ['Korisnik', 'Admin']
     });
