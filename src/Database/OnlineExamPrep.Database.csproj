@@ -55,22 +55,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Create Scripts\14_AnswerStep.sql" />
-    <Content Include="Create Scripts\16_UserExamResult.sql" />
-    <Content Include="Create Scripts\15_AnswerStepPicture.sql" />
-    <Content Include="Create Scripts\13_AnswerChoicePicture.sql" />
-    <Content Include="Create Scripts\12_AnswerChoice.sql" />
-    <Content Include="Create Scripts\10_ExamQuestion.sql" />
-    <Content Include="Create Scripts\11_QuestionPicture.sql" />
-    <Content Include="Create Scripts\09_Question.sql" />
-    <Content Include="Create Scripts\08_Exam.sql" />
-    <Content Include="Create Scripts\07_QuestionType.sql" />
-    <Content Include="Create Scripts\06_TestingArea.sql" />
-    <Content Include="Create Scripts\05_UserClaim.sql" />
-    <Content Include="Create Scripts\04_UserLogin.sql" />
-    <Content Include="Create Scripts\03_UserRole.sql" />
-    <Content Include="Create Scripts\02_User.sql" />
-    <Content Include="Create Scripts\01_Role.sql" />
+    <Content Include="ChangeScripts\01_ExamQuestionUniqueKey.sql" />
+    <Content Include="CreateScripts\14_AnswerStep.sql" />
+    <Content Include="CreateScripts\16_UserExamResult.sql" />
+    <Content Include="CreateScripts\15_AnswerStepPicture.sql" />
+    <Content Include="CreateScripts\13_AnswerChoicePicture.sql" />
+    <Content Include="CreateScripts\12_AnswerChoice.sql" />
+    <Content Include="CreateScripts\10_ExamQuestion.sql" />
+    <Content Include="CreateScripts\11_QuestionPicture.sql" />
+    <Content Include="CreateScripts\09_Question.sql" />
+    <Content Include="CreateScripts\08_Exam.sql" />
+    <Content Include="CreateScripts\07_QuestionType.sql" />
+    <Content Include="CreateScripts\06_TestingArea.sql" />
+    <Content Include="CreateScripts\05_UserClaim.sql" />
+    <Content Include="CreateScripts\04_UserLogin.sql" />
+    <Content Include="CreateScripts\03_UserRole.sql" />
+    <Content Include="CreateScripts\02_User.sql" />
+    <Content Include="CreateScripts\01_Role.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
@@ -88,6 +89,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
