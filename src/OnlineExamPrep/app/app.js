@@ -150,6 +150,7 @@
             title: routes[route].title,
             template: '<oep-' + routes[route].directive + '></oep-' + routes[route].directive + '>',
             url: routes[route].url ? routes[route].url : '/' + route.split('.')[1],
+            params: stateParams,
             data: routes[route]
         };
 

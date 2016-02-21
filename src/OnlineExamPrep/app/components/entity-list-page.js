@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.components')
-    .directive('oepEntityListPage', function ($uibModal, $state, /*QuestionTypeService, */Paths) {
+    .directive('oepEntityListPage', function ($uibModal, $state, Paths) {
         'use strict';
         return {
             restrict: 'E',
@@ -23,7 +23,7 @@
                     pageNumber: 1
                 };
 
-                var entityRoutePrefix = $state.current.params.entityRoutePrefix;
+                var entityRoutePrefix = $state.params.entityRoutePrefix;
                 
                 vm.getCollection(pagingParams).success(function (data) {
                     vm.entities = data;
