@@ -10,11 +10,6 @@
                 settings: '='
             },
             link: function (scope) {
-                if (!scope.selectedModel) {
-                    scope.selectedModel = {};
-                    scope.buttonText = scope.settings.defaultButtonText;
-                }
-
                 if (!scope.options) {
                     scope.options = [];
                 }
@@ -25,6 +20,11 @@
                     defaultButtonText: 'Odaberite' // Select
                 }
                 scope.settings = angular.extend(settings, scope.settings ? scope.settings : {});
+
+                if (!scope.selectedModel) {
+                    scope.selectedModel = {};
+                    scope.buttonText = scope.settings.defaultButtonText;
+                }
 
                 scope.getButtonText = function () {
                     var selectedModelId = scope.selectedModel[scope.settings.idProp] ? scope.selectedModel[scope.settings.idProp] : undefined;

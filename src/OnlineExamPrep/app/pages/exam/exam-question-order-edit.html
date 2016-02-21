@@ -1,16 +1,27 @@
-﻿<div class="row" ng-show="vm.questions">
+﻿<div class="row" ng-show="vm.list">
     <div class="col-md-12">
-        <ul dnd-list="vm.questions.list" class="drag-and-drop-list">
-            <li ng-repeat="item in vm.questions.list"
-                dnd-draggable="item"
-                dnd-moved="vm.questions.list.splice($index, 1)"
-                dnd-effect-allowed="copyMove"
-                dnd-selected="models.selected = item"
-                class="drag-and-drop-item"
-                ng-class="{'selected': models.selected === item}">
-                <oep-draggable-item index="$index+1" text="item.questionText" item-id="item.questionId" delete-event="vm.questions.list.splice"></oep-draggable-item>
-            </li>
-        </ul>
+        <uib-accordion>
+            <ul dnd-list="vm.list" class="drag-and-drop-list">
+                <li ng-repeat="item in vm.list"
+                    dnd-draggable="item"
+                    dnd-moved="vm.list.splice($index, 1)"
+                    dnd-effect-allowed="copyMove"
+                    dnd-selected="models.selected = item"
+                    class="drag-and-drop-item"
+                    ng-class="{'selected': models.selected === item}">
+                    <uib-accordion-group is-open="item.isOpen" is-disabled=true>
+                        <uib-accordion-heading>
+                            <span>{{$index + 1}}.</span>&emsp;
+                            <span>{{item.examDetails.questionText}}</span>
+                            <div class="pull-right">
+                                <a class="glyphicon glyphicon-edit" href="javascript:void(0);" ng-click="vm.editQuestion(item)"></a>&nbsp;<a class="glyphicon glyphicon-remove" href="javascript:void(0);" ng-click="vm.deleteQuestion($index)"></a>
+                            </div>
+                        </uib-accordion-heading>
+                        <oep-question-edit question="item.question"></oep-question-edit>
+                    </uib-accordion-group>
+                </li>
+            </ul>
+        </uib-accordion>
     </div>
 </div>
 <div class="row mb05">
@@ -19,6 +30,7 @@
 <div class="row mb1">
     <div class="col-md-12">
         <div class="btn-group pull-right">
+            <button class="btn btn-primary" ng-click="vm.addQuestion()">Dodaj pitanje</button>
             <button class="btn btn-primary" ng-click="vm.saveChanges()">Spremi</button>
             <button class="btn btn-primary" ui-sref="main.exams">Odustani</button>
         </div>

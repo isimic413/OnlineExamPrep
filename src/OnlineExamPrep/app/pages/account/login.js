@@ -11,8 +11,8 @@
                 var vm = scope.vm;
 
                 vm.user = {
-                    userName: null,
-                    password: null
+                    userName: "admin@admin.com",
+                    password: "asd@qwe"
                 };
 
                 vm.login = function () {
