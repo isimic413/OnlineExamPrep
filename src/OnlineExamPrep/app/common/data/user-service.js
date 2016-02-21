@@ -8,7 +8,7 @@
 
         this.getApplicationData = function (token) {
             var options = {
-                header: { 'Authorization': token }
+                headers: { 'Authorization': token }
             };
             return DataService.get(path + '/applicationData', null, options);
         };

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
@@ -20,6 +21,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
             this.userService = userService;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("ApplicationData")]
         public async Task<HttpResponseMessage> GetApplicationData()

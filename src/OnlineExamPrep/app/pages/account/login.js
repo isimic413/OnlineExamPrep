@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepLogin', function (Paths, AccountService, UserService, Principal) {
+    .directive('oepLogin', function (Paths, AccountService, UserService, Principal, Lookups) {
         'use strict';
         return {
             restrict: 'E',
@@ -25,7 +25,16 @@
                     AccountService.login(vm.user).success(function (data) {
                         var token = 'Bearer ' + data['access_token'];
                         UserService.getApplicationData(token).success(function (data) {
-
+                            var principalData = {
+                                token: token,
+                                role: data.role
+                            };
+                            var lookupData = {
+                                testingArea: data.testingAreas,
+                                questionType: data.questionTypes
+                            };
+                            Principal.setCurrent(principalData);
+                            Lookups.setLookups(lookupData);
                         });
                     }).error(function (data, error) {
                         console.log(error);

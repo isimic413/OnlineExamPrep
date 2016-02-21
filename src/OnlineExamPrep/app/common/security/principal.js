@@ -6,6 +6,7 @@
 
         this.setCurrent = function (data) {
             $window.localStorage.principal = angular.toJson(data);
+            principal = data;
         };
 
         this.getCurrent = function () {
@@ -20,8 +21,7 @@
             delete $window.localStorage.principal;
         };
 
-        this.isAdminUser = function () {
-            var currentPrincipal = self.getCurrent();
-            return currentPrincipal && currentPrincipal.isAdmin;
+        this.isInRoles = function (roles) {
+            return roles.split(',').indexOf(principal.role) > -1;
         };
     });

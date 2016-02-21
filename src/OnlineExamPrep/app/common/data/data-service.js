@@ -25,8 +25,8 @@
                 url: path,
                 data: params
             };
-            if (options && options.header) {
-                config.header = options.header;
+            if (options && options.headers) {
+                config.headers = options.headers;
             }
             return sendRequest(config);
         };
@@ -37,8 +37,8 @@
                 url: path,
                 data: params
             };
-            if (options && options.header) {
-                config.header = options.header;
+            if (options && options.headers) {
+                config.headers = options.headers;
             }
             return sendRequest(config);
         };
@@ -49,8 +49,8 @@
                 url: path,
                 data: params
             };
-            if (options && options.header) {
-                config.header = options.header;
+            if (options && options.headers) {
+                config.headers = options.headers;
             }
             return sendRequest(config);
         };
@@ -61,8 +61,8 @@
                 url: path,
                 data: params
             };
-            if (options && options.header) {
-                config.header = options.header;
+            if (options && options.headers) {
+                config.headers = options.headers;
             }
             return sendRequest(config);
         };
