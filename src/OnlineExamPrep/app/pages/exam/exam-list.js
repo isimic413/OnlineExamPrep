@@ -32,7 +32,7 @@
                         return exam.id === vm.checkedItem.id;
                     });
 
-                    $state.go('public.exam/questions', { id: selectedExam.id }, { inherit: false });
+                    $state.go('main.exam/questions', { id: selectedExam.id }, { inherit: false });
                 };
 
                 vm.customAction = {

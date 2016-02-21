@@ -27,7 +27,7 @@
                     }
 
                     RoleService.saveRole(vm.role).success(function () {
-                        $state.go('public.roles');
+                        $state.go('main.roles');
                     });
                 }
             }

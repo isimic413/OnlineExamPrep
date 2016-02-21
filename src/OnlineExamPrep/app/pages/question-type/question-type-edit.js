@@ -27,7 +27,7 @@
                     }
 
                     QuestionTypeService.saveQuestionType(vm.questionType).success(function () {
-                        $state.go('public.question-types');
+                        $state.go('main.question-types');
                     });
                 }
             }

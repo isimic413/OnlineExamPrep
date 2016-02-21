@@ -64,7 +64,7 @@
                     };
 
                     QuestionService.saveQuestion(params).success(function () {
-                        $state.go('public.questions');
+                        $state.go('main.questions');
                     });
                 };
 

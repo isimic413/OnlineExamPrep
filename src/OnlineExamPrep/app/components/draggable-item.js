@@ -17,7 +17,7 @@
                 };
 
                 scope.editQuestion = function () {
-                    var url = $state.href('public.question/edit', { id: scope.itemId });
+                    var url = $state.href('main.question/edit', { id: scope.itemId });
                     $window.open(url, '_blank');
                 };
             }

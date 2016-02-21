@@ -55,7 +55,7 @@
                     vm.exam.term = vm.examTerms.model.id;
 
                     ExamService.saveExam(vm.exam).success(function () {
-                        $state.go('public.exams');
+                        $state.go('main.exams');
                     });
                 };
 

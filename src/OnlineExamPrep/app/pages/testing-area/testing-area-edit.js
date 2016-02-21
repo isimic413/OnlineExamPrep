@@ -27,7 +27,7 @@
                     }
 
                     TestingAreaService.saveTestingArea(vm.testingArea).success(function () {
-                        $state.go('public.testing-areas');
+                        $state.go('main.testing-areas');
                     });
                 }
             }

@@ -3,5 +3,5 @@
         user: 'Korisnik',
         admin: 'Admin',
 
-        groupAllRoles: ['Korisnik', 'Admin']
+        allRoles: 'Korisnik,Admin'
     });

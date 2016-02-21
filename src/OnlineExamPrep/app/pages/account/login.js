@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepLogin', function (Paths, AccountService, UserService, Principal, Lookups) {
+    .directive('oepLogin', function ($state, Paths, AccountService, UserService, Principal, Lookups) {
         'use strict';
         return {
             restrict: 'E',
@@ -35,6 +35,8 @@
                             };
                             Principal.setCurrent(principalData);
                             Lookups.setLookups(lookupData);
+
+                            $state.go('main.home');
                         });
                     }).error(function (data, error) {
                         console.log(error);

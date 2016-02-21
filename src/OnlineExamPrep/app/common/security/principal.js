@@ -22,6 +22,6 @@
         };
 
         this.isInRoles = function (roles) {
-            return roles.split(',').indexOf(principal.role) > -1;
+            return roles && roles.split(',').indexOf(principal.role) > -1;
         };
     });

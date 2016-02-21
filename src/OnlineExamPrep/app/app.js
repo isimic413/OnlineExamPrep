@@ -23,111 +23,122 @@
             url: '/',
             directive: 'home'
         },
-        // account
-        'public.account/registration': {
-            url: '/registracija', // registration
-            title: 'Registracija', // Registration
-            directive: 'register'
+        'main.home': {
+            url: '/pocetna',
+            title: '',
+            directive: 'home',
+            roles: Roles.allRoles
         },
-        'public.account/login': {
-            url: '/prijava', // login
-            title: 'Prijava', // User login
-            directive: 'login'
-        },
-        'public.testing-areas': {
+        'main.testing-areas': {
             url: '/podrucja-ispitivanja', // testing-areas
             title: 'Područja ispitivanja', // Testing Area List
             directive: 'testing-area-list',
             params: {
-                entityRoutePrefix: 'public.testing-area/'
-            }
+                entityRoutePrefix: 'main.testing-area/'
+            },
+            roles: Roles.admin
         },
-        'public.testing-area/add': {
+        'main.testing-area/add': {
             url: '/podrucja-ispitivanja/novo', // testing-area/add
             title: 'Novo područje ispitivanja', // Add Testing Area
-            directive: 'testing-area-edit'
+            directive: 'testing-area-edit',
+            roles: Roles.admin
         },
-        'public.testing-area/edit': {
+        'main.testing-area/edit': {
             url: '/podrucja-ispitivanja/uredi/:id', // testing-area/edit/id
             title: 'Uredi područje ispitivanja', // Edit Testing Area
-            directive: 'testing-area-edit'
+            directive: 'testing-area-edit',
+            roles: Roles.admin
         },
-        'public.roles': {
+        'main.roles': {
             url: '/tipovi-korisnika', // roles
             title: 'Tipovi korisnika', // Role list
             directive: 'role-list',
             params: {
-                entityRoutePrefix: 'public.role/'
-            }
+                entityRoutePrefix: 'main.role/'
+            },
+            roles: Roles.admin
         },
-        'public.role/add': {
+        'main.role/add': {
             url: '/tipovi-korisnika/novo', // role/add
             title: 'Novi tip korisnika', // Add Role
-            directive: 'role-edit'
+            directive: 'role-edit',
+            roles: Roles.admin
         },
-        'public.role/edit': {
+        'main.role/edit': {
             url: '/tipovi-korisnika/uredi/:id', // role/edit/id
             title: 'Uredi tip korisnika', // Edit Role
-            directive: 'role-edit'
+            directive: 'role-edit',
+            roles: Roles.admin
         },
-        'public.question-types': {
+        'main.question-types': {
             url: '/tipovi-zadataka', // roles
             title: 'Tipovi zadataka', // Role list
             directive: 'question-type-list',
             params: {
-                entityRoutePrefix: 'public.question-type/'
-            }
+                entityRoutePrefix: 'main.question-type/'
+            },
+            roles: Roles.admin
         },
-        'public.question-type/add': {
+        'main.question-type/add': {
             url: '/tipovi-zadataka/novo', // question-type/add
             title: 'Novi tip zadatka', // Add Question Type
-            directive: 'question-type-edit'
+            directive: 'question-type-edit',
+            roles: Roles.admin
         },
-        'public.question-type/edit': {
+        'main.question-type/edit': {
             url: '/tipovi-zadataka/uredi/:id', // question-type/edit/id
             title: 'Uredi tip zadatka', // Edit Question Type
-            directive: 'question-type-edit'
+            directive: 'question-type-edit',
+            roles: Roles.admin
         },
-        'public.questions': {
+        'main.questions': {
             url: '/zadaci', // questions
             title: 'Zadaci', // Question list
             directive: 'question-list',
             params: {
-                entityRoutePrefix: 'public.question/'
-            }
+                entityRoutePrefix: 'main.question/'
+            },
+            roles: Roles.admin
         },
-        'public.question/add': {
+        'main.question/add': {
             url: '/zadatak/novo', // question/add
             title: 'Novi zadatak', // Add Question
-            directive: 'question-edit'
+            directive: 'question-edit',
+            roles: Roles.admin
         },
-        'public.question/edit': {
+        'main.question/edit': {
             url: '/zadatak/uredi/:id', // question/edit/id
             title: 'Uredi zadatak', // Edit Question
-            directive: 'question-edit'
+            directive: 'question-edit',
+            roles: Roles.admin
         },
-        'public.exams': {
+        'main.exams': {
             url: '/ispiti', // exams
             title: 'Ispiti', // Exam list
             directive: 'exam-list',
             params: {
-                entityRoutePrefix: 'public.exam/'
-            }
+                entityRoutePrefix: 'main.exam/'
+            },
+            roles: Roles.admin
         },
-        'public.exam/add': {
+        'main.exam/add': {
             url: '/ispit/novo', // exam/add
             title: 'Novi ispit', // Add Exam
-            directive: 'exam-edit'
+            directive: 'exam-edit',
+            roles: Roles.admin
         },
-        'public.exam/edit': {
+        'main.exam/edit': {
             url: '/ispit/uredi/:id', // exam/edit/id
             title: 'Uredi ispit', // Edit Exam
-            directive: 'exam-edit'
+            directive: 'exam-edit',
+            roles: Roles.admin
         },
-        'public.exam/questions': {
+        'main.exam/questions': {
             url: '/ispiti/zadaci/:id', // exam/questions/id
             title: 'Zadaci s ispita',
-            directive: 'exam-question-order-edit'
+            directive: 'exam-question-order-edit',
+            roles: Roles.admin
         }
     };
 
@@ -139,11 +150,8 @@
             title: routes[route].title,
             template: '<oep-' + routes[route].directive + '></oep-' + routes[route].directive + '>',
             url: routes[route].url ? routes[route].url : '/' + route.split('.')[1],
-            params: routes[route].params ? angular.extend(stateParams, { roles: routes[route].params }) : stateParams
+            data: routes[route]
         };
-        if (routes[route].roles) {
-            state.params = angular.extend({ roles: routes[route].roles }, state.params);
-        }
 
         $stateProvider.state(route, state);
     }
@@ -152,13 +160,17 @@
         enabled: true,
         requireBase: false
     });
-}).run(function ($rootScope, $state) {
+}).run(function ($injector, $rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        var a = 3;
-    });
+        var principal = $injector.get('Principal');
+        if (!principal.getCurrent() && toState.name !== 'public.home') {
+            event.preventDefault();
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        $rootScope.title = toState.title ? toState.title : null;
-        $rootScope.subtitle = null;
+            $state.go('public.home');
+        }
+        else {
+            $rootScope.title = toState.title ? toState.title : null;
+            $rootScope.subtitle = null;
+        }
     });
 });

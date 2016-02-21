@@ -25,7 +25,7 @@
                         examQuestions: vm.questions.list,
                         examId: $state.params.id
                     }).success(function (data) {
-                        $state.go('public.exams');
+                        $state.go('main.exams');
                     });
                 };
             }
