@@ -17,5 +17,6 @@ namespace OnlineExamPrep.Service.Common
         Task<int> InsertAsync(IExam exam);
         Task<int> UpdateAsync(IExam exam);
         Task<int> DeleteAsync(string examId);
+        Task<int> UpdateQuestionOrderAsync(string examId, IExamQuestion[] examQuestions);
     }
 }

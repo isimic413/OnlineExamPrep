@@ -41,6 +41,7 @@ namespace OnlineExamPrep.Repository
         public async Task<List<IExamQuestionParams>> GetExamQuestionsAsync(string examId)
         {
             var examQuestions = await repository.FetchCollection<ExamQuestionEntity>()
+                .OrderBy(eq => eq.Number)
                 .Where(eq => eq.ExamId == examId)
                 .Include(eq => eq.Question)
                 .ToListAsync();
@@ -75,6 +76,11 @@ namespace OnlineExamPrep.Repository
         public Task<int> AddExamQuestionForInsert(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
         {
             return unitOfWork.AddForInsertAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
+        }
+
+        public Task<int> AddExamQuestionForUpdateAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion)
+        {
+            return unitOfWork.AddForUpdateAsync<ExamQuestionEntity>(Mapper.Map<ExamQuestionEntity>(examQuestion));
         }
 
         public Task<int> AddExamQuestionForDeleteAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion)

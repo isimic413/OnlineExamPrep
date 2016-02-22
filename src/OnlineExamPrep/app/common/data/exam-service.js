@@ -24,7 +24,7 @@
         };
 
         this.saveQuestionOrder = function (params) {
-            return DataService.post(path + '/' + params.examId, params);
+            return DataService.put(path + '/questionOrder/' + params.examId, params);
         }
 
         this.deleteExam = function (examId) {

@@ -15,6 +15,7 @@ namespace OnlineExamPrep.Repository.Common
         Task<int> UpdateAsync(IExam exam);
         Task<int> DeleteAsync(string examId);
         Task<int> AddExamQuestionForInsert(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
+        Task<int> AddExamQuestionForUpdateAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
         Task<int> AddExamQuestionForDeleteAsync(IUnitOfWork unitOfWork, IExamQuestion examQuestion);
         Task<int> AddExamQuestionForDeleteAsync(IUnitOfWork unitOfWork, string examQuestionId);
         Task<int> GetNumberOfQuestionsAsync(string examId);

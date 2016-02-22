@@ -92,6 +92,27 @@
             directive: 'question-type-edit',
             roles: Roles.admin
         },
+        'main.questions': {
+            url: '/zadaci', // questions
+            title: 'Zadaci', // Question list
+            directive: 'question-list',
+            params: {
+                entityRoutePrefix: 'main.question/'
+            },
+            roles: Roles.admin
+        },
+        'main.question/add': {
+            url: '/zadatak/novo', // question/add
+            title: 'Novi zadatak', // Add Question
+            directive: 'question-edit',
+            roles: Roles.admin
+        },
+        'main.question/edit': {
+            url: '/zadatak/uredi/:id', // question/edit/id
+            title: 'Uredi zadatak', // Edit Question
+            directive: 'question-edit',
+            roles: Roles.admin
+        },
         'main.exams': {
             url: '/ispiti', // exams
             title: 'Ispiti', // Exam list

@@ -1,5 +1,6 @@
 ﻿using OnlineExamPrep.Common;
 using OnlineExamPrep.Models;
+using OnlineExamPrep.Models.Common;
 using OnlineExamPrep.Models.Common.ParamsModel;
 using OnlineExamPrep.Service.Common;
 using System;
@@ -79,5 +80,19 @@ namespace OnlineExamPrep.WebAPI.Controllers
             var exam = await examService.GetExamForUpdateAsync(examId);
             return Request.CreateResponse(HttpStatusCode.OK, exam);
         }
+
+        [HttpPut]
+        [Route("questionOrder/{examId}")]
+        public async Task<HttpResponseMessage> UpdateQuestionOrderAsync(ExamQuestionOrderParams orderParams)
+        {
+            await examService.UpdateQuestionOrderAsync(orderParams.ExamId, orderParams.ExamQuestions);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+    }
+
+    public class ExamQuestionOrderParams
+    {
+        public ExamQuestion[] ExamQuestions { get; set; }
+        public string ExamId { get; set; }
     }
 }

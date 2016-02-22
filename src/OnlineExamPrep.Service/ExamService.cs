@@ -15,10 +15,12 @@ namespace OnlineExamPrep.Service
     public class ExamService : IExamService
     {
         protected IExamRepository examRepository { get; private set; }
+        protected IQuestionRepository questionRepository { get; private set; }
 
-        public ExamService(IExamRepository examRepository)
+        public ExamService(IExamRepository examRepository, IQuestionRepository questionRepository)
         {
             this.examRepository = examRepository;
+            this.questionRepository = questionRepository;
         }
 
         public async Task<List<dynamic>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams)
@@ -68,6 +70,24 @@ namespace OnlineExamPrep.Service
         public Task<int> DeleteAsync(string examId)
         {
             return examRepository.DeleteAsync(examId);
+        }
+
+        public async Task<int> UpdateQuestionOrderAsync(string examId, IExamQuestion[] examQuestions)
+        {
+            var unitOfWork = questionRepository.GetUnitOfWork();
+
+            var existingEqs = await examRepository.GetExamQuestionsAsync(examId);
+            var questionsToDelete = existingEqs.Where(e => !examQuestions.Select(eq => eq.Id).Contains(e.Id));
+            foreach(var q in questionsToDelete)
+            {
+                await questionRepository.AddForDeleteAsync(unitOfWork, q.QuestionId);
+            }
+            foreach (var eq in examQuestions)
+            {
+                await examRepository.AddExamQuestionForUpdateAsync(unitOfWork, eq);
+            }
+
+            return await unitOfWork.CommitAsync();
         }
     }
 }
