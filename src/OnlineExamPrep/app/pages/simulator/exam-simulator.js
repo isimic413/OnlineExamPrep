@@ -18,7 +18,7 @@
                     vm.questions = _.sortBy(data.questions, function (question) {
                         return question.number;
                     });
-                    vm.examLength = data.durationInMinutes * 60;
+                    vm.examLength = parseInt(data.exam.durationInMinutes, 10) * 60;
                 });
             }
         };

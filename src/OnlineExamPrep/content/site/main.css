@@ -49,3 +49,13 @@
     min-width: 2em;
     max-width: 2em;
 }
+
+.timer {
+    border: 0.2em solid #5681C1;
+    border-radius: 5px;
+    width: 5em;
+    text-align: center;
+    display: inline;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    font-weight: bold;
+}
