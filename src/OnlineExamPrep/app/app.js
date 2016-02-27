@@ -139,6 +139,30 @@
             title: 'Zadaci s ispita',
             directive: 'exam-question-order-edit',
             roles: Roles.admin
+        },
+        'main.simulator': {
+            url: '/simulator/odabir-ispita', // simulator/menu
+            title: 'Simulator',
+            directive: 'simulator-exam-list',
+            roles: Roles.allRoles
+        },
+        'main.simulator/exam': {
+            url: '/simulator/ispit/:id', // simulator/exam/:id
+            title: 'Ispit',
+            directive: 'exam-simulator',
+            params: {
+                examTitle: null
+            },
+            roles: Roles.allRoles
+        },
+        'main.simulator/results': {
+            url: '/simulator/ispit/rezultat', // simulator/exam/result
+            title: 'Rezultat ispita',
+            directive: 'exam-result',
+            params: {
+                examTitle: null
+            },
+            roles: Roles.allRoles
         }
     };
 
@@ -174,4 +198,8 @@
             $rootScope.subtitle = null;
         }
     });
+
+    $rootScope.getRouteUrl = function (route, params) {
+        return $state.href(route, params, { inherit: false });
+    };
 });

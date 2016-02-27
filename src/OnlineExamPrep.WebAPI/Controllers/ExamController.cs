@@ -12,7 +12,7 @@ using System.Web.Http;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [AllowAnonymous]
-    [RoutePrefix("api/Exam")]
+    [RoutePrefix("api/exam")]
     public class ExamController : ApiController
     {
         protected IExamService examService { get; private set; }
@@ -28,6 +28,22 @@ namespace OnlineExamPrep.WebAPI.Controllers
         {
             var examList = await examService.GetPageWithQuestionsAndTestingAreaAsync(pagingParams);
             return Request.CreateResponse(HttpStatusCode.OK, examList);
+        }
+
+        [HttpPost]
+        [Route("page")]
+        public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
+        {
+            var list = await examService.GetCollectionAsync(pagingParams);
+            return Request.CreateResponse(HttpStatusCode.OK, list);
+        }
+
+        [HttpGet]
+        [Route("questions/{examId}")]
+        public async Task<HttpResponseMessage> GetFullExamQuestionsAsync(string examId)
+        {
+            var data = await examService.GetExamDataForSimulationAsync(examId);
+            return Request.CreateResponse(HttpStatusCode.OK, (object)data);
         }
 
         [HttpPost]

@@ -12,6 +12,8 @@ namespace OnlineExamPrep.Service.Common
     public interface IExamService
     {
         Task<List<dynamic>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
+        Task<List<IExam>> GetCollectionAsync(PagingParams pagingParams);
+        Task<dynamic> GetExamDataForSimulationAsync(string examId);
         Task<IExamParams> GetExamForUpdateAsync(string examId);
         Task<dynamic> GetExamQuestionsAsync(string examId);
         Task<int> InsertAsync(IExam exam);

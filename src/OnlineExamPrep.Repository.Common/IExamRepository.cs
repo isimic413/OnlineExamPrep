@@ -9,8 +9,10 @@ namespace OnlineExamPrep.Repository.Common
     public interface IExamRepository
     {
         Task<List<IExamParams>> GetPageWithQuestionsAndTestingAreaAsync(PagingParams pagingParams);
+        Task<List<IExam>> GetCollectionAsync(PagingParams pagingParams);
         Task<IExamParams> GetExamForUpdateAsync(string examId);
         Task<List<IExamQuestionParams>> GetExamQuestionsAsync(string examId);
+        Task<dynamic> GetExamDataForSimulationAsync(string examId);
         Task<int> InsertAsync(IExam exam);
         Task<int> UpdateAsync(IExam exam);
         Task<int> DeleteAsync(string examId);

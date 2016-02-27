@@ -21,11 +21,6 @@
                 scope.$watch('$root.loadingContent', function () {
                     scope.loadingContent = scope.$root.loadingContent;
                 });
-
-                scope.logout = function () {
-                    Principal.removeCurrent();
-                    $state.go('public.home');
-                };
             }
         }
     });

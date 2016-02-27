@@ -6,6 +6,14 @@
             return DataService.post(path + '/getPage', pagingParams);
         };
 
+        this.getCollection = function (pagingParams) {
+            return DataService.post(path + '/page', pagingParams);
+        };
+
+        this.fullExamQuestions = function (examId) {
+            return DataService.get(path + '/questions/' + examId, examId);
+        };
+
         this.getExam = function (examId) {
             return DataService.get(path + '/' + examId, examId);
         };

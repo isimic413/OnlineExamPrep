@@ -10,7 +10,8 @@
                 questionType: '/questionType',
                 role: '/role',
                 testingArea: '/testingArea',
-                user: '/user'
+                user: '/user',
+                simulator: '/simualtor'
             }
         },
         app: {
@@ -24,6 +25,7 @@
             question: 'question/',
             questionType: 'question-type/',
             role: 'role/',
-            testingArea: 'testing-area/'
+            testingArea: 'testing-area/',
+            simulator: 'simulator/'
         }
     });

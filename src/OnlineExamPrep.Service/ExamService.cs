@@ -34,6 +34,16 @@ namespace OnlineExamPrep.Service
             }).ToList();
         }
 
+        public Task<List<IExam>> GetCollectionAsync(PagingParams pagingParams)
+        {
+            return examRepository.GetCollectionAsync(pagingParams);
+        }
+
+        public Task<dynamic> GetExamDataForSimulationAsync(string examId)
+        {
+            return examRepository.GetExamDataForSimulationAsync(examId);
+        }
+
         public Task<IExamParams> GetExamForUpdateAsync(string examId)
         {
             return examRepository.GetExamForUpdateAsync(examId);

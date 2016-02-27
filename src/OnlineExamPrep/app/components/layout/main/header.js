@@ -13,6 +13,11 @@
                 vm.routes = _.filter($state.get(), function (state) {
                     return state.data && state.data.roles && Principal.isInRoles(state.data.roles);
                 });
+
+                scope.logout = function () {
+                    Principal.removeCurrent();
+                    $state.go('public.home');
+                };
             }
         }
     });
