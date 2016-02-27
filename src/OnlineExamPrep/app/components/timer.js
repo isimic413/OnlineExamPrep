@@ -8,7 +8,7 @@
                 timeInSeconds: '='
             },
             link: function (scope) {
-                var intervalCount = scope.timeInSeconds;
+                var intervalCount = scope.timeInSeconds + 1;
                 scope.dangerZone = scope.timeInSeconds / 10;
                 $interval(function () {
                     scope.hours = ('0' + Math.floor(scope.timeInSeconds / 3600)).slice(-2);

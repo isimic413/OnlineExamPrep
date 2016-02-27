@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepExamSimulator', function ($q, $state, Constants, Lookups, ExamService, Paths) {
+    .directive('oepExamSimulator', function ($window, $q, $state, Constants, Lookups, ExamService, Paths) {
         'use strict';
         return {
             restrict: 'E',
@@ -20,6 +20,20 @@
                     });
                     vm.examLength = parseInt(data.exam.durationInMinutes, 10) * 60;
                 });
+
+                setHeight();
+
+                scope.$watch(function () { return $window.innerHeight; }, function () {
+                    setHeight();
+                });
+
+                function setHeight() {
+                    var e = angular.element('#simulator');
+                    var offset = $window.innerHeight - 225;
+                    e.css('height', (offset > 450 ? offset : 450) + 'px');
+                }
+
+                
             }
         };
     });
