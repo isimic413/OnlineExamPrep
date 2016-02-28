@@ -56,7 +56,7 @@
     width: 5em;
     text-align: center;
     display: inline;
-    padding: 0.2em 0.4em 0.2em 0.4em;
+    padding: 6px 12px;
     font-weight: bold;
 }
 
@@ -81,4 +81,21 @@
     width: 80%;
     padding: 0.5em;
     overflow: auto;
+}
+
+.textarea-fixed-width {
+    min-width: 100%;
+    max-width: 100%
+}
+
+.active-question {
+    background-color: #E4EDFF;
+}
+
+.question-number:hover {
+    background-color: #dddddd;
+}
+
+.text-error {
+    color: #DE0703;
 }
