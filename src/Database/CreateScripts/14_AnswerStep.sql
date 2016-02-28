@@ -1,0 +1,35 @@
+﻿SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AnswerStep](
+	[Id] [nvarchar](128) NOT NULL,
+	[QuestionId] [nvarchar](128) NOT NULL,
+	[Text] [nvarchar](max) NOT NULL,
+	[Number] [tinyint] NOT NULL,
+	[Points] [tinyint] NOT NULL,
+ CONSTRAINT [PK_AnswerStep] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_AnswerStep_QuestionId_Number] UNIQUE NONCLUSTERED 
+(
+	[QuestionId] ASC,
+	[Number] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[AnswerStep] ADD  CONSTRAINT [DF_AnswerStep_Points]  DEFAULT ((0)) FOR [Points]
+GO
+
+ALTER TABLE [dbo].[AnswerStep]  WITH CHECK ADD  CONSTRAINT [FK_AnswerStep_Question] FOREIGN KEY([QuestionId])
+REFERENCES [dbo].[Question] ([Id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[AnswerStep] CHECK CONSTRAINT [FK_AnswerStep_Question]
+GO

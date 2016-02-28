@@ -1,0 +1,29 @@
+﻿<form class="form-group registration" ng-submit="vm.register()" name="registrationForm" novalidate>
+    <div class="row">
+        <h2 class="h2 registration__header">Registracija korisnika</h2>
+    </div>
+    <div class="row">
+        <div class="content-full">
+            <label>E-mail</label>
+            <input type="email" class="form-control input-group normal ui" ng-model="vm.user.email" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="content-full">
+            <label>Lozinka</label>
+            <input type="password" class="form-control input-group normal ui" ng-model="vm.user.password" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="content-full">
+            <label>Ponovljena lozinka</label>
+            <input type="password" class="form-control input-group normal ui" ng-model="vm.user.confirmPassword" required />
+        </div>
+    </div>
+    <hr class="hr" />
+    <div class="row">
+        <div class="content-full">
+            <button type="submit" class="btn btn-primary"><span class="spinner" ng-show="vm.showSpinner">&nbsp;&nbsp;</span>Registriraj me!</button>
+        </div>
+    </div>
+</form>

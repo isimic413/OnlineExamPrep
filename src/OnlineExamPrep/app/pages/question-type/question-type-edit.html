@@ -1,0 +1,29 @@
+﻿<div ng-show="vm.showForm">
+    <form class="form-group" name="questionTypeEditForm" ng-submit="vm.saveQuestionType()" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Naziv</label>
+                <input type="text" class="form-control" ng-model="vm.questionType.title" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Skraćenica</label>
+                <input type="text" class="form-control" ng-model="vm.questionType.abbreviation" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary" type="submit">Spremi</button>
+                    <button class="btn btn-primary" ui-sref="main.question-types">Odustani</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

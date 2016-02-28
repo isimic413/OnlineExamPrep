@@ -1,0 +1,28 @@
+﻿<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th ng-repeat="column in vm.columns">{{column.display}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="entity in vm.entities" ng-click="vm.toggleSelection(entity)" ng-class="{'entity-row-selected': entity.isSelected}">
+                <td class="entity-row-selection"><span class="glyphicon glyphicon-ok" ng-show="entity.isSelected"></span><span ng-show="!entity.isSelected">&nbsp;</span></td>
+                <td ng-repeat="column in vm.columns">{{entity[column.id]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="btn-group pull-right">
+        <button class="btn btn-primary" ng-click="vm.gotoAddScreen()">Dodaj novo</button>
+        <button class="btn btn-primary" ng-click="vm.gotoEditScreen()" ng-disabled="!vm.checkedItem.id">Uredi</button>
+        <button class="btn btn-primary" ng-click="vm.customAction.method()" ng-if="vm.customAction" ng-disabled="!vm.customAction || !vm.checkedItem.id">{{vm.customAction.buttonText}}</button>
+        <button class="btn btn-danger" ng-if="!vm.disableDelete" ng-click="vm.delete()" ng-disabled="!vm.checkedItem.id">Obriši</button>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4 pull-left">
+            <uib-alert ng-repeat="alert in vm.alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</uib-alert>
+        </div>
+    </div>
+</div>

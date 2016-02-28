@@ -1,0 +1,36 @@
+﻿<div class="row" ng-show="vm.list">
+    <div class="col-md-12">
+        <uib-accordion>
+            <ul dnd-list="vm.list" class="drag-and-drop-list">
+                <li ng-repeat="item in vm.list"
+                    dnd-draggable="item"
+                    dnd-moved="vm.list.splice($index, 1)"
+                    dnd-effect-allowed="copyMove"
+                    dnd-selected="models.selected = item"
+                    class="drag-and-drop-item"
+                    ng-class="{'selected': models.selected === item}">
+                    <uib-accordion-group is-open=false is-disabled=true>
+                        <uib-accordion-heading>
+                            <span>{{$index + 1}}.</span>&emsp;
+                            <span>{{item.questionText}}</span>
+                            <div class="pull-right">
+                                <a class="glyphicon glyphicon-remove" href="javascript:void(0);" ng-click="vm.deleteQuestion($index)"></a>
+                            </div>
+                        </uib-accordion-heading>
+                    </uib-accordion-group>
+                </li>
+            </ul>
+        </uib-accordion>
+    </div>
+</div>
+<div class="row mb05">
+    <hr />
+</div>
+<div class="row mb1">
+    <div class="col-md-12">
+        <div class="btn-group pull-right">
+            <button class="btn btn-primary" ng-click="vm.saveChanges()">Spremi</button>
+            <button class="btn btn-primary" ui-sref="main.exams">Odustani</button>
+        </div>
+    </div>
+</div>

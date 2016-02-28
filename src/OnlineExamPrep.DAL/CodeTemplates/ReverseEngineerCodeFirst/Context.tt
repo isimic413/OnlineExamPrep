@@ -1,0 +1,64 @@
+<#@ template hostspecific="true" language="C#" #>
+<#@ include file="EF.Utility.CS.ttinclude" #><#@
+ output extension=".cs" #><#
+
+    var efHost = (EfTextTemplateHost)Host;
+    var code = new CodeGenerationTools(this);
+#>
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Threading.Tasks;
+using <#= code.EscapeNamespace(efHost.MappingNamespace) #>;
+
+namespace <#= code.EscapeNamespace(efHost.Namespace) #>
+{
+    public partial class <#= efHost.EntityContainer.Name #> : DbContext, I<#= efHost.EntityContainer.Name #>
+    {
+        static <#= efHost.EntityContainer.Name #>()
+        {
+            Database.SetInitializer<<#= efHost.EntityContainer.Name #>>(null);
+        }
+
+        public <#= efHost.EntityContainer.Name #>()
+            : base("Name=<#= efHost.EntityContainer.Name #>")
+        {
+        }
+
+<#
+    foreach (var set in efHost.EntityContainer.BaseEntitySets.OfType<EntitySet>())
+    {
+#>
+        public DbSet<<#= set.ElementType.Name #>Entity> <#= set.Name #> { get; set; }
+<#
+    }
+#>
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+<#
+    foreach (var set in efHost.EntityContainer.BaseEntitySets.OfType<EntitySet>())
+    {
+#>
+            modelBuilder.Configurations.Add(new <#= set.ElementType.Name #>EntityMap());
+<#
+    }
+#>
+        }
+    }
+
+    public interface I<#= efHost.EntityContainer.Name #> : IDisposable
+    {
+<#
+    foreach (var set in efHost.EntityContainer.BaseEntitySets.OfType<EntitySet>())
+    {
+#>
+        DbSet<<#= set.ElementType.Name #>Entity> <#= set.Name #> { get; set; }
+<#
+    }
+#>
+		DbSet<TEntity> Set<TEntity>() where TEntity : class;
+		DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+		Task<int> SaveChangesAsync();
+   }
+}

@@ -1,0 +1,40 @@
+﻿<div class="col-md-6">
+    <div ng-show="vm.showForm">
+        <form class="form-group" name="examExamForm" ng-submit="vm.saveExam()" novalidate>
+            <div class="row mb1">
+                <label>Naslov</label>
+                <input type="text" class="form-control" readonly ng-model="vm.examTitle" />
+            </div>
+            <div class="row mb1">
+                <label>Područje ispitivanja</label>
+                <br />
+                <oep-singleselect-dropdown selected-model="vm.testingAreas.model" options="vm.testingAreas.data"></oep-singleselect-dropdown>
+            </div>
+            <div class="row mb1">
+                <label>Trajanje u minutama</label>
+                <br />
+                <input type="number" class="form-control" ng-model="vm.exam.durationInMinutes" />
+            </div>
+            <div class="row mb1">
+                <div class="col-md-6 nopadding">
+                    <label>Ispitni rok</label>
+                    <br />
+                    <oep-singleselect-dropdown selected-model="vm.examTerms.model" options="vm.examTerms.data"></oep-singleselect-dropdown>
+                </div>
+                <div class="col-md-6 nopadding">
+                    <label>Godina</label>
+                    <input type="number" class="form-control" ng-model="vm.exam.year" />
+                </div>
+            </div>
+            <div class="row mb1">
+                <hr />
+            </div>
+            <div class="row mb1">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary" type="submit">Spremi</button>
+                    <button class="btn btn-primary" ui-sref="main.exams">Odustani</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿<div ng-show="vm.exams">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ispit</th>
+                <th>Broj pitanja</th>
+                <th>Trajanje</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="exam in vm.exams">
+                <td>{{exam.title}}</td>
+                <td>{{exam.numberOfQuestions}}</td>
+                <td>{{exam.durationInMinutes}}</td>
+                <td><a class="btn btn-primary" ui-sref="main.simulator/exam({ id: exam.id, examTitle: exam.title })">Pokreni</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
