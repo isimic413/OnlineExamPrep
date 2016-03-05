@@ -22,11 +22,11 @@
     var routes = {
         // public routes
         'public.home': {
-            url: '/',
+            url: '/prijava', // login
             directive: 'home'
         },
         'main.home': {
-            url: '/pocetna',
+            url: '/',
             title: '',
             directive: 'home',
             roles: Roles.allRoles
@@ -182,6 +182,8 @@
 
         $stateProvider.state(route, state);
     }
+
+    $urlRouterProvider.otherwise('/prijava'); // login
 
     $locationProvider.html5Mode({
         enabled: true,

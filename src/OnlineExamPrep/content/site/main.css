@@ -1,6 +1,33 @@
-﻿html, body {
-    min-height: 100%;
+﻿html {
+    box-sizing: border-box;
+    height: 100%;
     background-color: #F1F0FF;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    margin: 0px;
+    padding-bottom: 2.5em;
+    background-color: #F1F0FF;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+.footer a {
+    color: initial;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #A9A9A9;
 }
 
 .mambership-form {
@@ -14,7 +41,8 @@
 }
 
 .mambership-layout {
-    padding: 5em;
+    padding: 2em 5em 0em 5em;
+    margin: 15px;
 }
 
 .nav-header {
