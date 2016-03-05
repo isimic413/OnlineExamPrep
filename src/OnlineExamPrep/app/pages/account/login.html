@@ -1,6 +1,6 @@
-﻿<form class="form-group registration" ng-submit="vm.login()" name="loginForm" novalidate>
-    <div class="row">
-        <h2 class="h2 registration__header">Prijava korisnika</h2>
+﻿<form class="form-group registration mambership-form" ng-submit="vm.login()" name="loginForm" novalidate>
+    <div class="row title mb1">
+        <h3 class="h3">Prijava</h3>
     </div>
     <div class="row">
         <div class="content-full">
@@ -14,9 +14,8 @@
             <input type="password" class="form-control input-group normal ui" ng-model="vm.user.password" required />
         </div>
     </div>
-    <hr class="hr" />
     <div class="row">
-        <div class="content-full">
+        <div class="content-full pull-right">
             <button type="submit" class="btn btn-primary"><span class="spinner" ng-show="vm.showSpinner">&nbsp;&nbsp;</span>Prijava</button>
         </div>
     </div>

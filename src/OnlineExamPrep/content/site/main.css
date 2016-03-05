@@ -1,4 +1,35 @@
-﻿.content-full {
+﻿html, body {
+    min-height: 100%;
+    background-color: #F1F0FF;
+}
+
+.mambership-form {
+    background-color: #FFFFFF;
+    border: 1px solid #F1F0FF;
+}
+.mambership-form .title {
+    background-color: #F1F0FF;
+    text-align: center;
+    color: #777777;
+}
+
+.mambership-layout {
+    padding: 5em;
+}
+
+.nav-header {
+    border-radius: 0px;
+    border-color: #D1D4FF;
+    margin-bottom: 2.5em;
+}
+
+.nav-header .title {
+    font-weight: bold;
+    font-size: inherit;
+    padding-top: 0.1em;
+}
+
+.content-full {
     margin-bottom: 1em;
 }
 
