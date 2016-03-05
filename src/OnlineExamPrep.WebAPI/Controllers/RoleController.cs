@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [RoutePrefix("api/Role")]
     public class RoleController : ApiController
     {
@@ -41,6 +41,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(Role role)
         {
             if (role != null)
@@ -52,6 +53,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{RoleId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(Role role)
         {
             if (role != null)
@@ -63,6 +65,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{RoleId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string roleId)
         {
             if (!String.IsNullOrEmpty(roleId))

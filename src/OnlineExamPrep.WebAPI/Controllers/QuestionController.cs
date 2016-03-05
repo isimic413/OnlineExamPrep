@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [RoutePrefix("api/Question")]
     public class QuestionController : ApiController
     {
@@ -45,6 +45,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateQuestionWithChoicesAsync(QuestionParams questionParams)
         {
             await questionService.UpdateQuestionAsync(questionParams.Question, questionParams.AnswerChoices);
@@ -53,6 +54,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> CreateQuestionAsync(QuestionParams questionParams)
         {
             var result = await questionService.InsertAsync(questionParams.Question, questionParams.AnswerChoices, questionParams.ExamId);
@@ -65,6 +67,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{questionId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteQuestionAsync(string questionId)
         {
             var result = await questionService.DeleteQuestionAsync(questionId);

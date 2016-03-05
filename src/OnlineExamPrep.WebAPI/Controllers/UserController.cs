@@ -21,9 +21,9 @@ namespace OnlineExamPrep.WebAPI.Controllers
             this.userService = userService;
         }
 
-        [Authorize]
         [HttpGet]
         [Route("ApplicationData")]
+        [Authorize]
         public async Task<HttpResponseMessage> GetApplicationData()
         {
             var data = await userService.GetApplicationData(User.Identity.GetUserId());

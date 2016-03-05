@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [RoutePrefix("api/TestingArea")]
     public class TestingAreaController : ApiController
     {
@@ -44,6 +44,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -55,6 +56,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{TestingAreaId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -66,6 +68,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{TestingAreaId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))

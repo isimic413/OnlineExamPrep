@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [RoutePrefix("api/QuestionType")]
     public class QuestionTypeController : ApiController
     {
@@ -42,6 +42,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(QuestionType questionType)
         {
             if (questionType != null)
@@ -53,6 +54,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{QuestionTypeId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(QuestionType questionType)
         {
             if (questionType != null)
@@ -64,6 +66,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{QuestionTypeId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string questionTypeId)
         {
             if (!String.IsNullOrEmpty(questionTypeId))

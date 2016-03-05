@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [RoutePrefix("api/exam")]
     public class ExamController : ApiController
     {
@@ -48,6 +48,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(Exam exam)
         {
             if (exam != null)
@@ -67,6 +68,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{examId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(Exam exam)
         {
             var result = await examService.UpdateAsync(exam);
@@ -79,6 +81,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{examId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string examId)
         {
             var result = await examService.DeleteAsync(examId);
@@ -91,6 +94,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpGet]
         [Route("{examId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> GetExamForUpdateAsync(string examId)
         {
             var exam = await examService.GetExamForUpdateAsync(examId);
@@ -99,6 +103,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("questionOrder/{examId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateQuestionOrderAsync(ExamQuestionOrderParams orderParams)
         {
             await examService.UpdateQuestionOrderAsync(orderParams.ExamId, orderParams.ExamQuestions);
