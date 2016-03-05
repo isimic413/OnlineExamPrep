@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepLogin', function ($state, Paths, AccountService, UserService, Principal, Lookups) {
+    .directive('oepLogin', function ($state, Paths, AccountService, UserService, Principal, TokenService, Lookups) {
         'use strict';
         return {
             restrict: 'E',
@@ -23,10 +23,9 @@
 
                     vm.showSpinner = true;
                     AccountService.login(vm.user).success(function (data) {
-                        var token = 'Bearer ' + data['access_token'];
-                        UserService.getApplicationData(token).success(function (data) {
+                        TokenService.setToken(data);
+                        UserService.getApplicationData().success(function (data) {
                             var principalData = {
-                                token: token,
                                 role: data.role
                             };
                             var lookupData = {

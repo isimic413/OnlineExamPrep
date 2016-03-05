@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.components')
-    .directive('oepHeader', function ($state, Paths, Principal) {
+    .directive('oepHeader', function ($state, Paths, Principal, TokenService) {
         'use strict';
         return {
             restrict: 'E',
@@ -16,6 +16,7 @@
 
                 scope.logout = function () {
                     Principal.removeCurrent();
+                    TokenService.removeToken();
                     $state.go('public.home');
                 };
             }

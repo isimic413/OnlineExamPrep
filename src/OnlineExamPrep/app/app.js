@@ -5,8 +5,10 @@
     'onlineExamPrep.common',
     'onlineExamPrep.components',
     'onlineExamPrep.pages'
-]).config(function ($locationProvider, $stateProvider, $urlRouterProvider, Roles, Paths) {
+]).config(function ($httpProvider, $locationProvider, $stateProvider, $urlRouterProvider, Roles, Paths) {
     'use strict';
+
+    $httpProvider.interceptors.push('Interceptor');
 
     $stateProvider.state('public', {
         name: 'public',
