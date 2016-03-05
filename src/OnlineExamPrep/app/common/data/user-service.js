@@ -7,6 +7,6 @@
         };
 
         this.getApplicationData = function () {
-            return DataService.get(path + '/applicationData');
+            return DataService.get(path + '/application-data');
         };
     });

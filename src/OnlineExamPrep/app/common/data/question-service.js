@@ -7,7 +7,7 @@
         };
 
         this.getQuestionCollection = function (pagingParams) {
-            return DataService.post(path + '/getPage', pagingParams);
+            return DataService.post(path + '/page', pagingParams);
         };
 
         this.saveQuestion = function (params) {

@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/QuestionType")]
+    [RoutePrefix("api/question-type")]
     public class QuestionTypeController : ApiController
     {
         protected IQuestionTypeService questionTypeService { get; private set; }
@@ -33,8 +33,8 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetCollection")]
-        public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
+        [Route("page")]
+        public async Task<HttpResponseMessage> GetPageAsync(PagingParams pagingParams)
         {
             var questionTypeList = await questionTypeService.GetCollectionAsync(pagingParams);
             return Request.CreateResponse(HttpStatusCode.OK, questionTypeList);

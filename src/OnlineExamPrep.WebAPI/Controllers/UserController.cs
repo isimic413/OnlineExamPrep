@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [RoutePrefix("api/User")]
+    [RoutePrefix("api/user")]
     public class UserController : ApiController
     {
         protected IUserService userService { get; private set; }
@@ -22,7 +22,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("ApplicationData")]
+        [Route("application-data")]
         [Authorize]
         public async Task<HttpResponseMessage> GetApplicationData()
         {

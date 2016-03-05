@@ -23,19 +23,11 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetPage")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetPageAsync(PagingParams pagingParams)
         {
             var examList = await examService.GetPageWithQuestionsAndTestingAreaAsync(pagingParams);
             return Request.CreateResponse(HttpStatusCode.OK, examList);
-        }
-
-        [HttpPost]
-        [Route("page")]
-        public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
-        {
-            var list = await examService.GetCollectionAsync(pagingParams);
-            return Request.CreateResponse(HttpStatusCode.OK, list);
         }
 
         [HttpGet]
@@ -59,7 +51,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("questionPreviews/{examId}")]
+        [Route("question-previews/{examId}")]
         public async Task<HttpResponseMessage> GetExamQuestionPreviewsAsync(string examId)
         {
             var list = await examService.GetExamQuestionsAsync(examId);
@@ -102,7 +94,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("questionOrder/{examId}")]
+        [Route("question-order/{examId}")]
         [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateQuestionOrderAsync(ExamQuestionOrderParams orderParams)
         {

@@ -13,7 +13,7 @@ using System.Web.Http;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Question")]
+    [RoutePrefix("api/question")]
     public class QuestionController : ApiController
     {
         protected IQuestionService questionService { get; private set; }
@@ -24,7 +24,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetPage")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetPageAsync(PagingParams pagingParams)
         {
             var questionList = await questionService.GetPageAsync(pagingParams);

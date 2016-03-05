@@ -3,10 +3,6 @@
         var path = Paths.api.endpoint + Paths.api.paths.exam;
 
         this.getExamCollection = function (pagingParams) {
-            return DataService.post(path + '/getPage', pagingParams);
-        };
-
-        this.getCollection = function (pagingParams) {
             return DataService.post(path + '/page', pagingParams);
         };
 
@@ -19,7 +15,7 @@
         };
 
         this.getQuestionPreviews = function (examId) {
-            return DataService.get(path + '/questionPreviews/' + examId, examId);
+            return DataService.get(path + '/question-previews/' + examId, examId);
         }
 
         this.saveExam = function (exam) {
@@ -32,7 +28,7 @@
         };
 
         this.saveQuestionOrder = function (params) {
-            return DataService.put(path + '/questionOrder/' + params.examId, params);
+            return DataService.put(path + '/question-order/' + params.examId, params);
         }
 
         this.deleteExam = function (examId) {

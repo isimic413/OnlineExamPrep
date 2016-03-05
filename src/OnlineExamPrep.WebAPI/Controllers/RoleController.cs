@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Role")]
+    [RoutePrefix("api/role")]
     public class RoleController : ApiController
     {
         protected IRoleService roleService { get; private set; }
@@ -33,7 +33,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetCollection")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
         {
             return Request.CreateResponse(HttpStatusCode.OK, await roleService.GetCollectionAsync(pagingParams));

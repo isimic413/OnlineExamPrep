@@ -7,7 +7,7 @@
         };
 
         this.getRoleCollection = function (pagingParams) {
-            return DataService.post(path + '/getCollection', pagingParams);
+            return DataService.post(path + '/page', pagingParams);
         };
 
         this.saveRole = function (role) {

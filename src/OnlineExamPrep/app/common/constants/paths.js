@@ -7,9 +7,9 @@
                 account: '/account',
                 exam: '/exam',
                 question: '/question',
-                questionType: '/questionType',
+                questionType: '/question-type',
                 role: '/role',
-                testingArea: '/testingArea',
+                testingArea: '/testing-area',
                 user: '/user',
                 simulator: '/simualtor'
             }

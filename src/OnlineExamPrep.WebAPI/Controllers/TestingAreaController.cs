@@ -12,7 +12,7 @@ using System.Web.Http;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/TestingArea")]
+    [RoutePrefix("api/testing-area")]
     public class TestingAreaController : ApiController
     {
         protected ITestingAreaService testingAreaService { get; private set; }
@@ -35,7 +35,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetDataset")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetDatasetAsync(PagingParams pagingParams)
         {
             var result = await testingAreaService.GetCollectionAsync(pagingParams);
