@@ -1,5 +1,10 @@
-﻿html {
-    box-sizing: border-box;
+﻿*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
     height: 100%;
     background-color: #F1F0FF;
 }
@@ -7,9 +12,18 @@
 body {
     position: relative;
     min-height: 100%;
-    margin: 0px;
     padding-bottom: 2.5em;
     background-color: #F1F0FF;
+}
+
+.sideber-nav {
+    width: 12em;
+    border-right: 0.5px solid #CECECE;
+    background-color: #F7F7F7;
+    position: absolute;
+    top: 0;
+    padding: 6em 0.2em 1em 0.2em;
+    height: 100%;
 }
 
 .footer {
@@ -17,8 +31,14 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1em;
+  padding: 1em 1em 1em 15em;
   font-size: 0.9em;
+}
+
+.oep-header {
+    position: absolute;
+    z-index: 10;
+    min-width: 100%;
 }
 
 .footer a {
@@ -40,21 +60,90 @@ body {
     color: #777777;
 }
 
+.container-fluid {
+}
+
 .mambership-layout {
     padding: 2em 5em 0em 5em;
     margin: 15px;
 }
 
-.nav-header {
+.nav-header,
+.nav-header-main {
+    height: 5em;
     border-radius: 0px;
-    border-color: #D1D4FF;
+    background-color: #265A88;
+    min-width: 100%;
+}
+
+.nav-header {
     margin-bottom: 2.5em;
 }
 
-.nav-header .title {
+.logout {
+    position: absolute;
+    margin: 1em;
+    top: 0;
+    right: 0;
+    padding-right: 0.8em;
+    font-size: 1.5em;
+}
+
+.subtitle {
+    margin-top: 6em;
+    margin-left: 12em;
+}
+
+.subtitle hr {
+    border-top: 0.5px solid #B1BDCA;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.logout a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.logout a:hover {
+    color: #CECECE;
+}
+
+.main-container {
+    margin-left: 12em;
+}
+
+.nav-header .title, 
+.nav-header-main .title {
     font-weight: bold;
     font-size: inherit;
     padding-top: 0.1em;
+    color: #FFFFFF;
+}
+
+.nav-header .title:hover,
+.nav-header .title:visited,
+.nav-header-main .title:hover,
+.nav-header-main .title:visited {
+    color: #FFFFFF;
+}
+
+.sidebar-item {
+    border-radius: 4px;
+    background-color: #457CAD;
+    margin: 0.2em;
+    padding: 0.4em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar-item:hover {
+    cursor: pointer;
+}
+
+.active-item {
+    font-weight: bold;
+    background-color: #64646F;
 }
 
 .content-full {
@@ -63,7 +152,7 @@ body {
 
 .spinner {
     content: url(../img/spinner.gif);
-    margin-right: 0.3em;
+    margin: -0.1em 0em 0em 0.5em;
 }
 
 .nopadding:first-child {

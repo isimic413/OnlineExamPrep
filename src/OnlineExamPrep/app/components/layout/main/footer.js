@@ -3,7 +3,7 @@
         'use strict';
         return {
             restrict: 'E',
-            templateUrl: Paths.app.components + 'layout/footer.html',
+            templateUrl: Paths.app.components + 'layout/main/footer.html',
             scope: {
             },
             link: function (scope) {
@@ -13,5 +13,4 @@
                 vm.date = moment().format('YYYY');
             }
         }
-    }
-    );
+    });
