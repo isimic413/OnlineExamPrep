@@ -1,4 +1,4 @@
-﻿<div ng-show="vm.exams">
+﻿<div ng-show="vm.exams" class="entity-list">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -13,8 +13,9 @@
                 <td>{{exam.title}}</td>
                 <td>{{exam.numberOfQuestions}}</td>
                 <td>{{exam.durationInMinutes}}</td>
-                <td><a class="btn btn-primary" ui-sref="main.simulator/exam({ id: exam.id, examTitle: exam.title })">Pokreni</a></td>
+                <td><a class="btn btn-primary pull-right" ui-sref="main.simulator/exam({ id: exam.id, examTitle: exam.title })">Pokreni</a></td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="mb1"></div>

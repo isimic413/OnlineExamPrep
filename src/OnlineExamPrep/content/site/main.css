@@ -191,6 +191,23 @@ body {
     margin-bottom: 1em;
     border: 1px solid transparent;
     border-radius: 4px;
+    cursor: move;
+}
+
+.entity-list {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: auto;
+    background-color: #ECEAFF;
+    border: 1px solid #E4E4E4;
+}
+
+.entity-list table {
+    margin: auto;
+}
+
+.entity-list thead {
+    background-color: #DEDEF3;
 }
 
 .dndPlaceholder {
