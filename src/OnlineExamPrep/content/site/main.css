@@ -210,6 +210,14 @@ body {
     background-color: #DEDEF3;
 }
 
+.entity-list td,
+.entity-list th {
+    max-width: 25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .dndPlaceholder {
     min-height: 2em;
     background-color: #f6f6f6;
