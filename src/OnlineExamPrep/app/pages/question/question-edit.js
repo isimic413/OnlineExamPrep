@@ -21,7 +21,7 @@
                     return type;
                 });
                 vm.questionTypes.model = {};
-                
+
                 if ($state.params.id) {
                     $q.all([
                         ExamService.getExamCollection({}),
@@ -87,28 +87,6 @@
                 };
 
                 //#endregion
-            }
-        };
-    })
-    .directive('oepTex', function () {
-        'use strict';
-
-        return {
-            attribute: 'A',
-            require: {
-                ngModel: '='
-            },
-            link: function (scope, element, attrs) {
-                var deregisterWatcher = scope.$watch('vm.text', function (value) {
-                    var script = angular.element('<script type=\'math/tex\'>').html(value ? value : '');
-                    element.html('');
-                    element.append(script);
-                    MathJax.Hub.Queue(['Typeset', MathJax.Hub, element[0]]);
-                });
-
-                scope.$on('$destroy', function () {
-                    deregisterWatcher();
-                });
             }
         };
     });

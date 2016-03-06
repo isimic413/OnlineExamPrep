@@ -7,8 +7,10 @@
     tex2jax: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: false
+        processEscapes: true
     },
+    'HTML-CSS': { availableFonts: ['TeX'] },
+    messageStyle: 'none'
 });
 MathJax.Hub.Configured();
 
@@ -40,7 +42,7 @@ angular.module('onlineExamPrep', [
             //directive: 'home'
         },
         'main.home': {
-            //url: '/',
+            url: '/',
             title: 'Početna',
             directive: 'home',
             roles: Roles.allRoles
@@ -140,8 +142,7 @@ angular.module('onlineExamPrep', [
             roles: Roles.admin
         },
         'main.question/add': {
-            //url: '/zadatak/novo', // question/add
-            url: '/',
+            url: '/zadatak/novo', // question/add
             title: 'Novi zadatak', // Add Question
             directive: 'question-edit',
             params: {
