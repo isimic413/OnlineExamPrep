@@ -11,8 +11,15 @@
                 scope.vm = vm;
 
                 vm.user = {
-                    userName: 'admin@admin.com',
-                    password: 'asd@qwe'
+                    login: {
+                        userName: 'admin@admin.com',
+                        password: 'asd@qwe'
+                    },
+                    register: {
+                        email: null,
+                        password: null,
+                        confirmPassword: null
+                    }
                 };
 
                 scope.$watch('$root.title', function () {

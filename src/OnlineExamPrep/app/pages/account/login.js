@@ -9,17 +9,15 @@
             },
             link: function (scope) {
                 var vm = scope.vm;
-
+                
                 vm.login = function () {
                     if (!scope.loginForm.$valid) {
                         console.log(scope.loginForm.$error.required);
                         return;
                     }
 
-                    vm.user.userName = vm.user.email;
-
                     scope.$root.loadingContent = true;
-                    AccountService.login(vm.user).success(function (data) {
+                    AccountService.login(vm.user.login).success(function (data) {
                         TokenService.setToken(data);
                         UserService.getApplicationData().success(function (data) {
                             var principalData = {
