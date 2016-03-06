@@ -10,6 +10,18 @@
                 var vm = {};
                 scope.vm = vm;
 
+                vm.user = {
+                    login: {
+                        userName: 'admin@admin.com',
+                        password: 'asd@qwe'
+                    },
+                    register: {
+                        email: null,
+                        password: null,
+                        confirmPassword: null
+                    }
+                };
+
                 scope.$watch('$root.title', function () {
                     scope.title = scope.$root.title;
                 });

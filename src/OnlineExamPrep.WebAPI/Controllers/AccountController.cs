@@ -20,7 +20,7 @@ using OnlineExamPrep.WebAPI.Results;
 namespace OnlineExamPrep.WebAPI.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Account")]
+    [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -320,7 +320,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         // POST api/Account/Register
         [AllowAnonymous]
-        [Route("Register")]
+        [Route("register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)

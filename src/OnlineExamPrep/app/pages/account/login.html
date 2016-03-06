@@ -1,23 +1,22 @@
-﻿<form class="form-group registration" ng-submit="vm.login()" name="loginForm" novalidate>
-    <div class="row">
-        <h2 class="h2 registration__header">Prijava korisnika</h2>
+﻿<form class="form-group registration mambership-form" ng-submit="vm.login()" name="loginForm" ng-class="{'form-disabled': $root.loadingContent}" novalidate>
+    <div class="row title mb1">
+        <h3 class="h3">Prijava</h3>
     </div>
-    <div class="row">
+    <div class="row mb1">
         <div class="content-full">
             <label>E-mail</label>
-            <input type="email" class="form-control input-group normal ui" ng-model="vm.user.userName" required />
+            <input type="email" class="form-control input-group normal ui" ng-model="vm.user.login.userName" ng-disabled="$root.loadingContent" required />
         </div>
     </div>
-    <div class="row">
+    <div class="row mb1">
         <div class="content-full">
             <label>Lozinka</label>
-            <input type="password" class="form-control input-group normal ui" ng-model="vm.user.password" required />
+            <input type="password" class="form-control input-group normal ui" ng-model="vm.user.login.password" ng-disabled="$root.loadingContent" required />
         </div>
     </div>
-    <hr class="hr" />
     <div class="row">
-        <div class="content-full">
-            <button type="submit" class="btn btn-primary"><span class="spinner" ng-show="vm.showSpinner">&nbsp;&nbsp;</span>Prijava</button>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-primary" ng-disabled="$root.loadingContent">Prijava</button>
         </div>
     </div>
 </form>

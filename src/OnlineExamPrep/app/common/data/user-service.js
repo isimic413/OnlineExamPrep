@@ -6,10 +6,7 @@
             return DataService.get(path + '/role/' + userId, userId);
         };
 
-        this.getApplicationData = function (token) {
-            var options = {
-                headers: { 'Authorization': token }
-            };
-            return DataService.get(path + '/applicationData', null, options);
+        this.getApplicationData = function () {
+            return DataService.get(path + '/application-data');
         };
     });

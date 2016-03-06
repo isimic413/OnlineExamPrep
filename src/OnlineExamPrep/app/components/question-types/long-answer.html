@@ -1,11 +1,20 @@
 ﻿<div class="row mb1">
     <div class="col-xs-12 mb1">
-        {{vm.displayNumber}} {{vm.text}}
+        {{vm.displayNumber}} <oep-tex ng-model="vm.text" prop-to-watch="vm.text"></oep-tex>
     </div>
 </div>
-<div class="row mb05">
+<div class="question-choices">
+    <div class="row mb05">
+        <div class="col-xs-12">
+            Odgovor:<br />
+            <textarea ng-model="vm.selectedAnswer" rows="4" class="form-control textarea-fixed-width" ng-disabled="enableAnswer < 0" />
+        </div>
+    </div>
+</div>
+<div class="mb1"></div>
+<div class="row" ng-show="enableAnswer < 0">
     <div class="col-xs-12">
-        Odgovor:<br />
-        <textarea ng-model="vm.selectedAnswer" rows="4" class="textarea-fixed-width" ng-disabled="enableAnswer < 0" />
+        <label>Točan odgovor:</label><br />
+        <oep-tex ng-model="vm.correctAnswer" prop-to-watch="vm.correctAnswer"></oep-tex>
     </div>
 </div>

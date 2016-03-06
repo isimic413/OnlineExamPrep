@@ -7,9 +7,9 @@
                 account: '/account',
                 exam: '/exam',
                 question: '/question',
-                questionType: '/questionType',
+                questionType: '/question-type',
                 role: '/role',
-                testingArea: '/testingArea',
+                testingArea: '/testing-area',
                 user: '/user',
                 simulator: '/simualtor'
             }
@@ -26,6 +26,7 @@
             questionType: 'question-type/',
             role: 'role/',
             testingArea: 'testing-area/',
-            simulator: 'simulator/'
+            simulator: 'simulator/',
+            home: 'home/'
         }
     });

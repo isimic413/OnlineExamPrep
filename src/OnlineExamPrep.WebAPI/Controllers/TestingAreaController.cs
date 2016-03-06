@@ -11,8 +11,8 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
-    [RoutePrefix("api/TestingArea")]
+    [Authorize]
+    [RoutePrefix("api/testing-area")]
     public class TestingAreaController : ApiController
     {
         protected ITestingAreaService testingAreaService { get; private set; }
@@ -35,7 +35,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetDataset")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetDatasetAsync(PagingParams pagingParams)
         {
             var result = await testingAreaService.GetCollectionAsync(pagingParams);
@@ -44,6 +44,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -55,6 +56,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{TestingAreaId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(TestingArea testingArea)
         {
             if (testingArea != null)
@@ -66,6 +68,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{TestingAreaId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string testingAreaId)
         {
             if (!String.IsNullOrEmpty(testingAreaId))

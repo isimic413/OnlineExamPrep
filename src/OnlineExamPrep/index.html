@@ -10,22 +10,21 @@
     <link href="content/ui-bootstrap-csp.css" rel="stylesheet"/>
     <script src="scripts/angular.js"></script>
     <link rel="shortcut icon" href="../content/img/favicon.ico" />
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 </head>
 <body>
+
     <div ui-view></div>
 
     <!-- stylesheets -->
     <link href="content/site/main.css" rel="stylesheet" />
-    <link href="content/site/registration-form.css" rel="stylesheet" />
-
-    <script src="scripts/angular-animate.js"></script>
 
     <!-- main modules -->
+    <script src="scripts/angular-animate.js"></script>
     <script src="scripts/angular-ui-router.js"></script>
     <script src="scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="scripts/moment.js"></script>
     <script src="scripts/underscore.js"></script>
-    <script src="scripts/mathjax.js"></script>
     <script src="scripts/angular-drag-and-drop-lists.js"></script>
 
     <!-- app/common -->
@@ -45,7 +44,9 @@
     <script src="app/common/data/user-service.js"></script>
     <script src="app/common/data/testing-area-service.js"></script>
     <!-- security -->
+    <script src="app/common/security/token-service.js"></script>
     <script src="app/common/security/principal.js"></script>
+    <script src="app/common/security/interceptor.js"></script>
 
     <!-- app/components -->
     <script src="app/components/_components.js"></script>
@@ -54,6 +55,7 @@
     <!-- app/components/layout/main -->
     <script src="app/components/layout/main/footer.js"></script>
     <script src="app/components/layout/main/header.js"></script>
+    <script src="app/components/layout/main/sidebar.js"></script>
     <script src="app/components/layout/main/layout.js"></script>
 
     <script src="app/components/singleselect-dropdown.js"></script>
@@ -62,6 +64,7 @@
     <script src="app/components/timer.js"></script>
 
     <!-- app/components/question-types -->
+    <script src="app/components/question-types/tex.js"></script>
     <script src="app/components/question-types/alternative-answer.js"></script>
     <script src="app/components/question-types/long-answer.js"></script>
     <script src="app/components/question-types/multiple-choice-multi-answer.js"></script>
@@ -73,6 +76,8 @@
     <!-- app/pages/account -->
     <script src="app/pages/account/register.js"></script>
     <script src="app/pages/account/login.js"></script>   
+    <!-- app/pages/home -->
+    <script src="app/pages/home/home.js"></script>
     <!-- app/pages/exam -->
     <script src="app/pages/exam/exam-list.js"></script>
     <script src="app/pages/exam/exam-edit.js"></script>

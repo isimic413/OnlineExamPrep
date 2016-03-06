@@ -9,8 +9,8 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
-    [RoutePrefix("api/QuestionType")]
+    [Authorize]
+    [RoutePrefix("api/question-type")]
     public class QuestionTypeController : ApiController
     {
         protected IQuestionTypeService questionTypeService { get; private set; }
@@ -33,8 +33,8 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetCollection")]
-        public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
+        [Route("page")]
+        public async Task<HttpResponseMessage> GetPageAsync(PagingParams pagingParams)
         {
             var questionTypeList = await questionTypeService.GetCollectionAsync(pagingParams);
             return Request.CreateResponse(HttpStatusCode.OK, questionTypeList);
@@ -42,6 +42,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(QuestionType questionType)
         {
             if (questionType != null)
@@ -53,6 +54,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{QuestionTypeId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(QuestionType questionType)
         {
             if (questionType != null)
@@ -64,6 +66,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{QuestionTypeId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string questionTypeId)
         {
             if (!String.IsNullOrEmpty(questionTypeId))

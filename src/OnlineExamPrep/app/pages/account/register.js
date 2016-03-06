@@ -5,16 +5,10 @@
             restrict: 'E',
             templateUrl: Paths.app.pages + Paths.templates.account + 'register.html',
             scope: {
+                vm: '='
             },
             link: function (scope) {
-                scope.vm = {};
                 var vm = scope.vm;
-
-                vm.user = {
-                    email: null,
-                    password: null,
-                    confirmPassword: null
-                };
 
                 vm.register = function () {
                     if (!scope.registrationForm.$valid) {
@@ -22,15 +16,16 @@
                         return;
                     }
 
-                    vm.showSpinner = true;
-                    AccountService.registerUser(vm.user).success(function (data) {
-                        console.log('jej');
-                        console.log(data);
+                    scope.$root.loadingContent = true;
+                    AccountService.registerUser(vm.user.register).success(function (data) {
+                        vm.user.login.userName = vm.user.register.email;
+                        vm.user.login.password = vm.user.register.password;
+                        vm.login();
                     }).error(function (data, error, asd, wqer, sgi, aodg) {
-                        console.log('buuuu');
+                        console.log('create error modal');
                         console.log(error);
                     }).finally(function () {
-                        vm.showSpinner = false;
+                        scope.$root.loadingContent = false;
                     });
                 };
             }

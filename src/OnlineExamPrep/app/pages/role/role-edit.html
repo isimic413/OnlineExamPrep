@@ -1,17 +1,12 @@
 ﻿<div ng-show="vm.showForm">
     <form class="form-group" name="roleEditForm" ng-submit="vm.saveRole()" novalidate>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <label>Naziv</label>
                 <input type="text" class="form-control" ng-model="vm.role.name" />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <hr />
-            </div>
-        </div>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <div class="btn-group pull-right">
                     <button class="btn btn-primary" type="submit">Spremi</button>

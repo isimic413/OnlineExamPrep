@@ -57,7 +57,7 @@
 
         this.delete = function (path, params, options) {
             var config = {
-                method: 'put',
+                method: 'delete',
                 url: path,
                 data: params
             };

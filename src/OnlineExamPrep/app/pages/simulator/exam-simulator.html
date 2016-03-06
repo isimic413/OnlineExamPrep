@@ -1,16 +1,20 @@
 ﻿<div class="row mb05">
     <div class="col-sm-12 col-lg-8" ng-if="vm.examLength || vm.examLength === 0">
-        <div ng-show="vm.result">
-            Bodovi: {{vm.result.points.gained}} / {{vm.result.points.total}} ({{vm.result.percentage}}%)
-        </div>
-        <div class="pull-right">
-            <oep-timer time-in-seconds="vm.examLength"></oep-timer>
-            <button type="button" class="btn btn-info" ng-click="vm.examLength = 0" ng-disabled="vm.examStopped">Završi</button>
+        <div class="row">
+            <div class="col-sm-6">
+                <div ng-show="vm.result" class="toppadding05">Bodovi {{vm.result.points.gained}} / {{vm.result.points.total}} ({{vm.result.percentage}}%)</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="pull-right">
+                    <oep-timer time-in-seconds="vm.examLength"></oep-timer>
+                    <button type="button" class="btn btn-info" ng-click="vm.examLength = 0" ng-disabled="vm.examStopped">Završi</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="row mb1">
-    <div class="col-lg-8 flex">
+    <div class="col-lg-8 flex" id="simulator">
         <div class="jump-to-question">
             <div class="mb05">Pitanja<br /></div>
             <div ng-repeat="question in vm.questions" class="question-number" ng-class="{'active-question': vm.activeQuestionNumber === question.number}" ng-click="vm.activeQuestionNumber = question.number;">
@@ -22,17 +26,21 @@
                 <span ng-show="question.requiresAttention" class="glyphicon glyphicon-question-sign text-info">&emsp;</span>
             </div>
         </div>
-        <div class="question" id="simulator">
-            <div ng-repeat="question in vm.questions">
-                <div ng-show="vm.activeQuestionNumber === question.number">
-                    <oep-alternative-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.alt.id"></oep-alternative-answer>
-                    <oep-long-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.pro.id"></oep-long-answer>
-                    <oep-multiple-choice-multi-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_multi.id"></oep-multiple-choice-multi-answer>
-                    <oep-multiple-choice-single-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_jedan.id"></oep-multiple-choice-single-answer>
-                    <oep-short-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.kra.id"></oep-short-answer>
+        <div class="question">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="question in vm.questions">
+                        <div ng-show="vm.activeQuestionNumber === question.number">
+                            <oep-alternative-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.alt.id"></oep-alternative-answer>
+                            <oep-long-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.pro.id"></oep-long-answer>
+                            <oep-multiple-choice-multi-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_multi.id"></oep-multiple-choice-multi-answer>
+                            <oep-multiple-choice-single-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_jedan.id"></oep-multiple-choice-single-answer>
+                            <oep-short-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.kra.id"></oep-short-answer>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="btn-group">
+            <div class="btn-group btn-group-question">
                 <button type="button" class="btn btn-primary" ng-disabled="vm.activeQuestionNumber === 1" ng-click="vm.activeQuestionNumber = 1;"><span class="glyphicon glyphicon-fast-backward"></span></button>
                 <button type="button" class="btn btn-primary" ng-disabled="vm.activeQuestionNumber === 1" ng-click="vm.activeQuestionNumber = vm.activeQuestionNumber - 1;"><span class="glyphicon glyphicon-step-backward"></span></button>
                 <button type="button" class="btn btn-primary" ng-disabled="vm.activeQuestionNumber === vm.numberOfQuestion" ng-click="vm.activeQuestionNumber = vm.activeQuestionNumber + 1;"><span class="glyphicon glyphicon-step-forward"></span></button>

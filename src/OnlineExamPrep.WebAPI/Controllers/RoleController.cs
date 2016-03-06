@@ -9,8 +9,8 @@ using System.Web.Http;
 
 namespace OnlineExamPrep.WebAPI.Controllers
 {
-    [AllowAnonymous]
-    [RoutePrefix("api/Role")]
+    [Authorize]
+    [RoutePrefix("api/role")]
     public class RoleController : ApiController
     {
         protected IRoleService roleService { get; private set; }
@@ -33,7 +33,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("GetCollection")]
+        [Route("page")]
         public async Task<HttpResponseMessage> GetCollectionAsync(PagingParams pagingParams)
         {
             return Request.CreateResponse(HttpStatusCode.OK, await roleService.GetCollectionAsync(pagingParams));
@@ -41,6 +41,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> InsertAsync(Role role)
         {
             if (role != null)
@@ -52,6 +53,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpPut]
         [Route("{RoleId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> UpdateAsync(Role role)
         {
             if (role != null)
@@ -63,6 +65,7 @@ namespace OnlineExamPrep.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{RoleId}")]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<HttpResponseMessage> DeleteAsync(string roleId)
         {
             if (!String.IsNullOrEmpty(roleId))

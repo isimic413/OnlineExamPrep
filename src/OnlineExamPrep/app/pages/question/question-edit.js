@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.pages')
-    .directive('oepQuestionEdit', function ($q, $state, QuestionService, Paths, ExamService, QuestionTypeService) {
+    .directive('oepQuestionEdit', function ($q, $state, QuestionService, Paths, ExamService, QuestionTypeService, Lookups) {
         'use strict';
         return {
             restrict: 'E',
@@ -16,36 +16,34 @@
                 vm.exams = {
                     model: {}
                 };
-                vm.questionTypes = {
-                    model: {}
-                };
-                
+                vm.questionTypes = Lookups.getQuestionTypes();
+                vm.questionTypes.data = _.map(vm.questionTypes, function (type) {
+                    return type;
+                });
+                vm.questionTypes.model = {};
+
                 if ($state.params.id) {
                     $q.all([
                         ExamService.getExamCollection({}),
-                        QuestionTypeService.getQuestionTypeCollection({}),
                         QuestionService.getQuestion($state.params.id)
-                    ]).then(function (results) {
-                        bindData(results[0].data, results[1].data, results[2].data);
-                    });
-                }
-                else {
-                    $q.all([
-                        ExamService.getExamCollection({}),
-                        QuestionTypeService.getQuestionTypeCollection({})
                     ]).then(function (results) {
                         bindData(results[0].data, results[1].data);
                     });
                 }
+                else {
+                    ExamService.getExamCollection({}).success(function (data) {
+                        bindData(data);
+                    });
+                }
 
-                function bindData(examData, typeData, questionData) {
+                function bindData(examData, questionData) {
                     vm.exams.data = examData;
-                    vm.questionTypes.data = typeData;
                     if (questionData) {
                         vm.question = questionData;
                         vm.exams.model = { id: questionData.examQuestions[0].examId };
                         vm.questionTypes.model = { id: questionData.questionType.id };
                         vm.answerChoices = questionData.answerChoices;
+                        vm.question.choices = vm.answerChoices;
                     }
                     vm.showForm = true;
                 }
@@ -71,6 +69,7 @@
                 //#region Choices
 
                 vm.answerChoices = [];
+                vm.question.choices = angular.extend(vm.answerChoices);
 
                 vm.addChoice = function (index) {
                     var newChoice = {

@@ -45,7 +45,7 @@
 
                 function setHeight() {
                     var e = angular.element('#simulator');
-                    var offset = $window.innerHeight - 235;
+                    var offset = $window.innerHeight - 225;
                     e.css('height', (offset > 350 ? offset : 350) + 'px');
                 }
 
@@ -111,7 +111,7 @@
                             else {
                                 vm.result.longAnswer.count++;
                                 vm.result.longAnswer.points += question.maxPoints;
-                                question.requiresAttention = true;
+                                question.requiresAttention = question.selectedAnswer ? true : false;
                             }
                         }
                         vm.result.questions.total++;
@@ -120,7 +120,7 @@
                             vm.result.questions.correct++;
                             vm.result.points.gained += question.maxPoints;
                         }
-                        else if (!question.selectedAnswer || question.questionType.id !== vm.questionTypes.pro.id) {
+                        else if (!question.selectedAnswer || (!question.requiresAttention && !question.isCorrect)) {
                             question.notCorrect = true;
                         }
                     });

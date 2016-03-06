@@ -1,13 +1,15 @@
 ﻿<div>
-    <nav class="navbar navbar-default" role="navigation">
-        <span class="spinner" ng-show="loadingContent">&nbsp;&nbsp;</span><a class="navbar-brand" ui-sref="public.home">Online ispiti</a>
+    <nav class="navbar nav-header" role="navigation">
+        <h1 class="h1"><span class="spinner" ng-show="$root.loadingContent">&nbsp;&nbsp;</span><a class="navbar-brand title" ui-sref="public.home">Online ispiti</a></h1>
     </nav>
-    <div class="row">
-        <div class="col-md-6">
-            <oep-register></oep-register>
+    <div class="row mambership-layout">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 mb1">
+            <oep-login vm="vm"></oep-login>
         </div>
-        <div class="col-md-6">
-            <oep-login></oep-login>
+        <div class="col-md-5 mb1">
+            <oep-register vm="vm"></oep-register>
         </div>
+        <div class="col-md-1"></div>
     </div>
 </div>
