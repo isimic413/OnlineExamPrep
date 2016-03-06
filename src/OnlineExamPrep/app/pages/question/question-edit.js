@@ -31,7 +31,7 @@
                     });
                 }
                 else {
-                    ExamService.getExamCollection({}).then(function (data) {
+                    ExamService.getExamCollection({}).success(function (data) {
                         bindData(data);
                     });
                 }
@@ -87,6 +87,28 @@
                 };
 
                 //#endregion
+            }
+        };
+    })
+    .directive('oepTex', function () {
+        'use strict';
+
+        return {
+            attribute: 'A',
+            require: {
+                ngModel: '='
+            },
+            link: function (scope, element, attrs) {
+                var deregisterWatcher = scope.$watch('vm.text', function (value) {
+                    var script = angular.element('<script type=\'math/tex\'>').html(value ? value : '');
+                    element.html('');
+                    element.append(script);
+                    MathJax.Hub.Queue(['Typeset', MathJax.Hub, element[0]]);
+                });
+
+                scope.$on('$destroy', function () {
+                    deregisterWatcher();
+                });
             }
         };
     });

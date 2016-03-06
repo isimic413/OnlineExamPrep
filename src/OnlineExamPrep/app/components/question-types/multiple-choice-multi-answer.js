@@ -10,15 +10,6 @@
             },
             link: function (scope) {
                 var vm = scope.vm;
-
-                var deregisterWatcher = scope.$watch('choices', function (newVal) {
-                    vm.choices = scope.choices;
-                }, true);
-
-                scope.$on('$destroy', function () {
-                    deregisterWatcher();
-                });
-                
                 
                 vm.refreshSelection = function (choice) {
                     if (!vm.selectedAnswer) {
