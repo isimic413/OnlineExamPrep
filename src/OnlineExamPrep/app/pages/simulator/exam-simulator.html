@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="row mb1">
-    <div class="col-lg-8 flex">
+    <div class="col-lg-8 flex" id="simulator">
         <div class="jump-to-question">
             <div class="mb05">Pitanja<br /></div>
             <div ng-repeat="question in vm.questions" class="question-number" ng-class="{'active-question': vm.activeQuestionNumber === question.number}" ng-click="vm.activeQuestionNumber = question.number;">
@@ -22,7 +22,7 @@
                 <span ng-show="question.requiresAttention" class="glyphicon glyphicon-question-sign text-info">&emsp;</span>
             </div>
         </div>
-        <div class="question" id="simulator">
+        <div class="question">
             <div ng-repeat="question in vm.questions">
                 <div ng-show="vm.activeQuestionNumber === question.number">
                     <oep-alternative-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.alt.id"></oep-alternative-answer>
