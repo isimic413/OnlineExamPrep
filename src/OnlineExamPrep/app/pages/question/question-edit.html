@@ -1,60 +1,67 @@
 ﻿<div ng-show="vm.showForm">
-    <form class="form-group" name="questionForm" ng-submit="vm.saveQuestion()" novalidate>
-        <div class="row mb1">
-            <div class="col-md-6">
+    <div class="col-md-6">
+        <form class="form-group" name="questionForm" ng-submit="vm.saveQuestion()" novalidate>
+            <div class="row mb1">
                 <label>Ispit</label>
                 <br />
                 <oep-singleselect-dropdown selected-model="vm.exams.model" options="vm.exams.data"></oep-singleselect-dropdown>
             </div>
-        </div>
-        <div class="row mb1">
-            <div class="col-md-6">
+            <div class="row mb1">
                 <label>Tip zadatka</label>
                 <br />
                 <oep-singleselect-dropdown selected-model="vm.questionTypes.model" options="vm.questionTypes.data"></oep-singleselect-dropdown>
             </div>
-        </div>
-        <div class="row mb1">
-            <div class="col-md-6">
+            <div class="row mb1">
                 <label>Tekst</label>
                 <br />
                 <textarea ng-model="vm.question.text" rows="7" class="form-control textarea-fixed-width"></textarea>
             </div>
-        </div>
-        <div class="row mb1">
-            <div class="col-md-6">
+            <div class="row mb05">
+                <hr />
+            </div>
+            <div class="row mb1">
                 <label>Ponuđeni odgovori</label>
                 <br />
             </div>
-        </div>
-        <div class="row mb1" ng-repeat="choice in vm.answerChoices">
-            <div class="col-md-4">
-                <label>Tekst</label>
-                <br />
-                <textarea rows="2" ng-model="choice.text" class="form-control textarea-fixed-width"></textarea>
-            </div>
-            <div class="col-md-1">
-                <label>Bodovi</label>
-                <br />
-                <input type="number" ng-model="choice.points" class="form-control" />
-            </div>
-            <div class="col-md-1">
-                <label>&nbsp;</label>
-                <br />
-                <div class="btn-group pull-right">
-                    <button class="btn btn-primary" type="button" ng-click="vm.removeChoice($index)">-</button>
-                    <button class="btn btn-primary" type="button" ng-click="vm.addChoice($index)">+</button>
+            <div class="row mb1" ng-repeat="choice in vm.answerChoices">
+                <div class="mb05">
+                    <label>Tekst</label>
+                    <br />
+                    <textarea rows="2" ng-model="choice.text" class="form-control textarea-fixed-width"></textarea>
+                </div>
+                <div class="row mb1">
+                    <div class="col-md-9">
+                        <label>Broj bodova</label>
+                        <br />
+                        <input type="number" ng-model="choice.points" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>&nbsp;</label>
+                        <br />
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-primary" type="button" ng-click="vm.removeChoice($index)">-</button>
+                            <button class="btn btn-primary" type="button" ng-click="vm.addChoice($index)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="mb05"></div>
-        <div class="row mb1">
-            <div class="col-md-6">
+            <div class="mb05"></div>
+            <div class="row mb1">
                 <div class="btn-group pull-right">
                     <button class="btn btn-primary" type="submit">Spremi</button>
                     <button class="btn btn-primary" type="button" ui-sref="main.questions">Odustani</button>
                 </div>
             </div>
+        </form>
+    </div>
+    <div class="col-md-6 mb1">
+        <label>Brzi pregled</label>
+        <div class="question-preview">
+            <oep-alternative-answer vm="vm.question" separated-choices="true" choices="vm.answerChoices" ng-show="vm.questionTypes.model.id === vm.questionTypes.alt.id"></oep-alternative-answer>
+            <oep-long-answer vm="vm.question" separated-choices="true" choices="vm.answerChoices" ng-show="vm.questionTypes.model.id === vm.questionTypes.pro.id"></oep-long-answer>
+            <oep-multiple-choice-multi-answer vm="vm.question" separated-choices="true" choices="vm.answerChoices" ng-show="vm.questionTypes.model.id === vm.questionTypes.vis_multi.id"></oep-multiple-choice-multi-answer>
+            <oep-multiple-choice-single-answer vm="vm.question" separated-choices="true" choices="vm.answerChoices" ng-show="vm.questionTypes.model.id === vm.questionTypes.vis_jedan.id"></oep-multiple-choice-single-answer>
+            <oep-short-answer vm="vm.question" separated-choices="true" choices="vm.answerChoices" ng-show="vm.questionTypes.model.id === vm.questionTypes.kra.id"></oep-short-answer>
         </div>
-    </form>
+    </div>
 </div>

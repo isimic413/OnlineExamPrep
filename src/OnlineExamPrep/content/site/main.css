@@ -16,14 +16,31 @@ body {
     background-color: #F1F0FF;
 }
 
-.sideber-nav {
-    width: 12em;
-    border-right: 0.5px solid #CECECE;
-    background-color: #F7F7F7;
-    position: absolute;
-    top: 0;
-    padding: 6em 0.2em 1em 0.2em;
-    height: 100%;
+hr {
+    border-top: 0.5px solid #B1BDCA;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.content-full {
+    margin-bottom: 1em;
+}
+
+.content-half {
+    width: 50%;
+}
+
+.mb05 {
+    margin-bottom: 0.5em;
+}
+
+.mb1 {
+    margin-bottom: 1em;
+}
+
+.spinner {
+    content: url(../img/spinner.gif);
+    margin: -0.1em 0em 0em 0.5em;
 }
 
 .footer {
@@ -35,12 +52,6 @@ body {
   font-size: 0.9em;
 }
 
-.oep-header {
-    position: absolute;
-    z-index: 10;
-    min-width: 100%;
-}
-
 .footer a {
     color: initial;
     text-decoration: none;
@@ -48,6 +59,68 @@ body {
 
 .footer a:hover {
     color: #A9A9A9;
+}
+
+.oep-header {
+    position: absolute;
+    z-index: 10;
+    min-width: 100%;
+}
+
+.sideber-nav {
+    width: 12em;
+    border-right: 0.5px solid #CECECE;
+    background-color: #F7F7F7;
+    position: absolute;
+    top: 0;
+    padding: 6em 0.2em 1em 0.2em;
+    height: 100%;
+}
+
+.nav-header,
+.nav-header-main {
+    height: 5em;
+    border-radius: 0px;
+    background-color: #265A88;
+    min-width: 100%;
+}
+
+.nav-header {
+    margin-bottom: 2.5em;
+}
+
+.nav-header .title, 
+.nav-header-main .title {
+    font-weight: bold;
+    font-size: inherit;
+    padding-top: 0.1em;
+    color: #FFFFFF;
+}
+
+.nav-header .title:hover,
+.nav-header .title:visited,
+.nav-header-main .title:hover,
+.nav-header-main .title:visited {
+    color: #FFFFFF;
+}
+
+.main-container {
+    margin-left: 12em;
+}
+
+.mambership-layout {
+    padding: 2em 5em 0em 5em;
+    margin: 15px;
+}
+
+.registration {
+    margin: auto;
+    padding: 1em 2em 1em 2em;
+    width: 80%;
+    max-width: 600px;
+    min-width: 350px;
+    border: 1px solid #CBCBFF;
+    border-radius: 5px;
 }
 
 .mambership-form {
@@ -62,26 +135,6 @@ body {
 
 .form-disabled {
     cursor: not-allowed;
-}
-
-.container-fluid {
-}
-
-.mambership-layout {
-    padding: 2em 5em 0em 5em;
-    margin: 15px;
-}
-
-.nav-header,
-.nav-header-main {
-    height: 5em;
-    border-radius: 0px;
-    background-color: #265A88;
-    min-width: 100%;
-}
-
-.nav-header {
-    margin-bottom: 2.5em;
 }
 
 .rotate {
@@ -99,17 +152,6 @@ body {
     font-size: 1.5em;
 }
 
-.subtitle {
-    margin-top: 6em;
-    margin-left: 12em;
-}
-
-.subtitle hr {
-    border-top: 0.5px solid #B1BDCA;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
 .logout a {
     text-decoration: none;
     color: #FFFFFF;
@@ -119,24 +161,15 @@ body {
     color: #CECECE;
 }
 
-.main-container {
+.subtitle {
+    margin-top: 6em;
     margin-left: 12em;
 }
 
-.nav-header .title, 
-.nav-header-main .title {
-    font-weight: bold;
-    font-size: inherit;
-    padding-top: 0.1em;
-    color: #FFFFFF;
-}
 
-.nav-header .title:hover,
-.nav-header .title:visited,
-.nav-header-main .title:hover,
-.nav-header-main .title:visited {
-    color: #FFFFFF;
-}
+
+
+
 
 .sidebar-item {
     border-radius: 4px;
@@ -156,15 +189,6 @@ body {
     background-color: #64646F;
 }
 
-.content-full {
-    margin-bottom: 1em;
-}
-
-.spinner {
-    content: url(../img/spinner.gif);
-    margin: -0.1em 0em 0em 0.5em;
-}
-
 .nopadding:first-child {
     padding-left: 0;
 }
@@ -173,13 +197,6 @@ body {
     padding-right: 0;
 }
 
-.mb05 {
-    margin-bottom: 0.5em;
-}
-
-.mb1 {
-    margin-bottom: 1em;
-}
 
 .drag-and-drop-list {
     list-style: none;
@@ -192,6 +209,11 @@ body {
     border: 1px solid transparent;
     border-radius: 4px;
     cursor: move;
+}
+
+.dndPlaceholder {
+    min-height: 2em;
+    background-color: #f6f6f6;
 }
 
 .entity-list {
@@ -218,11 +240,6 @@ body {
     white-space: nowrap;
 }
 
-.dndPlaceholder {
-    min-height: 2em;
-    background-color: #f6f6f6;
-}
-
 .entity-row-selected {
     background-color: #9d9d9d;
 }
@@ -241,6 +258,7 @@ body {
     display: inline;
     padding: 6px 12px;
     font-weight: bold;
+    background-color: #F7F7F7;
 }
 
 .flex {
@@ -255,6 +273,7 @@ body {
     padding: 1.1em;
     width: 20%;
     overflow: auto;
+    background-color: #F7F7F7;
 }
 
 .question {
@@ -265,6 +284,15 @@ body {
     padding: 1.1em;
     overflow: auto;
     position: relative;
+    background-color: #F7F7F7;
+}
+
+.question-preview {
+    border: 1px solid #B1BDCA;
+    background-color: #F7F7F7;
+    border-radius: 4px;
+    padding: 1em;
+    overflow-wrap: break-word;
 }
 
 .toppadding05 {
@@ -294,3 +322,4 @@ body {
 .text-error {
     color: #DE0703;
 }
+

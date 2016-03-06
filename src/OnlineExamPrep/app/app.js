@@ -1,4 +1,20 @@
-﻿angular.module('onlineExamPrep', [
+﻿MathJax.Hub.Config({
+    extensions: ['tex2jax.js'],
+    TeX: {
+        extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js']
+    },
+    jax: ['input/TeX', 'output/HTML-CSS'],
+    tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+    },
+    'HTML-CSS': { availableFonts: ['TeX'] },
+    messageStyle: 'none'
+});
+MathJax.Hub.Configured();
+
+angular.module('onlineExamPrep', [
     'ngAnimate',
     'ui.bootstrap',
     'ui.router',
