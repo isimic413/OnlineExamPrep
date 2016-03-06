@@ -111,7 +111,7 @@
                             else {
                                 vm.result.longAnswer.count++;
                                 vm.result.longAnswer.points += question.maxPoints;
-                                question.requiresAttention = true;
+                                question.requiresAttention = question.selectedAnswer ? true : false;
                             }
                         }
                         vm.result.questions.total++;
@@ -120,7 +120,7 @@
                             vm.result.questions.correct++;
                             vm.result.points.gained += question.maxPoints;
                         }
-                        else if (!question.selectedAnswer && !question.requiresAttention) {
+                        else if (!question.selectedAnswer || (!question.requiresAttention && !question.isCorrect)) {
                             question.notCorrect = true;
                         }
                     });
