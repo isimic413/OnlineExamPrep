@@ -58,7 +58,7 @@
                         animation: true,
                         templateUrl: 'delete-warning.html',
                         controller: modalController,
-                        size: 'sm',
+                        size: 'md',
                         resolve: {
                             vm: function () {
                                 return vm;

@@ -256,6 +256,17 @@ body {
     width: 80%;
     padding: 1.1em;
     overflow: auto;
+    position: relative;
+}
+
+.toppadding05 {
+    padding-top: 0.5em;
+}
+
+.btn-group-question {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1em;
 }
 
 .textarea-fixed-width {
@@ -269,6 +280,7 @@ body {
 
 .question-number:hover {
     background-color: #dddddd;
+    cursor: pointer;
 }
 
 .text-error {
