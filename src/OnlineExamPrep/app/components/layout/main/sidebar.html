@@ -1,30 +1,30 @@
 ﻿<div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.testing-areas']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.testing-areas'].active }" ui-sref="main.testing-areas">Područja ispitivanja</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.question-types']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.question-types'].active }" ui-sref="main.question-types">Tipovi zadataka</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.questions']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.questions'].active }" ui-sref="main.questions">Zadaci</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.exams']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.exams'].active }" ui-sref="main.exams">Ispiti</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.simulator']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.simulator'].active }" ui-sref="main.simulator">Simulator</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-show="$root.routes['main.roles']">
         <div class="col-sm-12">
             <div class="sidebar-item" ng-class="{ 'active-item': $root.routes['main.roles'].active }" ui-sref="main.roles">
                 Tipovi korisnika
