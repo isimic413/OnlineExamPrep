@@ -1,6 +1,6 @@
 ﻿<div class="row mb1">
     <div class="col-xs-12 mb1">
-        {{vm.displayNumber}} <oep-tex ng-model="vm.text" text-from="vm"></oep-tex>
+        {{vm.displayNumber}} <oep-tex ng-model="vm.text" prop-to-watch="vm.text"></oep-tex>
     </div>
 </div>
 <div class="question-choices">
@@ -8,7 +8,7 @@
         <div class="col-xs-12">
             <label>
                 <input type="radio" ng-model="vm.selectedAnswer" ng-value="choice.id" ng-disabled="enableAnswer < 0" />
-                <oep-tex ng-model="choice.text" text-from="choice"></oep-tex>
+                <oep-tex ng-model="choice.text" prop-to-watch="choice.text" ng-class="{'text-success': enableAnswer < 0 && choice.isCorrect}"></oep-tex>
             </label>
         </div>
     </div>

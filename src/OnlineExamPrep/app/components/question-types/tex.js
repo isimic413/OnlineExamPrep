@@ -6,11 +6,10 @@
             attribute: 'A',
             require: {
                 ngModel: '=',
-                textFrom: '@'
+                propToWatch: '@'
             },
             link: function (scope, element, attrs) {
-                var propToWatch = attrs.textFrom + '.text';
-                var deregisterWatcher = scope.$watch(propToWatch, function (value) {
+                var deregisterWatcher = scope.$watch(attrs.propToWatch, function (value) {
                     var script = value ? value : '';
                     element.html('');
                     element.append(script);
