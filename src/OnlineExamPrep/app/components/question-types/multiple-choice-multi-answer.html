@@ -3,11 +3,13 @@
         {{vm.displayNumber}} {{vm.text}}
     </div>
 </div>
-<div class="row mb05" ng-repeat="choice in vm.choices">
-    <div class="col-xs-12">
-        <label>
-            <input type="checkbox" ng-checked="choice.isSelected" ng-click="vm.refreshSelection(choice);" ng-disabled="enableAnswer < 0" />
-            {{choice.text}}
-        </label>
+<div class="question-choices">
+    <div class="row mb05" ng-repeat="choice in vm.choices">
+        <div class="col-xs-12">
+            <label>
+                <input type="checkbox" ng-checked="choice.isSelected" ng-click="vm.refreshSelection(choice);" ng-disabled="enableAnswer < 0" />
+                {{choice.text}}
+            </label>
+        </div>
     </div>
 </div>

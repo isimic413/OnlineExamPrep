@@ -6,10 +6,16 @@
             templateUrl: Paths.app.components + 'question-types/long-answer.html',
             scope: {
                 vm: '=',
-                enableAnswer: '='
+                enableAnswer: '=',
+                separatedChoices: '=',
+                choices: '='
             },
             link: function (scope) {
                 var vm = scope.vm;
+
+                if (scope.separatedChoices) {
+                    vm.choices = scope.choices;
+                }
             }
         };
     });

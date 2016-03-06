@@ -27,13 +27,17 @@
             </div>
         </div>
         <div class="question">
-            <div ng-repeat="question in vm.questions">
-                <div ng-show="vm.activeQuestionNumber === question.number">
-                    <oep-alternative-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.alt.id"></oep-alternative-answer>
-                    <oep-long-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.pro.id"></oep-long-answer>
-                    <oep-multiple-choice-multi-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_multi.id"></oep-multiple-choice-multi-answer>
-                    <oep-multiple-choice-single-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_jedan.id"></oep-multiple-choice-single-answer>
-                    <oep-short-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.kra.id"></oep-short-answer>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="question in vm.questions">
+                        <div ng-show="vm.activeQuestionNumber === question.number">
+                            <oep-alternative-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.alt.id"></oep-alternative-answer>
+                            <oep-long-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.pro.id"></oep-long-answer>
+                            <oep-multiple-choice-multi-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_multi.id"></oep-multiple-choice-multi-answer>
+                            <oep-multiple-choice-single-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.vis_jedan.id"></oep-multiple-choice-single-answer>
+                            <oep-short-answer vm="question" enable-answer="vm.examLength" ng-if="question.questionType.id === vm.questionTypes.kra.id"></oep-short-answer>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="btn-group btn-group-question">
