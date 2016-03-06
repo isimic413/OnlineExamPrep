@@ -22,12 +22,12 @@
     var routes = {
         // public routes
         'public.home': {
-            url: '/prijava', // login
-            directive: 'home'
+            url: '/prijava' // login
+            //directive: 'home'
         },
         'main.home': {
             url: '/',
-            title: '',
+            title: 'Početna',
             directive: 'home',
             roles: Roles.allRoles
         },
