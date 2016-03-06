@@ -60,6 +60,10 @@ body {
     color: #777777;
 }
 
+.form-disabled {
+    cursor: not-allowed;
+}
+
 .container-fluid {
 }
 
@@ -78,6 +82,12 @@ body {
 
 .nav-header {
     margin-bottom: 2.5em;
+}
+
+.rotate {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
 }
 
 .logout {

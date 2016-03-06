@@ -22,15 +22,15 @@
                         return;
                     }
 
-                    vm.showSpinner = true;
+                    scope.$root.loadingContent = true;
                     AccountService.registerUser(vm.user).success(function (data) {
-                        console.log('jej');
+                        console.log('create modal');
                         console.log(data);
                     }).error(function (data, error, asd, wqer, sgi, aodg) {
-                        console.log('buuuu');
+                        console.log('create error modal');
                         console.log(error);
                     }).finally(function () {
-                        vm.showSpinner = false;
+                        scope.$root.loadingContent = false;
                     });
                 };
             }

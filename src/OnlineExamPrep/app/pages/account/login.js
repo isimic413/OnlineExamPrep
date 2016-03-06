@@ -21,7 +21,7 @@
                         return;
                     }
 
-                    vm.showSpinner = true;
+                    scope.$root.loadingContent = true;
                     AccountService.login(vm.user).success(function (data) {
                         TokenService.setToken(data);
                         UserService.getApplicationData().success(function (data) {
@@ -40,7 +40,7 @@
                     }).error(function (data, error) {
                         console.log(error);
                     }).finally(function () {
-                        vm.showSpinner = false;
+                        scope.$root.loadingContent = false;
                     });
                 };
             }
