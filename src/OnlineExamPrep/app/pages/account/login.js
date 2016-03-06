@@ -5,21 +5,18 @@
             restrict: 'E',
             templateUrl: Paths.app.pages + Paths.templates.account + 'login.html',
             scope: {
+                vm: '='
             },
             link: function (scope) {
-                scope.vm = {};
                 var vm = scope.vm;
-
-                vm.user = {
-                    userName: "admin@admin.com",
-                    password: "asd@qwe"
-                };
 
                 vm.login = function () {
                     if (!scope.loginForm.$valid) {
                         console.log(scope.loginForm.$error.required);
                         return;
                     }
+
+                    vm.user.userName = vm.user.email;
 
                     scope.$root.loadingContent = true;
                     AccountService.login(vm.user).success(function (data) {
