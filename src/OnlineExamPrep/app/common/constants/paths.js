@@ -26,6 +26,7 @@
             questionType: 'question-type/',
             role: 'role/',
             testingArea: 'testing-area/',
-            simulator: 'simulator/'
+            simulator: 'simulator/',
+            home: 'home/'
         }
     });

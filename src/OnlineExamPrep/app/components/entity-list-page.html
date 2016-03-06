@@ -1,18 +1,20 @@
 ﻿<div>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th></th>
-                <th ng-repeat="column in vm.columns">{{column.display}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="entity in vm.entities" ng-click="vm.toggleSelection(entity)" ng-class="{'entity-row-selected': entity.isSelected}">
-                <td class="entity-row-selection"><span class="glyphicon glyphicon-ok" ng-show="entity.isSelected"></span><span ng-show="!entity.isSelected">&nbsp;</span></td>
-                <td ng-repeat="column in vm.columns">{{entity[column.id]}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="entity-list mb1">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th ng-repeat="column in vm.columns">{{column.display}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entity in vm.entities" ng-click="vm.toggleSelection(entity)" ng-class="{'entity-row-selected': entity.isSelected}">
+                    <td class="entity-row-selection"><span class="glyphicon glyphicon-ok" ng-show="entity.isSelected"></span><span ng-show="!entity.isSelected">&nbsp;</span></td>
+                    <td ng-repeat="column in vm.columns">{{entity[column.id]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="btn-group pull-right">
         <button class="btn btn-primary" ng-click="vm.gotoAddScreen()">Dodaj novo</button>
         <button class="btn btn-primary" ng-click="vm.gotoEditScreen()" ng-disabled="!vm.checkedItem.id">Uredi</button>
@@ -36,6 +38,6 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="delete()">Obriši</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Odustani</button>
+        <button class="btn btn-default" type="button" ng-click="cancel()">Odustani</button>
     </div>
 </script>

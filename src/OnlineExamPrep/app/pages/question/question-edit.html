@@ -1,47 +1,42 @@
 ﻿<div ng-show="vm.showForm">
     <form class="form-group" name="questionForm" ng-submit="vm.saveQuestion()" novalidate>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <label>Ispit</label>
                 <br />
                 <oep-singleselect-dropdown selected-model="vm.exams.model" options="vm.exams.data"></oep-singleselect-dropdown>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <label>Tip zadatka</label>
                 <br />
                 <oep-singleselect-dropdown selected-model="vm.questionTypes.model" options="vm.questionTypes.data"></oep-singleselect-dropdown>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <label>Tekst</label>
                 <br />
-                <textarea ng-model="vm.question.text" rows="7" class="textarea-fixed-width"></textarea>
+                <textarea ng-model="vm.question.text" rows="7" class="form-control textarea-fixed-width"></textarea>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <hr />
-            </div>
-        </div>
-        <div class="row">
+        <div class="row mb1">
             <div class="col-md-6">
                 <label>Ponuđeni odgovori</label>
                 <br />
             </div>
         </div>
-        <div class="row" ng-repeat="choice in vm.answerChoices">
+        <div class="row mb1" ng-repeat="choice in vm.answerChoices">
             <div class="col-md-4">
                 <label>Tekst</label>
                 <br />
-                <textarea rows="2" ng-model="choice.text" class="textarea-fixed-width"></textarea>
+                <textarea rows="2" ng-model="choice.text" class="form-control textarea-fixed-width"></textarea>
             </div>
             <div class="col-md-1">
                 <label>Bodovi</label>
                 <br />
-                <input type="number" ng-model="choice.points" style="max-width:100%"/>
+                <input type="number" ng-model="choice.points" class="form-control" />
             </div>
             <div class="col-md-1">
                 <label>&nbsp;</label>
@@ -52,12 +47,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <hr />
-            </div>
-        </div>
-        <div class="row">
+        <div class="mb05"></div>
+        <div class="row mb1">
             <div class="col-md-6">
                 <div class="btn-group pull-right">
                     <button class="btn btn-primary" type="submit">Spremi</button>

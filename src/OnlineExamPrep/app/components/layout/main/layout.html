@@ -1,8 +1,12 @@
 ﻿<div>
-    <oep-header></oep-header>
-    <div class="container-fluid" ng-show="title">
-        <h3>{{title}} <em ng-show="subtitle">{{subtitle}}</em></h3>
-        <hr />
+    <oep-header class="oep-header"></oep-header>
+    <oep-sidebar class="sideber-nav"></oep-sidebar>
+    <div class="container-fluid" ng-show="$root.title">
+        <div class="subtitle">
+            <h3>{{$root.title}} <em ng-show="$root.subtitle">{{$root.subtitle}}</em></h3>
+            <hr />
+        </div>
     </div>
-    <div ui-view class="container-fluid"></div>
+    <div ui-view class="container-fluid main-container"></div>
+    <oep-footer></oep-footer>
 </div>

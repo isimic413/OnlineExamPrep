@@ -1,5 +1,5 @@
 ﻿angular.module('onlineExamPrep.components')
-    .directive('oepFooter', function ($sce, Paths) {
+    .directive('oepFooter', function (Paths) {
         'use strict';
         return {
             restrict: 'E',
@@ -10,8 +10,7 @@
                 var vm = {};
                 scope.vm = vm;
 
-                vm.message = 'MathOS, 2015.'
+                vm.date = moment().format('YYYY');
             }
         }
-    }
-    );
+    });
