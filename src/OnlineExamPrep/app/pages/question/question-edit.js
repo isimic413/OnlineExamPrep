@@ -27,11 +27,11 @@
                         ExamService.getExamCollection({}),
                         QuestionService.getQuestion($state.params.id)
                     ]).then(function (results) {
-                        bindData(results[0].data, results[1].data);
+                        bindData(results[0], results[1]);
                     });
                 }
                 else {
-                    ExamService.getExamCollection({}).success(function (data) {
+                    ExamService.getExamCollection({}).then(function (data) {
                         bindData(data);
                     });
                 }
@@ -61,7 +61,7 @@
                         answerChoices: vm.answerChoices
                     };
 
-                    QuestionService.saveQuestion(params).success(function () {
+                    QuestionService.saveQuestion(params).then(function () {
                         $state.go('main.questions');
                     });
                 };

@@ -1,22 +1,20 @@
 ﻿angular.module('onlineExamPrep.common')
     .service('DataService', function ($rootScope, $http, $q) {
 
-        var deferred = $q.defer();
-
         function sendRequest(config) {
+            var deferred = $q.defer();
             $rootScope.loadingContent = true;
 
-            return $http(config).success(function (data) {
-                $rootScope.loadingContent = false;
-                return deferred.resolve(data);
-            }).error(function (data, status, headers, config, statusText) {
-                $rootScope.loadingContent = false;
-                console.log(data);
-                console.log(status);
-                console.log(headers);
-                console.log(config);
-                console.log(statusText);
+            $http(config).then(function (response) {
+                $rootScope.error = null;
+                deferred.resolve(response.data);
+            }, function (data) {
+                $rootScope.error = data;
+                deferred.reject();
             });
+
+            $rootScope.loadingContent = false;
+            return deferred.promise;
         }
 
         this.get = function (path, params, options) {

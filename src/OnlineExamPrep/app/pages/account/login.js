@@ -17,9 +17,9 @@
                     }
 
                     scope.$root.loadingContent = true;
-                    AccountService.login(vm.user.login).success(function (data) {
-                        TokenService.setToken(data);
-                        UserService.getApplicationData().success(function (data) {
+                    AccountService.login(vm.user.login).then(function (response) {
+                        TokenService.setToken(response.data);
+                        UserService.getApplicationData().then(function (data) {
                             var principalData = {
                                 role: data.role
                             };
@@ -32,9 +32,9 @@
 
                             $state.go('main.home');
                         });
-                    }).error(function (data, error) {
+                    }, function (data, error) {
                         console.log(error);
-                    }).finally(function () {
+                    }, function () {
                         scope.$root.loadingContent = false;
                     });
                 };

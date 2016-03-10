@@ -12,7 +12,7 @@
                 vm.role = {};
 
                 if ($state.params.id) {
-                    RoleService.getRoleById($state.params.id).success(function (data) {
+                    RoleService.getRoleById($state.params.id).then(function (data) {
                         vm.role = data;
                         vm.showForm = true;
                     });
@@ -26,7 +26,7 @@
                         return;
                     }
 
-                    RoleService.saveRole(vm.role).success(function () {
+                    RoleService.saveRole(vm.role).then(function () {
                         $state.go('main.roles');
                     });
                 }

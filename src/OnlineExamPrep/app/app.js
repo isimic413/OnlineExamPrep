@@ -39,7 +39,6 @@ angular.module('onlineExamPrep', [
         // public routes
         'public.home': {
             url: '/prijava' // login
-            //directive: 'home'
         },
         'main.home': {
             url: '/',
@@ -255,7 +254,7 @@ angular.module('onlineExamPrep', [
         if ($rootScope.routes && fromParams.rootState) {
             delete $rootScope.routes[fromParams.rootState].active;
         }
-
+        $rootScope.error = null;
         if (!principal.getCurrent() && toState.name !== 'public.home') {
             event.preventDefault();
 
@@ -267,7 +266,6 @@ angular.module('onlineExamPrep', [
             if ($rootScope.routes && toParams.rootState) {
                 $rootScope.routes[toParams.rootState].active = true;
             }
-            var a = 15;
         }
     });
 

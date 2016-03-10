@@ -12,7 +12,7 @@
                 vm.questionType = {};
 
                 if ($state.params.id) {
-                    QuestionTypeService.getQuestionTypeById($state.params.id).success(function (data) {
+                    QuestionTypeService.getQuestionTypeById($state.params.id).then(function (data) {
                         vm.questionType = data;
                         vm.showForm = true;
                     });
@@ -26,7 +26,7 @@
                         return;
                     }
 
-                    QuestionTypeService.saveQuestionType(vm.questionType).success(function () {
+                    QuestionTypeService.saveQuestionType(vm.questionType).then(function () {
                         $state.go('main.question-types');
                     });
                 }

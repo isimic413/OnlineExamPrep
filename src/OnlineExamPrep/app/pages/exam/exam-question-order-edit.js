@@ -10,7 +10,7 @@
                 scope.vm = {};
                 var vm = scope.vm;
 
-                ExamService.getQuestionPreviews($state.params.id).success(function (data) {
+                ExamService.getQuestionPreviews($state.params.id).then(function (data) {
                     scope.$root.subtitle = data.examTitle;
 
                     var list = data.questions;
@@ -29,7 +29,7 @@
                     ExamService.saveQuestionOrder({
                         examQuestions: _.map(vm.list, function (item) { delete item.questionText; item.examId = $state.params.id; return item; }),
                         examId: $state.params.id
-                    }).success(function (data) {
+                    }).then(function (data) {
                         $state.go('main.exams');
                     });
                 };

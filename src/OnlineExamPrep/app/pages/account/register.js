@@ -17,14 +17,14 @@
                     }
 
                     scope.$root.loadingContent = true;
-                    AccountService.registerUser(vm.user.register).success(function (data) {
+                    AccountService.registerUser(vm.user.register).then(function () {
                         vm.user.login.userName = vm.user.register.email;
                         vm.user.login.password = vm.user.register.password;
                         vm.login();
-                    }).error(function (data, error, asd, wqer, sgi, aodg) {
+                    }, function (response) {
                         console.log('create error modal');
                         console.log(error);
-                    }).finally(function () {
+                    }, function () {
                         scope.$root.loadingContent = false;
                     });
                 };

@@ -31,9 +31,9 @@
                         TestingAreaService.getDataset({}),
                         ExamService.getExam($state.params.id)
                     ]).then(function (responses) {
-                        vm.testingAreas.data = responses[0].data;
+                        vm.testingAreas.data = responses[0];
 
-                        var examData = responses[1].data;                        
+                        var examData = responses[1];                        
                         vm.exam = examData;
                         vm.testingAreas.model.id = examData.testingAreaId;
 
@@ -41,7 +41,7 @@
                     });
                 }
                 else {
-                    TestingAreaService.getDataset({}).success(function (data) {
+                    TestingAreaService.getDataset({}).then(function (data) {
                         vm.testingAreas.data = data;
                     });
                 }
@@ -54,7 +54,7 @@
                     vm.exam.testingAreaId = vm.testingAreas.model.id;
                     vm.exam.term = vm.examTerms.model.id;
 
-                    ExamService.saveExam(vm.exam).success(function () {
+                    ExamService.saveExam(vm.exam).then(function () {
                         $state.go('main.exams');
                     });
                 };

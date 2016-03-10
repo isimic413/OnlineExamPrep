@@ -10,7 +10,7 @@
                 scope.vm = {};
                 var vm = scope.vm;
 
-                ExamService.getExamCollection({}).success(function (data) {
+                ExamService.getExamCollection({}).then(function (data) {
                     _.each(data, function (exam) {
                         exam.url = scope.$root.getRouteUrl('main.simulator/exam', { id: exam.id });
                     });

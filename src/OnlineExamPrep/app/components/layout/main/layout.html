@@ -7,6 +7,10 @@
             <hr />
         </div>
     </div>
+    <div ng-show="$root.error" class="row">
+        <div class="server-error">{{$root.error.message}}</div>
+        <br />
+    </div>    
     <div ui-view class="container-fluid main-container"></div>
     <oep-footer></oep-footer>
 </div>

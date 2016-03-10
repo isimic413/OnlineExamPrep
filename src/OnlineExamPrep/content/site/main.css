@@ -113,6 +113,15 @@ hr {
     margin: 15px;
 }
 
+.server-error {
+    color: white;
+    margin-left: 14em;
+    margin-right: 2em;
+    background-color: red;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
 .registration {
     margin: auto;
     padding: 1em 2em 1em 2em;

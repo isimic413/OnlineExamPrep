@@ -26,7 +26,7 @@
 
                 var entityRoutePrefix = $state.params.entityRoutePrefix;
                 
-                vm.getCollection(pagingParams).success(function (data) {
+                vm.getCollection(pagingParams).then(function (data) {
                     vm.entities = data;
                     if (vm.onDataRecieved) {
                         vm.onDataRecieved();
@@ -74,7 +74,7 @@
                 function modalController($scope, vm) {
                     $scope.vm = vm;
                     $scope.delete = function () {
-                        vm.deleteEntity(vm.checkedItem.id).success(function () {
+                        vm.deleteEntity(vm.checkedItem.id).then(function () {
                             var itemIdx = _.findIndex(vm.entities, function (entity) { return entity.id === vm.checkedItem.id; });
                             vm.entities.splice(itemIdx, 1);
 

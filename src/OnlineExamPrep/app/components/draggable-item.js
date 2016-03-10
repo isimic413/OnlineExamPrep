@@ -11,7 +11,7 @@
             },
             link: function (scope) {
                 scope.deleteQuestion = function () {
-                    QuestionService.deleteQuestion(scope.itemId).success(function (data) {
+                    QuestionService.deleteQuestion(scope.itemId).then(function (data) {
                         scope.$parent.$parent.vm.questions.list.splice(scope.index-1, 1);
                     });
                 };

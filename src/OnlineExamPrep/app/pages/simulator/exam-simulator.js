@@ -14,7 +14,7 @@
 
                 vm.questionTypes = Lookups.getQuestionTypes();
 
-                ExamService.fullExamQuestions($state.params.id).success(function (data) {
+                ExamService.fullExamQuestions($state.params.id).then(function (data) {
                     vm.questions = _.sortBy(data.questions, function (question) {
                         question.displayNumber = ('0' + question.number).slice(-2) + '.';
                         if (question.questionType.id === vm.questionTypes.alt.id || question.questionType.id === vm.questionTypes.vis_jedan.id) {

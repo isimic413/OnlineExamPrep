@@ -12,7 +12,7 @@
                 vm.testingArea = {};
 
                 if ($state.params.id) {
-                    TestingAreaService.getTestingAreaById($state.params.id).success(function (data) {
+                    TestingAreaService.getTestingAreaById($state.params.id).then(function (data) {
                         vm.testingArea = data;
                         vm.showForm = true;
                     });
@@ -26,7 +26,7 @@
                         return;
                     }
 
-                    TestingAreaService.saveTestingArea(vm.testingArea).success(function () {
+                    TestingAreaService.saveTestingArea(vm.testingArea).then(function () {
                         $state.go('main.testing-areas');
                     });
                 }
