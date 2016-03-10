@@ -8,8 +8,8 @@
             $http(config).then(function (response) {
                 $rootScope.error = null;
                 deferred.resolve(response.data);
-            }, function (data) {
-                $rootScope.error = data;
+            }, function (response) {
+                $rootScope.error = response.statusText;
                 deferred.reject();
             });
 
