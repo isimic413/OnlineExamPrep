@@ -8,12 +8,13 @@
             $http(config).then(function (response) {
                 $rootScope.error = null;
                 deferred.resolve(response.data);
+                $rootScope.loadingContent = false;
             }, function (response) {
                 $rootScope.error = response.statusText;
                 deferred.reject();
+                $rootScope.loadingContent = false;
             });
 
-            $rootScope.loadingContent = false;
             return deferred.promise;
         }
 

@@ -122,6 +122,14 @@ hr {
     border-radius: 5px;
 }
 
+.nomargin {
+    margin: 0;
+}
+
+.leftmargin {
+    margin-left: 13em;
+}
+
 .registration {
     margin: auto;
     padding: 1em 2em 1em 2em;
