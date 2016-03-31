@@ -15,7 +15,7 @@
                         console.log(scope.loginForm.$error.required);
                         return;
                     }
-
+                    delete scope.$root.error;
                     scope.$root.loadingContent = true;
                     AccountService.login(vm.user.login).then(function (response) {
                         TokenService.setToken(response.data);
@@ -30,11 +30,12 @@
                             Principal.setCurrent(principalData);
                             Lookups.setLookups(lookupData);
 
+                            scope.$root.loadingContent = false;
+
                             $state.go('main.home');
                         });
-                    }, function (data, error) {
-                        console.log(error);
-                    }, function () {
+                    }, function (response) {
+                        scope.$root.error = 'Neuspješna prijava' + (response.data && response.data.error_description ? ': "' + response.data.error_description + '".' : '.');
                         scope.$root.loadingContent = false;
                     });
                 };

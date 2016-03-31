@@ -4,11 +4,20 @@
     </nav>
     <div class="row mambership-layout">
         <div class="col-md-1"></div>
-        <div class="col-md-5 mb1">
-            <oep-login vm="vm"></oep-login>
+        <div class="col-mb-10 mb1">
+            <div class="row" ng-show="$root.error">
+                <div class="col-mb-12">
+                    <div class="server-error">{{$root.error}}</div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5 mb1">
-            <oep-register vm="vm"></oep-register>
+        <div class="row">
+            <div class="col-md-6 mb1">
+                <oep-login vm="vm"></oep-login>
+            </div>
+            <div class="col-md-6 mb1">
+                <oep-register vm="vm"></oep-register>
+            </div>
         </div>
         <div class="col-md-1"></div>
     </div>

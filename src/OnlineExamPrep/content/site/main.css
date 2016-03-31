@@ -115,10 +115,10 @@ hr {
 
 .server-error {
     color: white;
-    margin-left: 14em;
-    margin-right: 2em;
-    background-color: red;
-    padding: 0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    background-color: #C32D2D;
+    padding: 0.75em;
     border-radius: 5px;
 }
 
