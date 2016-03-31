@@ -124,7 +124,7 @@
                             question.notCorrect = true;
                         }
                     });
-                    vm.result.percentage = Math.round(100 * vm.result.points.gained / vm.result.points.total) / 100;
+                    vm.result.percentage = Math.round(100 * vm.result.points.gained / vm.result.points.total);
                 }
             }
         };
